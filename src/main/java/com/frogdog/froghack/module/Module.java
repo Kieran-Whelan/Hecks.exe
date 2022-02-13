@@ -85,6 +85,8 @@ public class Module {
 		MinecraftForge.EVENT_BUS.unregister(this);
 	}
 	
+	public void onUpdate() {}
+	
 	
 	
 	
