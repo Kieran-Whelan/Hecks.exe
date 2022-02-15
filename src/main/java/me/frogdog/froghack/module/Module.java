@@ -1,5 +1,7 @@
 package me.frogdog.froghack.module;
 
+import me.frogdog.froghack.event.events.Render2DEvent;
+import me.frogdog.froghack.event.events.Render3DEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 public class Module {
@@ -9,7 +11,6 @@ public class Module {
 	private Category category;
 	public boolean toggled;
 	private int key;
-	
 	
 	public Module(String name, String description, Category category) {
 	super();
@@ -92,5 +93,9 @@ public class Module {
 	public void onDisable() {}
 	
 	public void onUpdate() {}
+
+	public void onRender2D(Render2DEvent event) {}
+
+	public void onRender3D(Render3DEvent event) {}
 	
 }

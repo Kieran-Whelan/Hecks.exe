@@ -3,6 +3,8 @@ package me.frogdog.froghack.module;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.frogdog.froghack.event.events.Render2DEvent;
+import me.frogdog.froghack.event.events.Render3DEvent;
 import me.frogdog.froghack.module.modules.client.*;
 import me.frogdog.froghack.module.modules.combat.*;
 import me.frogdog.froghack.module.modules.exploit.*;
@@ -54,6 +56,15 @@ public class ModuleManager {
 	
 	public static void onUpdate() {
 		modules.stream().filter(Module::isToggled).forEach(Module::onUpdate);
+	}
+
+	public static void onRender2D(Render2DEvent event) {
+        modules.stream().filter(Module::isToggled).forEach(module -> module.onRender2D(event));
+		
+	}
+
+	public static void onRender3D(Render3DEvent event) {
+        modules.stream().filter(Module::isToggled).forEach(module -> module.onRender3D(event));	
 	}
 	
 }
