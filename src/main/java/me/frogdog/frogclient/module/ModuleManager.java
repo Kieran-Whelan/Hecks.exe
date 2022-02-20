@@ -11,7 +11,7 @@ import me.frogdog.api.registry.ListRegistry;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.config.Config;
 import me.frogdog.frogclient.module.impl.active.combat.*;
-import me.frogdog.frogclient.module.impl.toggle.movement.Sprint;
+import me.frogdog.frogclient.module.impl.toggle.movement.*;
 import me.frogdog.frogclient.module.impl.toggle.render.*;
 import me.frogdog.frogclient.module.impl.active.render.*;
 
@@ -26,9 +26,9 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Fullbright());
         register(new ClickGui());
         register(new Colors());
-        register(new Wallhack());
-        register(new Trails());
         register(new Sprint());
+        register(new Speed());
+        register(new Render());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(54);

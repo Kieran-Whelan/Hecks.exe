@@ -34,7 +34,7 @@ implements Labeled {
         this.x = x;
         this.y = y;
         this.angle = 180;
-        this.width = 88;
+        this.width = 70;
         this.height = 18;
         this.open = open;
         this.setupItems();
@@ -45,13 +45,11 @@ implements Labeled {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drag(mouseX, mouseY);
         float totalItemHeight = this.open ? this.getTotalItemHeight() - 2.0f : 0.0f;
-//        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, -7829368, -6710887);
-        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colors.getClientColorCustomAlpha(80), Colors.getClientColorCustomAlpha(80) );
+        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colors.getClientColorCustomAlpha(77), Colors.getClientColorCustomAlpha(77) );
         if (this.open) {
             RenderMethods.drawRect(this.x, (float)this.y + 12.5f, this.x + this.width, this.open ? (float)(this.y + this.height) + totalItemHeight : (float)(this.y + this.height - 1), 0x77000000);//1996488704
         }
-        FontUtil.drawString(this.getLabel(), (float)this.x + 3.0f, (float)this.y + 1.5f/* - 4.0f*/, -1); //15592941
-        //var5.f$L.f$E(this.f$E(), (double)((float)this.f$C + 3.0F), (double)((float)this.f$e + 1.5F), 15592941);
+        FontUtil.drawString(this.getLabel(), (float)this.x + 3.0f, (float)this.y + 1.5f, -1);
 
         if (!open) {
             if (this.angle > 0) {

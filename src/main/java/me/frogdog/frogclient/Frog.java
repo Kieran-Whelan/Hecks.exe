@@ -23,12 +23,10 @@ import me.frogdog.frogclient.plugin.PluginManager;
 import me.frogdog.frogclient.ui.Hud;
 
 @Mod(modid = Frog.MODID, name = Frog.NAME, version = Frog.VERSION)
-public final class Frog
-{
+public final class Frog {
     public static final String MODID = "frogclient";
-    public static final String NAME = "Example Mod";
-    public static final String VERSION = "1.0";
-    public static final String TITLE = "FrogClient";
+    public static final String NAME = "Frog Client";
+    public static final String VERSION = "Beta 1.0";
     public final long startTime = System.nanoTime() / 1000000L;
 	public Minecraft mc = Minecraft.getMinecraft();
     private static Frog instance = null;

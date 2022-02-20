@@ -6,11 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 
-/**
- * Fired at the start of EntityPlayerSP.onUpdateWalkingPlayer
- * and at its end. Allows you to spoof the position, rotation
- * and onGround info that will be send to the server silently.
- */
 @SuppressWarnings("unused")
 public class MotionUpdateEvent extends StageEvent
 {

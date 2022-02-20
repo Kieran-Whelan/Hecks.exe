@@ -1,11 +1,13 @@
 package me.frogdog.frogclient.module.impl.toggle.render;
 
 import me.frogdog.api.event.Listener;
-import me.frogdog.frogclient.events.GammaSettingEvent;
-import me.frogdog.frogclient.events.NightVisionEvent;
+import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.EnumProperty;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 
 public final class Fullbright extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode>(Mode.POTION, "Mode", "m");
@@ -13,24 +15,18 @@ public final class Fullbright extends ToggleableModule {
     public Fullbright() {
         super("Fullbright", new String[]{"fullbright", "bright", "brightness", "fb"}, -2366720, ModuleType.RENDER);
         this.offerProperties(this.mode);
-        this.listeners.add(new Listener<GammaSettingEvent>("brightness_gamma_setting_listener"){
+        this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
             @Override
-            public void call(GammaSettingEvent event) {
-                if (Fullbright.this.mode.getValue() == Mode.GAMMA) {
-                    event.setGammaSetting(1000.0f);
-                }
+            public void call(TickEvent event) {
+            	if(Fullbright.this.mode.getValue() == Mode.GAMMA) {
+            		Frog.getInstance().mc.gameSettings.gammaSetting = 800f;
+            	} else if(Fullbright.this.mode.getValue() == Mode.POTION) {
+            		Frog.getInstance().mc.player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 5, 0));
+            	}
             }
         });
-        this.listeners.add(new Listener<NightVisionEvent>("brightness_night_vision_listener"){
-
-            @Override
-            public void call(NightVisionEvent event) {
-                if (Fullbright.this.mode.getValue() == Mode.POTION) {
-                    event.setCanceled(true);
-                }
-            }
-        });
+        
     }
 
     public enum Mode {

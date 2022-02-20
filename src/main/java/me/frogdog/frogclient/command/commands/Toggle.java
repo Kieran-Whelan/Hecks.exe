@@ -10,7 +10,7 @@ public class Toggle extends Command {
 	
 	@Override
 	public void onClientCommand(String command, String[] args) throws Exception {
-        Module module = Frog.getInstance().getModuleManager().getModuleByAlias((String) args(0));
+        Module module = Frog.getInstance().getModuleManager().getModuleByAlias(args[0]);
         if (module == null) {
         	Command.sendClientSideMessage("No such module exists");
         } else if (!(module instanceof Toggleable)) {
@@ -18,13 +18,9 @@ public class Toggle extends Command {
         } else {
             ToggleableModule toggleableModule = (ToggleableModule)module;
             toggleableModule.toggle();
-	        Command.sendClientSideMessage(module.getLabel() + "has been set toggled");    
+	        Command.sendClientSideMessage(module.getLabel() + " has been set to " + toggleableModule.isRunning());    
         }
         
-	}
-
-	private String args(int i) {
-		return null;
 	}
 
 	@Override

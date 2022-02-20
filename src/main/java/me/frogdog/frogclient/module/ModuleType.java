@@ -3,7 +3,7 @@ package me.frogdog.frogclient.module;
 public enum ModuleType {
     COMBAT("Combat"),
     EXPLOITS("Exploits"),
-    MISCELLANEOUS("Miscellaneous"),
+    MISCELLANEOUS("Misc"),
     MOVEMENT("Movement"),
     RENDER("Render"),
     WORLD("World");

@@ -3,8 +3,7 @@ package me.frogdog.frogclient.events.unused;
 import me.frogdog.api.event.Event;
 import net.minecraft.client.Minecraft;
 
-public class MovePlayerEvent
-extends Event {
+public class MovePlayerEvent extends Event {
     private double motionX;
     private double motionY;
     private double motionZ;

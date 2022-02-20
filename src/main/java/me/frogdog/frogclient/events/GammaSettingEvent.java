@@ -2,8 +2,7 @@ package me.frogdog.frogclient.events;
 
 import me.frogdog.api.event.Event;
 
-public class GammaSettingEvent
-extends Event {
+public class GammaSettingEvent extends Event {
     private float gammaSetting;
 
     public GammaSettingEvent(float gammaSetting) {
