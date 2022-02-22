@@ -8,7 +8,7 @@ import net.minecraft.util.text.TextComponentString;
 public abstract class Command {
 	
 	public static final Minecraft mc = Minecraft.getMinecraft();
-	public static String prefix = "#";
+	public static String prefix = "-";
 	public abstract void onClientCommand(String command, String[] args) throws Exception;
 	public abstract String getClientSyntax();
 	public abstract String[] getClientAlias();

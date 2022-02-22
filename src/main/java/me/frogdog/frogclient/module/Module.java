@@ -16,10 +16,6 @@ import java.util.*;
 
 import net.minecraft.client.Minecraft;
 
-/**
- * Client Module.
- * An implementation of Labeled
- */
 public class Module implements Labeled {
     private final String label;
     private String tag;
@@ -89,13 +85,6 @@ public class Module implements Labeled {
         return null;
     }
 
-    /**
-     * Loads module property values from saved config.
-     * Parses files in json format using Google Gson.
-     * Called by {@link ModuleManager}
-     *
-     * @param node
-     */
     public void loadConfig(JsonObject node) {
         File modsFolder = new File(Frog.getInstance().getDirectory(), "modules");
         if (!modsFolder.exists()) {
@@ -138,11 +127,6 @@ public class Module implements Labeled {
         });
     }
 
-    /**
-     * Saves module property values from saved config.
-     * saves to file in json format using Google Gson.
-     * Called by {@link ModuleManager}
-     */
     public void saveConfig() {
         File modsFolder = new File(Frog.getInstance().getDirectory(), "modules");
         if (!modsFolder.exists()) {

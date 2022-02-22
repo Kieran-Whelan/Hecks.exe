@@ -5,6 +5,9 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
 import net.minecraftforge.client.event.ClientChatEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -18,6 +21,13 @@ public class EventProcessor {
         me.frogdog.frogclient.events.InputEvent inputEvent = new me.frogdog.frogclient.events.InputEvent(me.frogdog.frogclient.events.InputEvent.Type.KEYBOARD_KEY_PRESS);
 
         Frog.getInstance().getEventManager().dispatch(inputEvent);
+    }
+    
+    @SubscribeEvent
+    public void onRenderGameOverlay(RenderGameOverlayEvent event) {
+        me.frogdog.frogclient.events.RenderGameOverlayEvent renderEvent = new me.frogdog.frogclient.events.RenderGameOverlayEvent(me.frogdog.frogclient.events.RenderGameOverlayEvent.Type.IN_GAME);
+
+        Frog.getInstance().getEventManager().dispatch(renderEvent);
     }
     
     @SubscribeEvent
@@ -43,6 +53,18 @@ public class EventProcessor {
     		 Frog.getInstance().getEventManager().dispatch(tickEvent);
 
     	}
-    }   
+    	
+    }
+    
+    @SubscribeEvent
+    public void onRender(RenderWorldLastEvent event) {
+    	if(!(Frog.getInstance().mc.player == null)) {
+   		 me.frogdog.frogclient.events.RenderEvent renderEvent = new me.frogdog.frogclient.events.RenderEvent(0);
+   		 
+   		 Frog.getInstance().getEventManager().dispatch(renderEvent);
+
+   	}
+    	
+    }
     
 }

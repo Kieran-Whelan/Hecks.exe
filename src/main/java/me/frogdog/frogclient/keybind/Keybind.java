@@ -2,8 +2,7 @@ package me.frogdog.frogclient.keybind;
 
 import me.frogdog.api.interfaces.Labeled;
 
-public abstract class Keybind
-implements Labeled {
+public abstract class Keybind implements Labeled {
     private final String label;
     private int key;
 

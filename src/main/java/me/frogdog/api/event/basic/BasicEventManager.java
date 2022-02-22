@@ -8,13 +8,8 @@ import me.frogdog.api.event.Listener;
 import me.frogdog.api.event.filter.Filter;
 import net.minecraft.client.Minecraft;
 
-/**
- * An EventManager implementation.
- */
-public final class BasicEventManager
-implements EventManager {
+public final class BasicEventManager implements EventManager {
 
-    /** A list of listeners currently on the event bus */
     private final java.util.List<Listener> listeners = new CopyOnWriteArrayList<Listener>();
 
     @Override

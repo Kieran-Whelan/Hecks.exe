@@ -6,25 +6,19 @@ buildscript {
             name = 'forge'
             url = 'http://files.minecraftforge.net/maven'
         }
-        maven {
-            name = 'SpongePowered'
-            url = 'https://repo.spongepowered.org/maven'
-        }
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
         classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-version = '1.0'
-group = 'com.yourname.modid' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'modid' //http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version project.modVersion
+group project.modGroup //http://maven.apache.org/guides/mini/guide-naming-conventions.html
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
@@ -32,30 +26,22 @@ compileJava {
 }
 
 minecraft {
-    version = '1.12.2-14.23.5.2811'
+    version = project.forgeVersion
     runDir = 'run'
-    mappings = "snapshot_20140910"
-    coreMod = 'me.friendly.exeter.mixin.loader.MixinLoader'
+    mappings = project.mcpVersion
     makeObfSourceJar = false
 }
 
 repositories {
     mavenCentral()
-    maven {
-        name = 'spongepowered-repo'
-        url = 'https://repo.spongepowered.org/maven/'
-    }
+    maven { url 'https://jitpack.io' }
     jcenter()
 }
 
 dependencies {
     compile group: "com.googlecode.json-simple", name: "json-simple", version: "1.1.1"
-    compile('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
-        exclude module: 'launchwrapper'
-        exclude module: 'guava'
-        exclude module: 'gson'
-        exclude module: 'commons-io'
-    }
+    
+    implementation 'com.github.Vatuu:discord-rpc:1.6.2'
 }
 
 task getDeps(type: Copy) {
@@ -79,36 +65,17 @@ processResources {
 shadowJar {
     dependencies {
         include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
-        include(dependency('org.spongepowered:mixin'))
+        include(dependency('club.minnced:java-discord-rpc:2.0.2'))
     }
     exclude 'dummyThing'
     exclude 'LICENSE.txt'
     classifier = 'release'
 }
 
-mixin {
-    defaultObfuscationEnv searge
-    add sourceSets.main, 'mixins.frogclient.refmap.json'
-}
-
 reobf {
     shadowJar {
         mappingType = 'SEARGE'
         classpath = sourceSets.main.compileClasspath
-    }
-}
-
-jar {
-    manifest {
-        attributes(
-                'MixinConfigs': 'mixins.frogclient.json',
-                'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
-                'TweakOrder': 0,
-                'FMLCorePluginContainsFMLMod': 'true',
-                'FMLCorePlugin': 'me.frogdog.frogclient.mixin.loader.MixinLoader',
-                'ForceLoadAsMod': 'true',
-//                'FMLAT': 'exeter_at.cfg'
-        )
     }
 }
 

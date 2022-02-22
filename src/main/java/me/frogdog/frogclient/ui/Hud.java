@@ -55,7 +55,8 @@ public class Hud extends Gui {
 		}
 		
 		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
-			fr.drawStringWithShadow("FrogHack "+Frog.VERSION+"", 2, 1, rainbow(1 * 360));
+			fr.drawStringWithShadow(Frog.getInstance().NAME + " " + Frog.getInstance().VERSION, 2, 1, rainbow(1 * 360));
+			fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ, 2, 500, rainbow(1 * 360));
 		}
 		
 		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {

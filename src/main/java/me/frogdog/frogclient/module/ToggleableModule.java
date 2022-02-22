@@ -8,9 +8,6 @@ import me.frogdog.api.interfaces.Toggleable;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.keybind.Keybind;
 
-/**
- * A Module implementation of Toggleable.
- */
 public class ToggleableModule extends Module implements Toggleable {
 
     private boolean running;

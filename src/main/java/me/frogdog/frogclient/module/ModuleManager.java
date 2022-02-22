@@ -10,13 +10,16 @@ import me.frogdog.api.interfaces.Toggleable;
 import me.frogdog.api.registry.ListRegistry;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.config.Config;
-import me.frogdog.frogclient.module.impl.active.combat.*;
-import me.frogdog.frogclient.module.impl.toggle.movement.*;
-import me.frogdog.frogclient.module.impl.toggle.render.*;
-import me.frogdog.frogclient.module.impl.active.render.*;
+import me.frogdog.frogclient.module.modules.exploit.AntiDesync;
+import me.frogdog.frogclient.module.modules.misc.Notification;
+import me.frogdog.frogclient.module.modules.movement.*;
+import me.frogdog.frogclient.module.modules.render.*;
+import me.frogdog.frogclient.module.modules.world.Scaffold;
 
 import java.io.*;
 import java.util.ArrayList;
+
+import org.lwjgl.input.Keyboard;
 
 public final class ModuleManager extends ListRegistry<Module> {
 
@@ -28,10 +31,15 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Colors());
         register(new Sprint());
         register(new Speed());
-        register(new Render());
+        register(new NoRender());
+        register(new AutoWalk());
+        register(new Scaffold());
+        register(new AntiDesync());
+        register(new Notification());
+        register(new ESP());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
-        Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(54);
+        Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(Keyboard.KEY_O);
 
         new Config("module_configurations.json"){
 

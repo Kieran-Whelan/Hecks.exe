@@ -6,11 +6,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import me.frogdog.api.event.filter.Filter;
 
-/**
- * A listener, used to invoke events.
- *
- * @param <E> the {@link Event} this listener receives.
- */
 public abstract class Listener<E extends Event> {
     private final String identifier;
     private Class<E> event;
@@ -46,11 +41,6 @@ public abstract class Listener<E extends Event> {
         }
     }
 
-    /**
-     * Called when an event is posted on the bus.
-     *
-     * @param event the event.
-     */
     public abstract void call(E event);
 }
 

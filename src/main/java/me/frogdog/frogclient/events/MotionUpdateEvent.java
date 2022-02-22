@@ -116,12 +116,6 @@ public class MotionUpdateEvent extends StageEvent
         this.onGround = onGround;
     }
 
-    /**
-     * Fired in {@link EntityPlayerSP#onUpdate()}, when the player
-     * is riding. X, Y, and Z can be set but it won't have any effect.
-     * You can however retrieve the ridden Entity with
-     * {@link Riding#getEntity()} and set its x, y, and z.
-     */
     public static class Riding extends MotionUpdateEvent
     {
         private float moveStrafing;

@@ -3,6 +3,9 @@ package me.frogdog.frogclient;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventBus;
 
 import java.io.File;
@@ -14,6 +17,7 @@ import org.lwjgl.opengl.Display;
 
 import me.frogdog.api.event.EventProcessor;
 import me.frogdog.api.event.basic.BasicEventManager;
+import me.frogdog.api.util.DiscordRP;
 import me.frogdog.frogclient.command.CommandManager;
 import me.frogdog.frogclient.config.ConfigManager;
 import me.frogdog.frogclient.friend.FriendManager;
@@ -48,7 +52,7 @@ public final class Frog {
         EVENT_BUS.register(Hud.INSTANCE);
 
         MinecraftForge.EVENT_BUS.register(EventProcessor.INSTANCE);
-        MinecraftForge.EVENT_BUS.register(EventProcessor.INSTANCE);
+        MinecraftForge.EVENT_BUS.register(Hud.INSTANCE);
 
         instance = this;
 
@@ -82,6 +86,16 @@ public final class Frog {
             }
         });
         Display.setTitle(NAME + " " + VERSION);
+    }
+    
+    @EventHandler
+    public void init(FMLPostInitializationEvent event) {
+    	/**
+    	DiscordRP discordRP = new DiscordRP();
+    	discordRP.start();
+    	discordRP.update("Playing " + NAME, "In Game");
+    	**/
+
     }
 
     public static Frog getInstance() {
