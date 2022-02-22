@@ -3,13 +3,13 @@ package me.frogdog.frogclient.module.modules.render.clickgui;
 import java.awt.*;
 import java.util.ArrayList;
 
-import me.frogdog.api.interfaces.Labeled;
-import me.frogdog.api.minecraft.render.RenderMethods;
-import me.frogdog.api.minecraft.render.font.FontUtil;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.modules.render.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.Item;
+import me.frogdog.frogclient.util.interfaces.Labeled;
+import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
+import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;

@@ -4,7 +4,7 @@ import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
-import me.frogdog.api.interfaces.Toggleable;
+import me.frogdog.frogclient.util.interfaces.Toggleable;
 
 public class Toggle extends Command {
 	

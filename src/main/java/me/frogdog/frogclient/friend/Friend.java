@@ -1,9 +1,8 @@
 package me.frogdog.frogclient.friend;
 
-import me.frogdog.api.interfaces.Labeled;
+import me.frogdog.frogclient.util.interfaces.Labeled;
 
-public class Friend
-implements Labeled {
+public class Friend implements Labeled {
     private final String label;
     private final String alias;
 

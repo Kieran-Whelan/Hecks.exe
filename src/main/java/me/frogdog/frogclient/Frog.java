@@ -15,11 +15,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.Display;
 
-import me.frogdog.api.event.EventProcessor;
-import me.frogdog.api.event.basic.BasicEventManager;
-import me.frogdog.api.util.DiscordRP;
 import me.frogdog.frogclient.command.CommandManager;
 import me.frogdog.frogclient.config.ConfigManager;
+import me.frogdog.frogclient.event.EventProcessor;
+import me.frogdog.frogclient.event.basic.BasicEventManager;
 import me.frogdog.frogclient.friend.FriendManager;
 import me.frogdog.frogclient.keybind.KeybindManager;
 import me.frogdog.frogclient.module.ModuleManager;

@@ -2,10 +2,10 @@ package me.frogdog.frogclient.keybind;
 
 import java.util.ArrayList;
 
-import me.frogdog.api.event.Listener;
-import me.frogdog.api.registry.ListRegistry;
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.events.InputEvent;
+import me.frogdog.frogclient.event.Listener;
+import me.frogdog.frogclient.event.events.InputEvent;
+import me.frogdog.frogclient.util.registry.ListRegistry;
 
 public final class KeybindManager extends ListRegistry<Keybind> {
 

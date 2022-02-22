@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.util.Collections;
 import java.util.Comparator;
 
-import me.frogdog.api.interfaces.Toggleable;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.Property;
+import me.frogdog.frogclient.util.interfaces.Toggleable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;

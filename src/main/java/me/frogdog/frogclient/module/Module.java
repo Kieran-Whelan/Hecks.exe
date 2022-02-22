@@ -4,11 +4,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import me.frogdog.api.interfaces.Labeled;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.presets.Preset;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.properties.Property;
+import me.frogdog.frogclient.util.interfaces.Labeled;
 
 import java.io.*;
 import java.io.File;

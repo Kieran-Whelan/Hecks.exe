@@ -6,9 +6,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import me.frogdog.api.registry.ListRegistry;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.config.Config;
+import me.frogdog.frogclient.util.registry.ListRegistry;
 
 import java.io.*;
 import java.util.ArrayList;

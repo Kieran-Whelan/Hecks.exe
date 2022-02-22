@@ -3,10 +3,10 @@ package me.frogdog.frogclient.module;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.frogdog.api.event.Listener;
-import me.frogdog.api.interfaces.Toggleable;
 import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.keybind.Keybind;
+import me.frogdog.frogclient.util.interfaces.Toggleable;
 
 public class ToggleableModule extends Module implements Toggleable {
 

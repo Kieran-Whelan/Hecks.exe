@@ -1,12 +1,11 @@
 package me.frogdog.frogclient.module.modules.render.clickgui.item.properties;
 
-import me.frogdog.api.minecraft.render.CustomFont;
-import me.frogdog.api.minecraft.render.RenderMethods;
-import me.frogdog.api.minecraft.render.font.FontUtil;
 import me.frogdog.frogclient.module.modules.render.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
 import me.frogdog.frogclient.properties.EnumProperty;
+import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
+import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.util.ResourceLocation;

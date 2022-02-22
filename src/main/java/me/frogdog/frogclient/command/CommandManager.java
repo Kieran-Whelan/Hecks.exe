@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
-import me.frogdog.api.registry.ListRegistry;
 import me.frogdog.frogclient.command.commands.*;
+import me.frogdog.frogclient.util.registry.ListRegistry;
 
 public class CommandManager extends ListRegistry<Command>{
 	

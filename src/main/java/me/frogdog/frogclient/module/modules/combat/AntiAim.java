@@ -1,8 +1,8 @@
 package me.frogdog.frogclient.module.modules.combat;
 
-import me.frogdog.api.event.Listener;
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.events.PacketEvent;
+import me.frogdog.frogclient.event.Listener;
+import me.frogdog.frogclient.event.events.PacketEvent;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;

@@ -1,6 +1,6 @@
 package me.frogdog.frogclient.keybind;
 
-import me.frogdog.api.interfaces.Labeled;
+import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public abstract class Keybind implements Labeled {
     private final String label;

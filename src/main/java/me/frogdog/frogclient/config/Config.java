@@ -2,8 +2,8 @@ package me.frogdog.frogclient.config;
 
 import java.io.File;
 
-import me.frogdog.api.interfaces.Labeled;
 import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public abstract class Config implements Labeled {
     private final String label;

@@ -1,6 +1,6 @@
 package me.frogdog.frogclient.module.modules.render.clickgui.item;
 
-import me.frogdog.api.interfaces.Labeled;
+import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public class Item implements Labeled {
     private final String label;

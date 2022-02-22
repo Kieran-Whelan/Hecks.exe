@@ -2,10 +2,10 @@ package me.frogdog.frogclient.module.modules.misc;
 
 import java.util.ArrayList;
 
-import me.frogdog.api.event.Listener;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
-import me.frogdog.frogclient.events.TickEvent;
+import me.frogdog.frogclient.event.Listener;
+import me.frogdog.frogclient.event.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.Property;

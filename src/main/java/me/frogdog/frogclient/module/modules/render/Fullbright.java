@@ -1,8 +1,9 @@
 package me.frogdog.frogclient.module.modules.render;
 
-import me.frogdog.api.event.Listener;
+import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.events.TickEvent;
+import me.frogdog.frogclient.event.events.RenderEvent;
+import me.frogdog.frogclient.event.events.TickEvent;
 import me.frogdog.frogclient.keybind.Keybind;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
@@ -17,10 +18,10 @@ public final class Fullbright extends ToggleableModule {
     public Fullbright() {
     	super("Fulbright", new String[]{"fullbright", "Fullbright", "fb"}, -2366720, ModuleType.RENDER);
         this.offerProperties(this.mode);
-        this.listeners.add(new Listener<TickEvent>("tick_listener"){
+        this.listeners.add(new Listener<RenderEvent>("tick_listener"){
 
             @Override
-            public void call(TickEvent event) {
+            public void call(RenderEvent event) {
             	if(Fullbright.this.mode.getValue() == Mode.GAMMA) {
             		Frog.getInstance().mc.gameSettings.gammaSetting = 800f;
             	} else if(Fullbright.this.mode.getValue() == Mode.POTION) {

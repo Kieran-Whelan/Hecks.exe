@@ -1,6 +1,6 @@
 package me.frogdog.frogclient.presets;
 
-import me.frogdog.api.interfaces.Labeled;
+import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public abstract class Preset implements Labeled {
 

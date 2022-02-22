@@ -2,11 +2,9 @@ package me.frogdog.frogclient.module.modules.render;
 
 import org.lwjgl.opengl.GL11;
 
-import me.frogdog.api.event.Listener;
-import me.frogdog.api.minecraft.render.RenderMethods;
+import me.frogdog.frogclient.event.Listener;
+import me.frogdog.frogclient.event.events.RenderEvent;
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.events.RenderEvent;
-import me.frogdog.frogclient.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.Property;

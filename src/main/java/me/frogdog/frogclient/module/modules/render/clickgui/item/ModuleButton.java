@@ -2,7 +2,6 @@ package me.frogdog.frogclient.module.modules.render.clickgui.item;
 
 import java.util.ArrayList;
 
-import me.frogdog.api.minecraft.render.RenderMethods;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
@@ -12,6 +11,7 @@ import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.Numb
 import me.frogdog.frogclient.properties.EnumProperty;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.properties.Property;
+import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;

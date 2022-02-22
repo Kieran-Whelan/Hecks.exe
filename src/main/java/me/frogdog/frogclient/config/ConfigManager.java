@@ -2,7 +2,7 @@ package me.frogdog.frogclient.config;
 
 import java.util.ArrayList;
 
-import me.frogdog.api.registry.ListRegistry;
+import me.frogdog.frogclient.util.registry.ListRegistry;
 
 public final class ConfigManager
 extends ListRegistry<Config> {

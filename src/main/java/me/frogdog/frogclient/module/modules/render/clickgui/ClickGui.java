@@ -2,13 +2,13 @@ package me.frogdog.frogclient.module.modules.render.clickgui;
 
 import java.util.ArrayList;
 
-import me.frogdog.api.interfaces.Toggleable;
-import me.frogdog.api.minecraft.render.RenderMethods;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.ModuleButton;
+import me.frogdog.frogclient.util.interfaces.Toggleable;
+import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 

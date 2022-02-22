@@ -6,13 +6,12 @@ import net.minecraft.util.ResourceLocation;
 
 import java.awt.*;
 
-import me.frogdog.api.interfaces.Labeled;
-import me.frogdog.api.minecraft.render.CustomFont;
-import me.frogdog.api.minecraft.render.RenderMethods;
-import me.frogdog.api.minecraft.render.font.FontUtil;
 import me.frogdog.frogclient.module.modules.render.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
 import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
+import me.frogdog.frogclient.util.interfaces.Labeled;
+import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
+import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
 
 public class Button extends Item implements Labeled {
     private boolean state;
