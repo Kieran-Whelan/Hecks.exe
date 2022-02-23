@@ -12,22 +12,28 @@ import me.frogdog.frogclient.properties.NumberProperty;
 
 public final class Speed extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode>(Mode.STRAFE, "Mode", "m");
-    //private final NumberProperty<Double> speed = new NumberProperty<Double>("Speed", 0.5, 0.6,);
+    private final NumberProperty<Double> speed = new NumberProperty<Double>(0.5, 0.5, 0.6, "Speed");
 
     public Speed() {
         super("Speed", new String[]{"speed", "Speed"}, -2366720, ModuleType.MOVEMENT);
-        this.offerProperties(this.mode);
+        this.offerProperties(this.mode, this.speed);
         this.listeners.add(new Listener<TickEvent>("key_listener"){
         	
         	@Override
         	public void call(TickEvent event) {
         		if(Speed.this.mode.getValue() == Mode.STRAFE) {
-        			Frog.getInstance().mc.player.motionY *= 0.985;
         			if(Frog.getInstance().mc.player.onGround) {
         				if(Frog.getInstance().mc.gameSettings.keyBindForward.isKeyDown() || Frog.getInstance().mc.gameSettings.keyBindLeft.isKeyDown() || Frog.getInstance().mc.gameSettings.keyBindRight.isKeyDown() || Frog.getInstance().mc.gameSettings.keyBindBack.isKeyDown()) {
         					Frog.getInstance().mc.player.jump();
-        					//double[] direction = directionSpeed();
+        					double[] direction = directionSpeed(speed.getValue());
+        					Frog.getInstance().mc.player.motionX = direction[0];
+        					Frog.getInstance().mc.player.motionZ = direction[1];
+        					
         				}
+        			} else {
+    					double[] direction = directionSpeed(0.26);
+    					Frog.getInstance().mc.player.motionX = direction[0];
+    					Frog.getInstance().mc.player.motionZ = direction[1];
         			}
         		}
         	}

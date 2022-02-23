@@ -8,11 +8,12 @@ import com.google.gson.JsonParser;
 
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.config.Config;
-import me.frogdog.frogclient.module.modules.exploit.AntiDesync;
-import me.frogdog.frogclient.module.modules.misc.Notification;
+import me.frogdog.frogclient.module.modules.combat.*;
+import me.frogdog.frogclient.module.modules.exploit.*;
+import me.frogdog.frogclient.module.modules.misc.*;
 import me.frogdog.frogclient.module.modules.movement.*;
 import me.frogdog.frogclient.module.modules.render.*;
-import me.frogdog.frogclient.module.modules.world.Scaffold;
+import me.frogdog.frogclient.module.modules.world.*;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 import me.frogdog.frogclient.util.registry.ListRegistry;
 
@@ -36,7 +37,9 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Scaffold());
         register(new AntiDesync());
         register(new Notification());
+        register(new StorageESP());
         register(new ESP());
+        register(new KillAura());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(Keyboard.KEY_O);

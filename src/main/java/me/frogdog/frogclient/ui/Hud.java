@@ -56,7 +56,13 @@ public class Hud extends Gui {
 		
 		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
 			fr.drawStringWithShadow(Frog.getInstance().NAME + " " + Frog.getInstance().VERSION, 2, 1, rainbow(1 * 360));
-			fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ, 2, 500, rainbow(1 * 360));
+			if(Frog.getInstance().mc.player.dimension == 0) {
+				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " Nether: X " + (long) Frog.getInstance().mc.player.posX / 8 + " Z " + (long) Frog.getInstance().mc.player.posZ / 8, 2, 500, rainbow(1 * 360));
+			} else if(Frog.getInstance().mc.player.dimension == -1) {
+				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " OverWorld: X " + (long) Frog.getInstance().mc.player.posX * 8 + " Z " + (long) Frog.getInstance().mc.player.posZ * 8, 2, 500, rainbow(1 * 360));
+			} else {
+				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ, 2, 500, rainbow(1 * 360));
+			}
 		}
 		
 		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {

@@ -10,7 +10,7 @@ import me.frogdog.frogclient.properties.Property;
 
 public final class Colors extends Module {
 
-    private static final NumberProperty<Float> hue = new NumberProperty<>(0f, 0f, 70.8f, "Hue", "RGB", "HSL");
+    private static final NumberProperty<Float> hue = new NumberProperty<>(41.3f, 0f, 70.8f, "Hue", "RGB", "HSL");
     private static final NumberProperty<Float> saturation = new NumberProperty<>(90f, 0f, 100f, "Saturation", "RainbowSaturation");
     private static final NumberProperty<Float> lightness = new NumberProperty<>(45f, 0f, 100f, "Lightness", "Light", "Luminance", "Luminace", "Brightness", "Bright", "Brigtness", "Brigntrnew", "Brighgrtnewss");
     private final Property<Boolean> hudRainbow = new Property<>(false, "HUD Rainbow", "HUDRainbow", "Rainbow", "Cycle");
