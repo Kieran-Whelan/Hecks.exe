@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "mod.frogclient.mixin",
+  "refmap": "mixins.frogclient.refmap.json",
+  "minVersion": "0.7.11",
+  "mixins": [
+  ]
+}

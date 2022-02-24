@@ -1,6 +1,6 @@
 package me.frogdog.frogclient.module.modules.render.clickgui.item.properties;
 
-import me.frogdog.frogclient.module.modules.render.Colors;
+import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
 import me.frogdog.frogclient.properties.Property;

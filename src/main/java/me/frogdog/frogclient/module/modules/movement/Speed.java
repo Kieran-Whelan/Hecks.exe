@@ -12,7 +12,7 @@ import me.frogdog.frogclient.properties.NumberProperty;
 
 public final class Speed extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode>(Mode.STRAFE, "Mode", "m");
-    private final NumberProperty<Double> speed = new NumberProperty<Double>(0.5, 0.5, 0.6, "Speed");
+    private final NumberProperty<Double> speed = new NumberProperty<Double>(0.5, 0.0, 3.0, "Speed");
 
     public Speed() {
         super("Speed", new String[]{"speed", "Speed"}, -2366720, ModuleType.MOVEMENT);

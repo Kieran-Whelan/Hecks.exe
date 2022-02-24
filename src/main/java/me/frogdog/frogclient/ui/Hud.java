@@ -7,6 +7,7 @@ import java.util.Comparator;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
+import me.frogdog.frogclient.module.modules.client.HudEditor;
 import me.frogdog.frogclient.properties.Property;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 import net.minecraft.client.Minecraft;
@@ -21,6 +22,7 @@ public class Hud extends Gui {
 	
 	public static final Hud INSTANCE = new Hud();
     public static final Property<Boolean> customFont = new Property<Boolean>(false, "CustomFont", "cf", "font");
+    public HudEditor hudEditor = new HudEditor();
 	
 	private Minecraft mc = Minecraft.getMinecraft();
 	
@@ -64,6 +66,7 @@ public class Hud extends Gui {
 				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ, 2, 500, rainbow(1 * 360));
 			}
 		}
+		
 		
 		if(event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
 			int y = 2;

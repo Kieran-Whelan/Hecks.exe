@@ -8,14 +8,20 @@ import com.google.gson.JsonParser;
 
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.config.Config;
+import me.frogdog.frogclient.event.Listener;
+import me.frogdog.frogclient.event.events.RenderEvent;
+import me.frogdog.frogclient.module.modules.client.*;
 import me.frogdog.frogclient.module.modules.combat.*;
 import me.frogdog.frogclient.module.modules.exploit.*;
 import me.frogdog.frogclient.module.modules.misc.*;
 import me.frogdog.frogclient.module.modules.movement.*;
 import me.frogdog.frogclient.module.modules.render.*;
+import me.frogdog.frogclient.module.modules.render.Fullbright.Mode;
 import me.frogdog.frogclient.module.modules.world.*;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 import me.frogdog.frogclient.util.registry.ListRegistry;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -30,6 +36,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Fullbright());
         register(new ClickGui());
         register(new Colors());
+        register(new HudEditor());
         register(new Sprint());
         register(new Speed());
         register(new NoRender());
@@ -39,7 +46,10 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Notification());
         register(new StorageESP());
         register(new ESP());
+        register(new OreESP());
         register(new KillAura());
+        register(new FastPlace());
+        register(new Freecam());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(Keyboard.KEY_O);

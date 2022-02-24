@@ -20,6 +20,7 @@ import net.minecraft.tileentity.TileEntityDropper;
 import net.minecraft.tileentity.TileEntityEnderChest;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.tileentity.TileEntityHopper;
+import net.minecraft.tileentity.TileEntityShulkerBox;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
@@ -30,11 +31,12 @@ public final class StorageESP extends ToggleableModule {
 	private final Property<Boolean> dispenser = new Property<Boolean>(false, "Dispenser", "d");
 	private final Property<Boolean> dropper = new Property<Boolean>(false, "Dropper", "d");
 	private final Property<Boolean> hopper = new Property<Boolean>(false, "Hopper", "h");
+	private final Property<Boolean> shulker = new Property<Boolean>(false, "Shulker", "s");
 	private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
 
 	public StorageESP() {
 		super("StorageESP", new String[] {"storageesp", "StorageESP"}, -2366720, ModuleType.RENDER);
-		this.offerProperties(this.chest, this.enderChest, this.furance, this.dispenser, this.dropper, this.hopper, this.width);
+		this.offerProperties(this.chest, this.enderChest, this.furance, this.dispenser, this.dropper, this.hopper, this.shulker, this.width);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override
@@ -62,6 +64,10 @@ public final class StorageESP extends ToggleableModule {
             		
              		if(tile instanceof TileEntityHopper && StorageESP.this.hopper.getValue() == true) {
             			drawBlockBox(tile.getPos(), width.getValue(), 161, 163, 166, 100); //light grey
+            		}
+             		
+             		if(tile instanceof TileEntityShulkerBox && StorageESP.this.shulker.getValue() == true) {
+            			drawBlockBox(tile.getPos(), width.getValue(), 245, 159, 208, 100); //salmon pink
             		}
             	}
             }

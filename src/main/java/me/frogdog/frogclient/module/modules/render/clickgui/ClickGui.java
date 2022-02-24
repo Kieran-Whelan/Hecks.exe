@@ -27,9 +27,9 @@ public final class ClickGui extends GuiScreen {
     }
 
     private void load() {
-        int x = -72;
+        int x = -82;
         for (final ModuleType moduleType : ModuleType.values()) {
-            this.panels.add(new Panel(moduleType.getLabel(), x += 72, 4, true){
+            this.panels.add(new Panel(moduleType.getLabel(), x += 82, 4, true){
 
                 @Override
                 public void setupItems() {
@@ -42,7 +42,7 @@ public final class ClickGui extends GuiScreen {
                 }
             });
         }
-        this.panels.add(new Panel("Client", x += 72, 4, true){
+        this.panels.add(new Panel("Client", x += 82, 4, true){
 
             @Override
             public void setupItems() {

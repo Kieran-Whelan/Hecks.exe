@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.module.modules.render.Colors;
+import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.Item;
 import me.frogdog.frogclient.util.interfaces.Labeled;
@@ -33,7 +33,7 @@ public abstract class Panel implements Labeled {
         this.x = x;
         this.y = y;
         this.angle = 180;
-        this.width = 70;
+        this.width = 80;
         this.height = 18;
         this.open = open;
         this.setupItems();

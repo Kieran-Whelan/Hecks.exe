@@ -22,7 +22,7 @@ public class Module implements Labeled {
     private final String[] aliases;
     private final List<Property<?>> properties = new ArrayList<>();
     private final List<Preset> presets = new ArrayList<Preset>();
-    protected Minecraft minecraft = Minecraft.getMinecraft();
+    protected Minecraft mc = Minecraft.getMinecraft();
 
     protected Module(String label, String[] aliases) {
         this.label = this.tag = label;

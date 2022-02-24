@@ -18,7 +18,7 @@ public final class Fullbright extends ToggleableModule {
     public Fullbright() {
     	super("Fullbright", new String[]{"fullbright", "Fullbright", "fb"}, -2366720, ModuleType.RENDER);
         this.offerProperties(this.mode);
-        this.listeners.add(new Listener<RenderEvent>("tick_listener"){
+        this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override
             public void call(RenderEvent event) {

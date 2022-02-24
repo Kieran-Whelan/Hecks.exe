@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 import java.awt.*;
 
-import me.frogdog.frogclient.module.modules.render.Colors;
+import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
 import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
 import me.frogdog.frogclient.util.interfaces.Labeled;

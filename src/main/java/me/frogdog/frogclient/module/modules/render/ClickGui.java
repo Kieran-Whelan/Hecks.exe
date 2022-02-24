@@ -11,7 +11,7 @@ public final class ClickGui extends ToggleableModule {
     @Override
     protected void onEnable() {
         super.onEnable();
-        this.minecraft.displayGuiScreen(me.frogdog.frogclient.module.modules.render.clickgui.ClickGui.getClickGui());
+        this.mc.displayGuiScreen(me.frogdog.frogclient.module.modules.render.clickgui.ClickGui.getClickGui());
         this.setRunning(false);
     }
 }
