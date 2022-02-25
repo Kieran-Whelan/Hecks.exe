@@ -14,8 +14,8 @@ public final class Sprint extends ToggleableModule {
 
             @Override
             public void call(TickEvent event) {
-            	if(!Frog.getInstance().mc.player.isSprinting()) {
-            		Frog.getInstance().mc.player.setSprinting(true);
+            	if(!mc.player.isSprinting()) {
+            		mc.player.setSprinting(true);
             	}
             }
         });

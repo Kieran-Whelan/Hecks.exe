@@ -50,6 +50,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new KillAura());
         register(new FastPlace());
         register(new Freecam());
+        register(new RoatationLock());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(Keyboard.KEY_O);

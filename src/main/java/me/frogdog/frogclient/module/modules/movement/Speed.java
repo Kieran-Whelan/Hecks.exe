@@ -22,18 +22,18 @@ public final class Speed extends ToggleableModule {
         	@Override
         	public void call(TickEvent event) {
         		if(Speed.this.mode.getValue() == Mode.STRAFE) {
-        			if(Frog.getInstance().mc.player.onGround) {
-        				if(Frog.getInstance().mc.gameSettings.keyBindForward.isKeyDown() || Frog.getInstance().mc.gameSettings.keyBindLeft.isKeyDown() || Frog.getInstance().mc.gameSettings.keyBindRight.isKeyDown() || Frog.getInstance().mc.gameSettings.keyBindBack.isKeyDown()) {
-        					Frog.getInstance().mc.player.jump();
+        			if(mc.player.onGround) {
+        				if(mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()) {
+        					mc.player.jump();
         					double[] direction = directionSpeed(speed.getValue());
-        					Frog.getInstance().mc.player.motionX = direction[0];
-        					Frog.getInstance().mc.player.motionZ = direction[1];
+        					mc.player.motionX = direction[0];
+        					mc.player.motionZ = direction[1];
         					
         				}
         			} else {
     					double[] direction = directionSpeed(0.26);
-    					Frog.getInstance().mc.player.motionX = direction[0];
-    					Frog.getInstance().mc.player.motionZ = direction[1];
+    					mc.player.motionX = direction[0];
+    					mc.player.motionZ = direction[1];
         			}
         		}
         	}
@@ -41,9 +41,9 @@ public final class Speed extends ToggleableModule {
     }
     
     public double[] directionSpeed(double speed) {
-    	float forward = Frog.getInstance().mc.player.movementInput.moveForward;
-    	float side = Frog.getInstance().mc.player.movementInput.moveStrafe;
-    	float yaw = Frog.getInstance().mc.player.prevRotationYaw + (Frog.getInstance().mc.player.rotationYaw - Frog.getInstance().mc.player.prevRotationYaw) * Frog.getInstance().mc.getRenderPartialTicks();
+    	float forward = mc.player.movementInput.moveForward;
+    	float side = mc.player.movementInput.moveStrafe;
+    	float yaw = mc.player.prevRotationYaw + (mc.player.rotationYaw - mc.player.prevRotationYaw) * mc.getRenderPartialTicks();
     	
         if (forward != 0) {
             if (side > 0) {

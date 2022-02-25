@@ -23,9 +23,9 @@ public final class Fullbright extends ToggleableModule {
             @Override
             public void call(RenderEvent event) {
             	if(Fullbright.this.mode.getValue() == Mode.GAMMA) {
-            		Frog.getInstance().mc.gameSettings.gammaSetting = 800f;
+            		mc.gameSettings.gammaSetting = 800f;
             	} else if(Fullbright.this.mode.getValue() == Mode.POTION) {
-            		Frog.getInstance().mc.player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 5, 0));
+            		mc.player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 5, 0));
             	}
             }
         });

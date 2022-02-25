@@ -39,7 +39,7 @@ public class NoRender extends ToggleableModule {
             	
             	if(NoRender.this.portalNausea.getValue() == true) {
         			GuiIngameForge.renderPortal = false;
-        			Frog.getInstance().mc.player.removeActivePotionEffect(MobEffects.NAUSEA);
+        			mc.player.removeActivePotionEffect(MobEffects.NAUSEA);
             	}
             	
             }
