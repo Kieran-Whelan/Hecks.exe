@@ -1,4 +1,4 @@
-<center><img src="src/main/resources/frog.png" alt="frog" width="1000"/>  
+<center><img src="src/main/resources/frog.png" alt="frog" width="400" height="400"/>  
 
 [![minecraft](https://img.shields.io/badge/Minecraft-1.12.2-blueviolet.svg)](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.12.2.html)
 [![Discord](https://img.shields.io/discord/840168131652747264?color=9900ee&label=discord&style=flat-round)](https://discord.gg/KKPVj2K3GF)
