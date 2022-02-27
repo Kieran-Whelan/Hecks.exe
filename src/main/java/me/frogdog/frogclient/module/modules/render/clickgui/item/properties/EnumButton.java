@@ -10,8 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.util.ResourceLocation;
 
-public class EnumButton
-extends Button {
+public class EnumButton extends Button {
     private EnumProperty property;
 
     public EnumButton(EnumProperty property) {

@@ -10,7 +10,7 @@ import me.frogdog.frogclient.util.registry.ListRegistry;
 public final class KeybindManager extends ListRegistry<Keybind> {
 
     public KeybindManager() {
-        this.registry = new ArrayList();
+        this.registry = new ArrayList<Keybind>();
         Frog.getInstance().getEventManager().register(new Listener<InputEvent>("keybinds_input_listener"){
 
             @Override

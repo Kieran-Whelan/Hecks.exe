@@ -14,11 +14,12 @@ public class CommandManager extends ListRegistry<Command>{
 	boolean b;
 	
 	public CommandManager() {
-        this.registry = new ArrayList();
+        this.registry = new ArrayList<Command>();
         
         register(new Help());
-        //register(new Commands());
+        register(new Commands());
         register(new Toggle());
+        register(new Bind());
 		
 	}
 	

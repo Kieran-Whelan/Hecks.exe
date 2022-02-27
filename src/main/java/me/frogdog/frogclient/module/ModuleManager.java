@@ -8,20 +8,15 @@ import com.google.gson.JsonParser;
 
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.config.Config;
-import me.frogdog.frogclient.event.Listener;
-import me.frogdog.frogclient.event.events.RenderEvent;
 import me.frogdog.frogclient.module.modules.client.*;
 import me.frogdog.frogclient.module.modules.combat.*;
 import me.frogdog.frogclient.module.modules.exploit.*;
 import me.frogdog.frogclient.module.modules.misc.*;
 import me.frogdog.frogclient.module.modules.movement.*;
 import me.frogdog.frogclient.module.modules.render.*;
-import me.frogdog.frogclient.module.modules.render.Fullbright.Mode;
 import me.frogdog.frogclient.module.modules.world.*;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 import me.frogdog.frogclient.util.registry.ListRegistry;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -31,7 +26,7 @@ import org.lwjgl.input.Keyboard;
 public final class ModuleManager extends ListRegistry<Module> {
 
     public ModuleManager() {
-        this.registry = new ArrayList();
+        this.registry = new ArrayList<Module>();
 
         register(new Fullbright());
         register(new ClickGui());
@@ -50,10 +45,13 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new KillAura());
         register(new FastPlace());
         register(new Freecam());
-        register(new RoatationLock());
+        register(new YawLock());
+        register(new AutoTotem());
+        register(new FakePlayer());
+        register(new Jesus());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
-        Frog.getInstance().getKeybindManager().getKeybindByLabel("Click Gui").setKey(Keyboard.KEY_O);
+        Frog.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
 
         new Config("module_configurations.json"){
 

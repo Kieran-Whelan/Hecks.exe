@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.event;
 
+@SuppressWarnings("rawtypes")
 public interface EventManager {
 
     void register(Listener listener);
@@ -10,6 +11,6 @@ public interface EventManager {
 
     void dispatch(Event event);
 
-    java.util.List<Listener> getListeners();
+	java.util.List<Listener> getListeners();
 }
 

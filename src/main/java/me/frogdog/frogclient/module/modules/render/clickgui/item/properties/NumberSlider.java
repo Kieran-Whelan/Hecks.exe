@@ -10,8 +10,7 @@ import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
 import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
 
-public class NumberSlider
-extends Item {
+public class NumberSlider extends Item {
     private NumberProperty numberProperty;
     private Number min;
     private Number max;

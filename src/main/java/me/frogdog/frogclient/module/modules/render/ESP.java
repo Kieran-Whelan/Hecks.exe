@@ -22,7 +22,7 @@ public class ESP extends ToggleableModule {
 
 	public ESP() {
 		super("ESP", new String[] {"esp", "ESP"}, -2366720, ModuleType.RENDER);
-		offerProperties();
+		this.offerProperties();
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override

@@ -17,7 +17,6 @@ public class Freecam extends ToggleableModule {
 
             @Override
             public void call(TickEvent event) {
-            	Frog.getInstance().mc.player.noClip = true;
             }
         });
 	}

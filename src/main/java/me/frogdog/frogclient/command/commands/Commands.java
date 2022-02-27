@@ -2,7 +2,6 @@ package me.frogdog.frogclient.command.commands;
 
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
-import me.frogdog.frogclient.command.CommandManager;
 
 public class Commands extends Command {
 	
@@ -10,8 +9,8 @@ public class Commands extends Command {
 	@Override
 	public void onClientCommand(String command, String[] args) throws Exception {
 		Command.sendClientSideMessage("Commands: ");
-		Frog.getInstance().getCommandManager().getRegistry().forEach(cc -> {
-			sendClientSideMessage(cc.getClientSyntax());
+		Frog.getInstance().getCommandManager().getRegistry().forEach(c -> {
+			sendClientSideMessage(c.getClientSyntax());
 		});	
 	}
 	

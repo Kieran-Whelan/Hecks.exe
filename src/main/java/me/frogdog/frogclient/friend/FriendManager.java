@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public final class FriendManager extends ListRegistry<Friend> {
 
     public FriendManager() {
-        this.registry = new ArrayList();
+        this.registry = new ArrayList<Friend>();
         new Config("friends.json"){
 
             @Override
@@ -69,7 +69,8 @@ public final class FriendManager extends ListRegistry<Friend> {
                 JsonArray friends = new JsonArray();
                 Frog.getInstance().getFriendManager().getRegistry().forEach(friend -> {
                     try {
-                        JsonObject friendObject;
+                        @SuppressWarnings("unused")
+						JsonObject friendObject;
                         JsonObject properties = friendObject = new JsonObject();
                         properties.addProperty("friend-label", friend.getLabel());
                         properties.addProperty("friend-alias", friend.getAlias());

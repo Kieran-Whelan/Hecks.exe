@@ -14,7 +14,7 @@ public abstract class Command {
 	public abstract String[] getClientAlias();
 	
 	public static void sendClientSideMessage(String message) {
-			mc.player.sendMessage(new TextComponentString(ChatFormatting.DARK_GREEN + "[FrogHacks] "+ ChatFormatting.WHITE + message ));
+			mc.player.sendMessage(new TextComponentString(ChatFormatting.DARK_GREEN + "[FrogClient] "+ ChatFormatting.WHITE + message ));
 	}
 	
 	public static String getClientPrefix() {

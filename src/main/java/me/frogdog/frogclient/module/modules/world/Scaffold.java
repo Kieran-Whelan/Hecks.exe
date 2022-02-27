@@ -1,35 +1,68 @@
 package me.frogdog.frogclient.module.modules.world;
 
+import org.lwjgl.input.Keyboard;
+
 import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.event.events.TickEvent;
-import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
-import me.frogdog.frogclient.module.modules.render.Fullbright;
-import me.frogdog.frogclient.module.modules.render.Fullbright.Mode;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
 
 public class Scaffold extends ToggleableModule {
+	
+	Keyboard keyboard;
+	float yaw;
 
 	public Scaffold() {
 		super("Scaffold", new String[] {"Scaffold", "scaffold"}, -2366720, ModuleType.WORLD);
         this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
-            @Override
+            @SuppressWarnings("static-access")
+			@Override
             public void call(TickEvent event) {
-            	BlockPos target = new BlockPos(Frog.getInstance().mc.player.posX, Frog.getInstance().mc.player.posY - 1, Frog.getInstance().mc.player.posZ);
-            	if(Frog.getInstance().mc.world.getBlockState(target).getBlock().canPlaceBlockAt(Frog.getInstance().mc.world, target)) {
-            		Frog.getInstance().mc.player.swingArm(EnumHand.MAIN_HAND);
-            		KeyBinding.setKeyBindState(Frog.getInstance().mc.gameSettings.keyBindUseItem.getKeyCode(), true);
+            	if(keyboard.getEventKey() == keyboard.KEY_W) {
+            		KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
+            		KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), true);
+            		placeBlock();
+            	} else {
+
             	}
             }
         });
 	}
 	
+	private void placeBlock() {
+		mc.player.rotationYaw = yaw;
+		mc.player.rotationPitch = 82;
+		mc.player.swingArm(EnumHand.MAIN_HAND);
+		KeyBinding.setKeyBindState(mc.gameSettings.keyBindUseItem.getKeyCode(), true);
+		//KeyBinding.setKeyBindState(mc.gameSettings.keyBindSneak.getKeyCode(), true);
+
+	}
 	
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		EnumFacing direction = mc.player.getHorizontalFacing();
+		switch (direction) {
+			case EAST:
+				yaw = 90;
+				break;
+			case WEST:
+				yaw = 270;
+				break;
+			case NORTH:
+				yaw = 360;
+				break;
+			case SOUTH:
+				yaw = 180;
+				break;
+			default:
+				break;
+		}
+		
+	}
 
 }

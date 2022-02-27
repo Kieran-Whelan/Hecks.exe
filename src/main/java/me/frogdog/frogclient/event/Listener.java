@@ -11,7 +11,8 @@ public abstract class Listener<E extends Event> {
     private Class<E> event;
     private final java.util.List<Filter> filters = new CopyOnWriteArrayList<Filter>();
 
-    public Listener(String identifier) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public Listener(String identifier) {
         this.identifier = identifier;
         Type generic = this.getClass().getGenericSuperclass();
         if (generic instanceof ParameterizedType) {

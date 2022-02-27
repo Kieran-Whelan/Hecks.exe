@@ -9,7 +9,7 @@ public class Property<T> {
         this.aliases = aliases;
     }
 
-    public String[] getAliases() {
+	public String[] getAliases() {
         return this.aliases;
     }
 

@@ -1,7 +1,6 @@
 package me.frogdog.frogclient.properties;
 
-public class EnumProperty<T extends Enum>
-extends Property<T> {
+public class EnumProperty<T extends Enum> extends Property<T> {
     public EnumProperty(T value, String... aliases) {
         super(value, aliases);
     }

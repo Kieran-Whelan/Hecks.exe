@@ -1,12 +1,9 @@
 package me.frogdog.frogclient.module.modules.movement;
 
 import me.frogdog.frogclient.event.Listener;
-import me.frogdog.frogclient.event.events.MotionUpdateEvent;
 import me.frogdog.frogclient.event.events.TickEvent;
-import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
-import me.frogdog.frogclient.module.modules.render.Fullbright.Mode;
 import me.frogdog.frogclient.properties.EnumProperty;
 import me.frogdog.frogclient.properties.NumberProperty;
 
@@ -36,11 +33,17 @@ public final class Speed extends ToggleableModule {
     					mc.player.motionZ = direction[1];
         			}
         		}
+        		
+        		if(Speed.this.mode.getValue() == Mode.BHop) {
+        			if(mc.player.onGround) {
+        				mc.player.jump();
+        			}
+        		}
         	}
         });
     }
     
-    public double[] directionSpeed(double speed) {
+    private double[] directionSpeed(double speed) {
     	float forward = mc.player.movementInput.moveForward;
     	float side = mc.player.movementInput.moveStrafe;
     	float yaw = mc.player.prevRotationYaw + (mc.player.rotationYaw - mc.player.prevRotationYaw) * mc.getRenderPartialTicks();
@@ -69,7 +72,8 @@ public final class Speed extends ToggleableModule {
     
     public enum Mode {
         STRAFE,
-        ONGROUND;
+        ONGROUND,
+        BHop
 
     }
 }

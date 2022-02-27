@@ -8,7 +8,7 @@ public final class ConfigManager
 extends ListRegistry<Config> {
 
     public ConfigManager() {
-        this.registry = new ArrayList();
+        this.registry = new ArrayList<Config>();
     }
 }
 

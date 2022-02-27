@@ -10,8 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.util.ResourceLocation;
 
-public class BooleanButton
-extends Button {
+public class BooleanButton extends Button {
     private Property property;
 
     public BooleanButton(Property property) {
