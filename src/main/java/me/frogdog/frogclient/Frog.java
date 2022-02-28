@@ -22,7 +22,6 @@ import me.frogdog.frogclient.event.basic.BasicEventManager;
 import me.frogdog.frogclient.friend.FriendManager;
 import me.frogdog.frogclient.keybind.KeybindManager;
 import me.frogdog.frogclient.module.ModuleManager;
-import me.frogdog.frogclient.plugin.PluginManager;
 import me.frogdog.frogclient.ui.Hud;
 
 @Mod(modid = Frog.MODID, name = Frog.NAME, version = Frog.VERSION)
@@ -30,7 +29,6 @@ public final class Frog {
     public static final String MODID = "frogclient";
     public static final String NAME = "Frog Client";
     public static final String VERSION = "Beta 1.0";
-    public final long startTime = System.nanoTime() / 1000000L;
 	public Minecraft mc = Minecraft.getMinecraft();
     private static Frog instance = null;
     private BasicEventManager eventManager;
@@ -39,7 +37,6 @@ public final class Frog {
     private CommandManager commandManager;
     private FriendManager friendManager;
     private ConfigManager configManager;
-    private PluginManager pluginManager;
     private File directory;
 
     public static EventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
@@ -66,17 +63,9 @@ public final class Frog {
         this.friendManager = new FriendManager();
         this.keybindManager = new KeybindManager();
         this.moduleManager = new ModuleManager();
-        this.pluginManager = new PluginManager();
         this.commandManager = new CommandManager();
         this.getConfigManager().getRegistry().forEach(config -> config.load(new Object[0]));
-        try {
-            this.pluginManager.onLoad();
-            System.out.println("Plugin manager started.");
-            System.out.println(this.pluginManager.getList() + "has been loaded.");
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        
         Runtime.getRuntime().addShutdownHook(new Thread("Shutdown Hook Thread"){
 
             @Override
@@ -123,10 +112,6 @@ public final class Frog {
 
     public ConfigManager getConfigManager() {
         return this.configManager;
-    }
-
-    public PluginManager getPluginManager() {
-        return this.pluginManager;
     }
 
     public File getDirectory() {

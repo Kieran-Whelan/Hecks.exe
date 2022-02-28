@@ -443,38 +443,6 @@ public final class RenderMethods {
         GL11.glEnd();
     }
 
-//    public static void rectangle(double left, double top, double right, double bottom, int color) {
-//        double var5;
-//        if (left < right) {
-//            var5 = left;
-//            left = right;
-//            right = var5;
-//        }
-//        if (top < bottom) {
-//            var5 = top;
-//            top = bottom;
-//            bottom = var5;
-//        }
-//        float alpha = (float)(color >> 24 & 0xFF) / 255.0f;
-//        float red = (float)(color >> 16 & 0xFF) / 255.0f;
-//        float green = (float)(color >> 8 & 0xFF) / 255.0f;
-//        float blue = (float)(color & 0xFF) / 255.0f;
-//        Tessellator var9 = Tessellator.getInstance();
-//        WorldRenderer var10 = var9.getWorldRenderer();
-//        GlStateManager.enableBlend();
-//        GlStateManager.disableLighting();
-//        GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
-//        GlStateManager.color(red, green, blue, alpha);
-//        var10.startDrawingQuads();
-//        var10.addVertex(left, bottom, 0.0);
-//        var10.addVertex(right, bottom, 0.0);
-//        var10.addVertex(right, top, 0.0);
-//        var10.addVertex(left, top, 0.0);
-//        var9.draw();
-//        GlStateManager.enableLighting();
-//        GlStateManager.disableBlend();
-//    }
-
     public static void drawCircle(float cx, float cy, float r, int num_segments, int c) {
         cx *= 2.0f;
         cy *= 2.0f;
@@ -667,8 +635,6 @@ public final class RenderMethods {
         GL11.glVertex3d((double)box.maxX, (double)box.minY, (double)box.maxZ);
         GL11.glEnd();
     }
-
-    // Start paste from future here
 
     public static void drawModalRect(int var0, int var1, float var2, float var3, int var4, int var5, int var6, int var7, float var8, float var9) {
         Gui.drawScaledCustomSizeModalRect(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);

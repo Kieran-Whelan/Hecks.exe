@@ -21,7 +21,7 @@ import net.minecraft.util.math.BlockPos;
 public class ESP extends ToggleableModule {
 
 	public ESP() {
-		super("ESP", new String[] {"esp", "ESP"}, -2366720, ModuleType.RENDER);
+		super("ESP", new String[] {"esp", "ESP"}, ModuleType.RENDER);
 		this.offerProperties();
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 

@@ -52,8 +52,6 @@ public class Module implements Labeled {
 
     protected void offerProperties(Property<?> ... properties) {
         this.properties.addAll(Arrays.asList(properties));
-        // We dont want alphabet sort
-        //this.properties.sort((p1, p2) -> p1.getAliases()[0].compareTo(p2.getAliases()[0]));
     }
 
     public Property<?> getPropertyByAlias(String alias) {

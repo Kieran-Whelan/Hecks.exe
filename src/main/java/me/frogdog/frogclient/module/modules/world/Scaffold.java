@@ -16,7 +16,7 @@ public class Scaffold extends ToggleableModule {
 	float yaw;
 
 	public Scaffold() {
-		super("Scaffold", new String[] {"Scaffold", "scaffold"}, -2366720, ModuleType.WORLD);
+		super("Scaffold", new String[] {"Scaffold", "scaffold"}, ModuleType.WORLD);
         this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
             @SuppressWarnings("static-access")

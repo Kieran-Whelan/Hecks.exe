@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 public class Freecam extends ToggleableModule {
 
 	public Freecam() {
-		super("Freecam", new String[] {"Freecam", "freecam"}, -2366720, ModuleType.WORLD);
+		super("Freecam", new String[] {"Freecam", "freecam"}, ModuleType.WORLD);
         this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
             @Override

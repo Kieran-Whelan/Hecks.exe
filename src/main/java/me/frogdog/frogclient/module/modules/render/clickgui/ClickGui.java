@@ -66,12 +66,6 @@ public final class ClickGui extends GuiScreen {
         this.panels.forEach(panel -> panel.drawScreen(mouseX, mouseY, partialTicks));
     }
 
-//    @Override
-//    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-//        this.drawDefaultBackground();
-//        this.panels.forEach(panel -> panel.drawScreen(mouseX, mouseY, partialTicks));
-//    }
-
     @Override
     public void mouseClicked(int mouseX, int mouseY, int clickedButton) {
         this.panels.forEach(panel -> panel.mouseClicked(mouseX, mouseY, clickedButton));

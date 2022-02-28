@@ -16,7 +16,7 @@ public final class Fullbright extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode>(Mode.POTION, "Mode", "m");
 
     public Fullbright() {
-    	super("Fullbright", new String[]{"fullbright", "Fullbright", "fb"}, -2366720, ModuleType.RENDER);
+    	super("Fullbright", new String[]{"fullbright", "Fullbright", "fb"}, ModuleType.RENDER);
         this.offerProperties(this.mode);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
@@ -37,5 +37,11 @@ public final class Fullbright extends ToggleableModule {
         POTION;
 
     }
+    
+    @Override
+    public void onEnable() {
+        super.onEnable();
+    }
+
 }
 
