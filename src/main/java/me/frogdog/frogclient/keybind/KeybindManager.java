@@ -24,17 +24,11 @@ public final class KeybindManager extends ListRegistry<Keybind> {
                         if (keybind.getKey() != 0 && keybind.getKey() == event.getKey()) {
                             String label = keybind.getLabel();
                             Module module = Frog.getInstance().getModuleManager().getModuleByAlias(label);
-                            if (module == null) {
-                            	Command.sendClientSideMessage("No such module exists");
-                            } else if (!(module instanceof Toggleable)) {
+                            if (!(module instanceof Toggleable)) {
                             	Command.sendClientSideMessage("That module can't be toggled");
                             } else {
                                 ToggleableModule toggleableModule = (ToggleableModule)module;
-                                if(toggleableModule.isRunning()) {
-                                	toggleableModule.setRunning(false);
-                                } else {
-                                	toggleableModule.setRunning(true);
-                                }
+                                toggleableModule.toggle();
                     	        Command.sendClientSideMessage(module.getLabel() + " has been set to " + toggleableModule.isRunning());    
                             }
                         }

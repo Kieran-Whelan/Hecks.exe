@@ -25,7 +25,7 @@ public class Toggle extends Command {
 
 	@Override
 	public String getClientSyntax() {
-		return "Toggle";
+		return "Toggle (module name)";
 	}
 
 	@Override

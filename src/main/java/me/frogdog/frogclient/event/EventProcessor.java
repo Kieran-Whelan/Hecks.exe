@@ -1,5 +1,7 @@
 package me.frogdog.frogclient.event;
 
+import org.lwjgl.input.Keyboard;
+
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import me.frogdog.frogclient.Frog;
@@ -16,10 +18,12 @@ public class EventProcessor {
     public static final EventProcessor INSTANCE = new EventProcessor();
 
     @SubscribeEvent
-    public void onInput(InputEvent event) {
-        me.frogdog.frogclient.event.events.InputEvent inputEvent = new me.frogdog.frogclient.event.events.InputEvent(me.frogdog.frogclient.event.events.InputEvent.Type.KEYBOARD_KEY_PRESS);
-
-        Frog.getInstance().getEventManager().dispatch(inputEvent);
+    public void onInput(InputEvent.KeyInputEvent event) {
+    	if(!(Keyboard.isRepeatEvent()) && !(Keyboard.isKeyDown(Keyboard.getEventKey()))) {
+	        me.frogdog.frogclient.event.events.InputEvent inputEvent = new me.frogdog.frogclient.event.events.InputEvent(me.frogdog.frogclient.event.events.InputEvent.Type.KEYBOARD_KEY_PRESS);
+	
+	        Frog.getInstance().getEventManager().dispatch(inputEvent);
+    	}
     }
     
     @SubscribeEvent

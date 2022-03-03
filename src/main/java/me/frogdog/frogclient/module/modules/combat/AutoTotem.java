@@ -16,7 +16,7 @@ public class AutoTotem extends ToggleableModule {
 	int totalTotems;
 
 	public AutoTotem() {
-		super("AutoTotem", new String[] {"AutoTotem", "autototem"}, -2366720, ModuleType.COMBAT);
+		super("AutoTotem", new String[] {"AutoTotem", "autototem"}, ModuleType.COMBAT);
 		this.offerProperties();
 		this.listeners.add(new Listener<TickEvent>("tick_listener") {
 

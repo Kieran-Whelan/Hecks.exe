@@ -21,7 +21,7 @@ public class RemoveFriend extends Command {
 
 	@Override
 	public String getClientSyntax() {
-		return "Remove";
+		return "Remove (username)";
 	}
 
 	@Override

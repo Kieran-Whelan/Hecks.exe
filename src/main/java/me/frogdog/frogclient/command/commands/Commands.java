@@ -16,12 +16,12 @@ public class Commands extends Command {
 	
 	@Override
 	public String getClientSyntax() {
-		return "AllCommands";
+		return "Commands";
 	}
 
 	@Override
 	public String[] getClientAlias() {
-		return new String[] {"allcommands", "commands", "command"};
+		return new String[] {"Commands", "commands"};
 	}
 
 }

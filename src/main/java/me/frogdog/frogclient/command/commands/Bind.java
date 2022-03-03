@@ -17,7 +17,7 @@ public class Bind extends Command {
 
 	@Override
 	public String getClientSyntax() {
-		return "Bind";
+		return "Bind (module name) (key)";
 	}
 
 	@Override

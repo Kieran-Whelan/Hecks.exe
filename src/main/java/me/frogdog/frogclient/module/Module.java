@@ -17,6 +17,7 @@ import java.util.*;
 import net.minecraft.client.Minecraft;
 
 public class Module implements Labeled {
+	
     private final String label;
     private String tag;
     private final String[] aliases;

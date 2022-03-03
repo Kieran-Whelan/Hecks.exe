@@ -10,7 +10,7 @@ import net.minecraft.client.entity.EntityOtherPlayerMP;
 public class FakePlayer extends ToggleableModule {
 
 	public FakePlayer() {
-		super("FakePlayer", new String[] {"FakePlayer", "fakeplayer"}, -2366720, ModuleType.MISCELLANEOUS);
+		super("FakePlayer", new String[] {"FakePlayer", "fakeplayer"}, ModuleType.MISCELLANEOUS);
 		this.offerProperties();          
 	}
 	

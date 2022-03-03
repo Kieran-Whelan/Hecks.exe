@@ -35,7 +35,7 @@ public final class ClickGui extends GuiScreen {
                 public void setupItems() {
                     Frog.getInstance().getModuleManager().getRegistry().forEach(module -> {
                         ToggleableModule toggleableModule;
-                        if (module instanceof Toggleable && !module.getLabel().equalsIgnoreCase("Tab Gui") && !module.getLabel().equalsIgnoreCase("Click Gui") && (toggleableModule = (ToggleableModule)module).getModuleType().equals((Object)moduleType)) {
+                        if (module instanceof Toggleable && !module.getLabel().equalsIgnoreCase("ClickGui") && (toggleableModule = (ToggleableModule)module).getModuleType().equals((Object)moduleType)) {
                             this.addButton(new ModuleButton(toggleableModule));
                         }
                     });

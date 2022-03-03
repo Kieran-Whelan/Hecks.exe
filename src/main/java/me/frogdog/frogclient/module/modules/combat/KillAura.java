@@ -6,7 +6,7 @@ import me.frogdog.frogclient.module.ToggleableModule;
 public class KillAura extends ToggleableModule {
 
 	public KillAura() {
-		super("KillAura", new String[] {"KillAura", "killaura"}, -2366720, ModuleType.COMBAT);
+		super("KillAura", new String[] {"KillAura", "killaura"}, ModuleType.COMBAT);
 		offerProperties();
 	}
 

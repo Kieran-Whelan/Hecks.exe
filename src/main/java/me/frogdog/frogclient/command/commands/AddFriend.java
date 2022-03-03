@@ -16,7 +16,7 @@ public class AddFriend extends Command {
 
 	@Override
 	public String getClientSyntax() {
-		return "Add";
+		return "Add (username)";
 	}
 
 	@Override

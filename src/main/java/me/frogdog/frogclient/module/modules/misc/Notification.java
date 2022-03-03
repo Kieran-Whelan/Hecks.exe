@@ -24,7 +24,7 @@ public class Notification extends ToggleableModule {
 	ArrayList<String> players = new ArrayList<String>();
 
 	public Notification() {
-		super("Notification", new String[] {"notifs", "Notification", "notification"}, -2366720, ModuleType.MISCELLANEOUS);
+		super("Notification", new String[] {"notifs", "Notification", "notification"}, ModuleType.MISCELLANEOUS);
 		this.offerProperties(this.visualRange, this.totemPop);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
         	
