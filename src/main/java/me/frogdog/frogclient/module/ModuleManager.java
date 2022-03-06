@@ -41,7 +41,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Notification());
         register(new StorageESP());
         register(new ESP());
-        register(new OreESP());
+        //register(new OreESP());
         register(new KillAura());
         register(new FastPlace());
         register(new Freecam());
@@ -49,6 +49,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new AutoTotem());
         register(new FakePlayer());
         register(new Jesus());
+        register(new VerticalRender());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Frog.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);

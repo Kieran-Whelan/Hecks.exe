@@ -7,7 +7,7 @@ public class KillAura extends ToggleableModule {
 
 	public KillAura() {
 		super("KillAura", new String[] {"KillAura", "killaura"}, ModuleType.COMBAT);
-		offerProperties();
+		this.offerProperties();
 	}
 
 }

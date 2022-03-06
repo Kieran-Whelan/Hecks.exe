@@ -34,13 +34,7 @@ public final class Fullbright extends ToggleableModule {
 
     public enum Mode {
         GAMMA,
-        POTION;
-
-    }
-    
-    @Override
-    public void onEnable() {
-        super.onEnable();
+        POTION
     }
 
 }

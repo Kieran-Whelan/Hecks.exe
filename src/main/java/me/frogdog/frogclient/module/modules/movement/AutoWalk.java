@@ -10,7 +10,7 @@ public final class AutoWalk extends ToggleableModule {
 	
 
 	public AutoWalk() {
-		super("AutoWalk", new String[] {"AutoWalk", "autowalk"}, -2366720, ModuleType.MOVEMENT);
+		super("AutoWalk", new String[] {"AutoWalk", "autowalk"}, ModuleType.MOVEMENT);
 		this.offerProperties();
 		this.listeners.add(new Listener<TickEvent>("tick_event") {
 			

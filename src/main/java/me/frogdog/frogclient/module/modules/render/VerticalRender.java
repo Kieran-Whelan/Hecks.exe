@@ -13,35 +13,31 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-
-public class ESP extends ToggleableModule {
+public final class VerticalRender extends ToggleableModule {
 	private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
+	private final NumberProperty<Integer> red = new NumberProperty<Integer>(0, 0, 255, "Red");
+	private final NumberProperty<Integer> green = new NumberProperty<Integer>(255, 0, 255, "Green");
+	private final NumberProperty<Integer> blue = new NumberProperty<Integer>(0, 0, 255, "Blue");
+	private final NumberProperty<Integer> alpha = new NumberProperty<Integer>(100, 0, 100, "Opacity");
 
-	public ESP() {
-		super("ESP", new String[] {"esp", "ESP"}, ModuleType.RENDER);
-		this.offerProperties(this.width);
+    public VerticalRender() {
+        super("VertRender", new String[]{"verticalrender", "VerticalRender"}, ModuleType.RENDER);
+        this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override
             public void call(RenderEvent event) {
-            	for(Entity entity : Frog.getInstance().mc.world.loadedEntityList) {
-            		if(entity instanceof EntityPlayer && entity != Frog.getInstance().mc.player) {
-            			drawBox(entity.getPosition(), width.getValue(), 0, 255, 0, 100);
-            		}
-            		
-            		if(entity instanceof EntityMob) {
-            			drawBox(entity.getPosition(), width.getValue(), 0, 255, 0, 100);
-            		}
-            	}
+            	Entity entity = mc.player;
+            	drawRect(entity.getPosition(), width.getValue(), red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
             }
+            	  	
         });
-	}
-	
-	public void drawBox(BlockPos pos, float width, int red, int green, int blue, int alpha) {
+        
+    }
+    
+	public void drawRect(BlockPos pos, float width, int red, int green, int blue, int alpha) {
 		GlStateManager.pushMatrix();
 		GlStateManager.enableBlend();
 		GlStateManager.disableDepth();
@@ -54,7 +50,7 @@ public class ESP extends ToggleableModule {
 		double x = (double)pos.getX() - Frog.getInstance().mc.getRenderManager().viewerPosX;
 		double y = (double)pos.getY() - Frog.getInstance().mc.getRenderManager().viewerPosY;
 		double z = (double)pos.getZ() - Frog.getInstance().mc.getRenderManager().viewerPosZ;
-        AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + 1.0, y + 1.0, z + 1.0);
+        AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + 1.0, y + 100.0, z + 1.0);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();
         bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);
@@ -82,13 +78,12 @@ public class ESP extends ToggleableModule {
         bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(red, green, blue, alpha).endVertex();
         tessellator.draw();
         GL11.glDisable((int)2848);
-        GlStateManager.depthMask((boolean)true);
+        GlStateManager.depthMask(true);
         GlStateManager.enableDepth();
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
+    
 	}
 	
-	
-
 }

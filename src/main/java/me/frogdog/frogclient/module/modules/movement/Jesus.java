@@ -10,7 +10,7 @@ public class Jesus extends ToggleableModule {
 	private final EnumProperty<Mode> mode = new EnumProperty<Mode> (Mode.Solid, "Mode", "m");
 
 	public Jesus() {
-		super("Jesus", new String[] {"Jesus", "jesus"}, -2366720, ModuleType.MOVEMENT);
+		super("Jesus", new String[] {"Jesus", "jesus"}, ModuleType.MOVEMENT);
 		this.offerProperties(this.mode);
 		this.listeners.add(new Listener<TickEvent>("tick_listener") {
 			

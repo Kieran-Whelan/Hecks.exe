@@ -7,6 +7,7 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
 import net.minecraftforge.client.event.ClientChatEvent;
+import net.minecraftforge.client.event.PlayerSPPushOutOfBlocksEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -66,7 +67,18 @@ public class EventProcessor {
    		 
    		 Frog.getInstance().getEventManager().dispatch(renderEvent);
 
-   	}
+    	}
+    	
+    }
+    
+    @SubscribeEvent
+    public void onPushOutOfBlock(PlayerSPPushOutOfBlocksEvent event) {
+    	if(!(Frog.getInstance().mc.player == null)) {
+   		 me.frogdog.frogclient.event.events.PushOutOfBlocksEvent pushOutOfBlocksEvent = new me.frogdog.frogclient.event.events.PushOutOfBlocksEvent();
+   		 
+   		 Frog.getInstance().getEventManager().dispatch(pushOutOfBlocksEvent);
+
+    	}
     	
     }
     

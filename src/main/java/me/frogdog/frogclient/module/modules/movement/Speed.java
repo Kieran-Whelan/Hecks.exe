@@ -12,9 +12,9 @@ public final class Speed extends ToggleableModule {
     private final NumberProperty<Double> speed = new NumberProperty<Double>(0.5, 0.0, 3.0, "Speed");
 
     public Speed() {
-        super("Speed", new String[]{"speed", "Speed"}, -2366720, ModuleType.MOVEMENT);
+        super("Speed", new String[]{"speed", "Speed"}, ModuleType.MOVEMENT);
         this.offerProperties(this.mode, this.speed);
-        this.listeners.add(new Listener<TickEvent>("key_listener"){
+        this.listeners.add(new Listener<TickEvent>("tick_listener"){
         	
         	@Override
         	public void call(TickEvent event) {

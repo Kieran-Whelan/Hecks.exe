@@ -37,7 +37,7 @@ public class OreESP extends ToggleableModule{
 	private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
 
 	public OreESP() {
-		super("OreESP", new String[] {"oreesp", "OreESP"}, -2366720, ModuleType.RENDER);
+		super("OreESP", new String[] {"oreesp", "OreESP"}, ModuleType.RENDER);
 		this.offerProperties(this.diamond, this.iron, this.gold, this.emerald, this.restone, this.coal, this.shulker, this.width);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 

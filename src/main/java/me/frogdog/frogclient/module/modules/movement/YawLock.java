@@ -11,7 +11,7 @@ public class YawLock extends ToggleableModule {
 	float yaw;
 
 	public YawLock() {
-		super("LockYaw", new String[] {"RotationLock", "lock"}, -2366720, ModuleType.MOVEMENT);
+		super("LockYaw", new String[] {"RotationLock", "lock"}, ModuleType.MOVEMENT);
 		this.offerProperties();	
 		this.listeners.add(new Listener<TickEvent>("tick_event") {
 			
