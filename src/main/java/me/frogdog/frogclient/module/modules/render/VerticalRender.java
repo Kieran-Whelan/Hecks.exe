@@ -24,7 +24,7 @@ public final class VerticalRender extends ToggleableModule {
 
     public VerticalRender() {
         super("VertRender", new String[]{"verticalrender", "VerticalRender"}, ModuleType.RENDER);
-        this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha);
+        this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override

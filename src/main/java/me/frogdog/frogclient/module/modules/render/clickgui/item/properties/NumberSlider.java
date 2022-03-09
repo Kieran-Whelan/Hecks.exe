@@ -37,14 +37,14 @@ public class NumberSlider extends Item {
     @Override
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        if (isHovering(mouseX, mouseY) && mouseButton == 0) {
+        if (this.isHovering(mouseX, mouseY) && mouseButton == 0) {
             setSettingFromX(mouseX);
         }
     }
 
     private void setSettingFromX(int mouseX) {
         float percent = (mouseX - x) / (width + 7.4F);
-        if(numberProperty.getValue() instanceof Double) {
+        if (numberProperty.getValue() instanceof Double) {
             double result = (Double)numberProperty.getMinimum() + (difference * percent);
             numberProperty.setValue(Math.round(10.0 * result) / 10.0);
         } else if (numberProperty.getValue() instanceof Float) {
@@ -61,17 +61,9 @@ public class NumberSlider extends Item {
     }
 
     private void dragSetting(int mouseX, int mouseY) {
-        if(isHovering(mouseX, mouseY) && Mouse.isButtonDown(0)) {
+        if (this.isHovering(mouseX, mouseY) && Mouse.isButtonDown(0)) {
             setSettingFromX(mouseX);
         }
-    }
-
-    private boolean isHovering(int mouseX, int mouseY) {
-        for (Panel panel : ClickGui.getClickGui().getPanels()) {
-            if (!panel.drag) continue;
-            return false;
-        }
-        return (float)mouseX >= this.getX() && (float)mouseX <= this.getX() + (float)this.getWidth() && (float)mouseY >= this.getY() && (float)mouseY <= this.getY() + (float)this.height;
     }
 
     private float getValueWidth() {

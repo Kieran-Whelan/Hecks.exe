@@ -6,6 +6,7 @@ import java.util.List;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.keybind.Keybind;
+import me.frogdog.frogclient.properties.Property;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 
 public class ToggleableModule extends Module implements Toggleable {
@@ -15,6 +16,7 @@ public class ToggleableModule extends Module implements Toggleable {
     private final int color;
     private final ModuleType moduleType;
     protected final List<Listener<?>> listeners = new ArrayList<>();
+	protected final Property<String> keybind = new Property<String>("Keybind", "keybind", "bind", "Keybind");
 
     private ToggleableModule(String label, String[] aliases, boolean drawn, int color, ModuleType moduleType) {
         super(label, aliases);

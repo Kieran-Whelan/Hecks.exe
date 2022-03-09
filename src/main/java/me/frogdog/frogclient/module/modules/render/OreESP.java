@@ -38,7 +38,7 @@ public class OreESP extends ToggleableModule{
 
 	public OreESP() {
 		super("OreESP", new String[] {"oreesp", "OreESP"}, ModuleType.RENDER);
-		this.offerProperties(this.diamond, this.iron, this.gold, this.emerald, this.restone, this.coal, this.shulker, this.width);
+		this.offerProperties(this.diamond, this.iron, this.gold, this.emerald, this.restone, this.coal, this.shulker, this.width, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override

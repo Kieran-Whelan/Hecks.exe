@@ -22,6 +22,7 @@ public class Freecam extends ToggleableModule {
 
 	public Freecam() {
 		super("Freecam", new String[] {"Freecam", "freecam"}, ModuleType.WORLD);
+		this.offerProperties(this.keybind);
         this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
             @Override

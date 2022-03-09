@@ -1,5 +1,7 @@
 package me.frogdog.frogclient.module.modules.render.clickgui.item;
 
+import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
+import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public class Item implements Labeled {
@@ -54,6 +56,14 @@ public class Item implements Labeled {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+    
+    protected boolean isHovering(int mouseX, int mouseY) {
+        for (Panel panel : ClickGui.getClickGui().getPanels()) {
+            if (!panel.drag) continue;
+            return false;
+        }
+        return (float)mouseX >= this.getX() && (float)mouseX <= this.getX() + (float)this.getWidth() && (float)mouseY >= this.getY() && (float)mouseY <= this.getY() + (float)this.height;
     }
 }
 

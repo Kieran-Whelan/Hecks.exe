@@ -12,7 +12,7 @@ public class YawLock extends ToggleableModule {
 
 	public YawLock() {
 		super("LockYaw", new String[] {"RotationLock", "lock"}, ModuleType.MOVEMENT);
-		this.offerProperties();	
+		this.offerProperties(this.keybind);	
 		this.listeners.add(new Listener<TickEvent>("tick_event") {
 			
 			@Override

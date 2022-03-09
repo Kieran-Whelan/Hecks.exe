@@ -25,7 +25,7 @@ public class Notification extends ToggleableModule {
 
 	public Notification() {
 		super("Notification", new String[] {"notifs", "Notification", "notification"}, ModuleType.MISCELLANEOUS);
-		this.offerProperties(this.visualRange, this.totemPop);
+		this.offerProperties(this.visualRange, this.totemPop, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
         	
             @Override

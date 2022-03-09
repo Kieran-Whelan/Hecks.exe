@@ -1,11 +1,7 @@
 package me.frogdog.frogclient.module.modules.render.clickgui.item;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.util.ResourceLocation;
-
-import java.awt.*;
-
+import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
 import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
@@ -33,7 +29,6 @@ public class Button extends Item implements Labeled {
         if (mouseButton == 0 && this.isHovering(mouseX, mouseY)) {
             this.state = !this.state;
             this.toggle();
-//            Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.createPositionedSoundRecord(new ResourceLocation("random.click"), 1.0f));
         }
     }
 

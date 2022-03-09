@@ -5,13 +5,17 @@ import me.frogdog.frogclient.event.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.EnumProperty;
+import me.frogdog.frogclient.util.Timer;
 
 public class Jesus extends ToggleableModule {
 	private final EnumProperty<Mode> mode = new EnumProperty<Mode> (Mode.Solid, "Mode", "m");
+	
+	Timer timer = new Timer();
 
 	public Jesus() {
 		super("Jesus", new String[] {"Jesus", "jesus"}, ModuleType.MOVEMENT);
 		this.offerProperties(this.mode);
+        this.offerProperties(this.keybind);
 		this.listeners.add(new Listener<TickEvent>("tick_listener") {
 			
 			@Override

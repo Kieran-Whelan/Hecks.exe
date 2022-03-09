@@ -17,7 +17,7 @@ public final class Fullbright extends ToggleableModule {
 
     public Fullbright() {
     	super("Fullbright", new String[]{"fullbright", "Fullbright", "fb"}, ModuleType.RENDER);
-        this.offerProperties(this.mode);
+        this.offerProperties(this.mode, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override

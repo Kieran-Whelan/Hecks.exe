@@ -11,7 +11,7 @@ public final class AutoWalk extends ToggleableModule {
 
 	public AutoWalk() {
 		super("AutoWalk", new String[] {"AutoWalk", "autowalk"}, ModuleType.MOVEMENT);
-		this.offerProperties();
+		this.offerProperties(this.keybind);	
 		this.listeners.add(new Listener<TickEvent>("tick_event") {
 			
 			@Override

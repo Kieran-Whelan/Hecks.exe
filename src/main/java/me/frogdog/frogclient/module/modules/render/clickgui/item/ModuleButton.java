@@ -2,11 +2,15 @@ package me.frogdog.frogclient.module.modules.render.clickgui.item;
 
 import java.util.ArrayList;
 
+import org.lwjgl.input.Keyboard;
+
 import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.command.Command;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.BooleanButton;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.EnumButton;
+import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.KeybindButton;
 import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.NumberSlider;
 import me.frogdog.frogclient.properties.EnumProperty;
 import me.frogdog.frogclient.properties.NumberProperty;
@@ -30,6 +34,9 @@ public class ModuleButton extends Button {
             for (Property<?> property : module.getProperties()) {
                 if (property.getValue() instanceof Boolean) {
                     this.items.add(new BooleanButton(property));
+                }
+                if (property.getValue() instanceof String) {
+                    this.items.add(new KeybindButton(property, module));
                 }
                 if (property instanceof EnumProperty) {
                     this.items.add(new EnumButton((EnumProperty)property));
@@ -58,9 +65,6 @@ public class ModuleButton extends Button {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         super.drawScreen(mouseX, mouseY, partialTicks);
         if (!this.items.isEmpty()) {
-            //FontUtil.drawString("...", this.x - 1.0f + (float)this.width - 8.0f, this.y - 2.0f, -1);// remove this, its not in future
-
-            // add gear, and animation here
 
             GlStateManager.pushMatrix();
             GlStateManager.enableBlend();
@@ -90,7 +94,6 @@ public class ModuleButton extends Button {
         if (!this.items.isEmpty()) {
             if (mouseButton == 1 && this.isHovering(mouseX, mouseY)) {
                 this.subOpen = !this.subOpen;
-//                Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.createPositionedSoundRecord(new ResourceLocation("random.click"), 1.0f));
             }
             if (this.subOpen) {
                 for (Item item : items) {
@@ -126,5 +129,6 @@ public class ModuleButton extends Button {
         }
         return true;
     }
+    
 }
 

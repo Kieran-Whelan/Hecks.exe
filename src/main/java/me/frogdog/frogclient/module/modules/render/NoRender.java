@@ -20,7 +20,7 @@ public class NoRender extends ToggleableModule {
     
     public NoRender() {
         super("NoRender", new String[]{"render", "norender", "nr"}, ModuleType.RENDER);
-        this.offerProperties(this.pumpkin, this.fire, this.hurtcam, this.armour, this.portalNausea);
+        this.offerProperties(this.pumpkin, this.fire, this.hurtcam, this.armour, this.portalNausea, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override

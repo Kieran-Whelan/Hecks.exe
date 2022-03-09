@@ -20,28 +20,32 @@ import net.minecraft.util.math.BlockPos;
 
 public class ESP extends ToggleableModule {
 	private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
+	private final NumberProperty<Integer> red = new NumberProperty<Integer>(0, 0, 255, "Red");
+	private final NumberProperty<Integer> green = new NumberProperty<Integer>(255, 0, 255, "Green");
+	private final NumberProperty<Integer> blue = new NumberProperty<Integer>(0, 0, 255, "Blue");
+	private final NumberProperty<Integer> alpha = new NumberProperty<Integer>(100, 0, 100, "Opacity");
 
 	public ESP() {
 		super("ESP", new String[] {"esp", "ESP"}, ModuleType.RENDER);
-		this.offerProperties(this.width);
+		this.offerProperties(this.width, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override
             public void call(RenderEvent event) {
             	for(Entity entity : Frog.getInstance().mc.world.loadedEntityList) {
             		if(entity instanceof EntityPlayer && entity != Frog.getInstance().mc.player) {
-            			drawBox(entity.getPosition(), width.getValue(), 0, 255, 0, 100);
+            			drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width, entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
             		}
             		
             		if(entity instanceof EntityMob) {
-            			drawBox(entity.getPosition(), width.getValue(), 0, 255, 0, 100);
+            			drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
             		}
             	}
             }
         });
 	}
 	
-	public void drawBox(BlockPos pos, float width, int red, int green, int blue, int alpha) {
+	public void drawOutline(double posX, double posY, double posZ, float lineWidth, float width, float height, int red, int green, int blue, int alpha) {
 		GlStateManager.pushMatrix();
 		GlStateManager.enableBlend();
 		GlStateManager.disableDepth();
@@ -50,11 +54,11 @@ public class ESP extends ToggleableModule {
 		GlStateManager.depthMask(false);
 		GL11.glEnable(2848);
 		GL11.glHint(3154, 4354);
-		GL11.glLineWidth(width);
-		double x = (double)pos.getX() - Frog.getInstance().mc.getRenderManager().viewerPosX;
-		double y = (double)pos.getY() - Frog.getInstance().mc.getRenderManager().viewerPosY;
-		double z = (double)pos.getZ() - Frog.getInstance().mc.getRenderManager().viewerPosZ;
-        AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + 1.0, y + 1.0, z + 1.0);
+		GL11.glLineWidth(lineWidth);
+		double x = posX - Frog.getInstance().mc.getRenderManager().viewerPosX - 0.5;
+		double y = posY - Frog.getInstance().mc.getRenderManager().viewerPosY;
+		double z = posZ - Frog.getInstance().mc.getRenderManager().viewerPosZ - 0.5;
+        AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + width, y + height, z + width);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();
         bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);

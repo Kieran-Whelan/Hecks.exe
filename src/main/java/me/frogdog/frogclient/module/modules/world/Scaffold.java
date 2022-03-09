@@ -12,17 +12,17 @@ import net.minecraft.util.EnumHand;
 
 public class Scaffold extends ToggleableModule {
 	
-	Keyboard keyboard;
 	float yaw;
 
 	public Scaffold() {
 		super("Scaffold", new String[] {"Scaffold", "scaffold"}, ModuleType.WORLD);
+		this.offerProperties(this.keybind);
         this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
             @SuppressWarnings("static-access")
 			@Override
             public void call(TickEvent event) {
-            	if(keyboard.getEventKey() == keyboard.KEY_W) {
+            	if(Keyboard.getEventKey() == Keyboard.KEY_W) {
             		KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
             		KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), true);
             		placeBlock();

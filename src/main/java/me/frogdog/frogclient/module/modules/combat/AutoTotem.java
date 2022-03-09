@@ -17,7 +17,7 @@ public class AutoTotem extends ToggleableModule {
 
 	public AutoTotem() {
 		super("AutoTotem", new String[] {"AutoTotem", "autototem"}, ModuleType.COMBAT);
-		this.offerProperties();
+        this.offerProperties(this.keybind);
 		this.listeners.add(new Listener<TickEvent>("tick_listener") {
 
 			@Override

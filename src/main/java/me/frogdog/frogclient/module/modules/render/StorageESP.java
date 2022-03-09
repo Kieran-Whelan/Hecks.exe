@@ -36,7 +36,7 @@ public final class StorageESP extends ToggleableModule {
 
 	public StorageESP() {
 		super("StorageESP", new String[] {"storageesp", "StorageESP"}, ModuleType.RENDER);
-		this.offerProperties(this.chest, this.enderChest, this.furance, this.dispenser, this.dropper, this.hopper, this.shulker, this.width);
+		this.offerProperties(this.chest, this.enderChest, this.furance, this.dispenser, this.dropper, this.hopper, this.shulker, this.width, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override
