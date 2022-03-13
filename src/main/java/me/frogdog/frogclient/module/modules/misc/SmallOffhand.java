@@ -6,7 +6,7 @@ import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.EnumProperty;
 
-public class SmallOffhand extends ToggleableModule {
+public final class SmallOffhand extends ToggleableModule {
 	private final EnumProperty<Mode> mode = new EnumProperty<Mode> (Mode.Small, "Mode", "m");
 
 	public SmallOffhand() {

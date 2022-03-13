@@ -14,7 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class Notification extends ToggleableModule {
+public final class Notification extends ToggleableModule {
 	private final Property<Boolean> visualRange = new Property<Boolean>(false, "VisualRange", "vr");
 	private final Property<Boolean> totemPop = new Property<Boolean>(true, "TotemPop", "tp");
 	

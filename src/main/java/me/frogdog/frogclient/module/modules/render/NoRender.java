@@ -11,7 +11,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraftforge.client.GuiIngameForge;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 
-public class NoRender extends ToggleableModule {
+public final class NoRender extends ToggleableModule {
     private final Property<Boolean> pumpkin = new Property<Boolean>(true, "NoPumpkin", "p", "np");
     private final Property<Boolean> fire = new Property<Boolean>(true, "NoFire", "fire", "nf");
     private final Property<Boolean> hurtcam = new Property<Boolean>(false, "NoHurtcam", "hurtcam", "nh");

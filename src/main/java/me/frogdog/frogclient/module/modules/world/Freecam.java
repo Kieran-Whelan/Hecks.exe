@@ -10,8 +10,9 @@ import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class Freecam extends ToggleableModule {
+public final class Freecam extends ToggleableModule {
 	private final NumberProperty<Integer> speed = new NumberProperty<Integer>(5, 0, 50, "Speed");
+	
     private double posX, posY, posZ;
     private float pitch, yaw;
 

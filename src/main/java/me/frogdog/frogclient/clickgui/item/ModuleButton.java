@@ -1,17 +1,11 @@
-package me.frogdog.frogclient.module.modules.render.clickgui.item;
+package me.frogdog.frogclient.clickgui.item;
 
 import java.util.ArrayList;
 
-import org.lwjgl.input.Keyboard;
-
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.command.Command;
+import me.frogdog.frogclient.clickgui.item.properties.*;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.BooleanButton;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.EnumButton;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.KeybindButton;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.properties.NumberSlider;
 import me.frogdog.frogclient.properties.EnumProperty;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.properties.Property;

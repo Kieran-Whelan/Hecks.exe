@@ -4,13 +4,10 @@ import java.awt.Color;
 import java.util.Collections;
 import java.util.Comparator;
 
-import org.lwjgl.opengl.Display;
-
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.module.modules.client.HudEditor;
-import me.frogdog.frogclient.properties.Property;
 import me.frogdog.frogclient.util.Timer;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 import net.minecraft.client.Minecraft;
@@ -25,11 +22,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class Hud extends Gui {
 	
 	public static final Hud INSTANCE = new Hud();
-    public static final Property<Boolean> customFont = new Property<Boolean>(false, "CustomFont", "cf", "font");
     public HudEditor hudEditor = new HudEditor();
-	
-	private Minecraft mc = Minecraft.getMinecraft();
 	private final Timer timer = new Timer();
+	private Minecraft mc = Minecraft.getMinecraft();
 	
 	public static class ModuleComparator implements Comparator<Module> {
 
@@ -43,7 +38,6 @@ public class Hud extends Gui {
 			}
 			return 0;
 		}
-		
 		
 	}
 	
@@ -68,16 +62,7 @@ public class Hud extends Gui {
 			fr.drawStringWithShadow("Facing: " + Frog.getInstance().mc.player.getHorizontalFacing().getName(), 2, 490, rainbow(1 * 360));
 			//speed
 			fr.drawStringWithShadow("Speed: " + getSpeed() + "km/h"  , 2, 480, rainbow(1 * 360));
-			//Effects
-			//fr.drawStringWithShadow(Frog.getInstance().mc.player.getActivePotionEffects().toString(), Display.getWidth() - 50, 500, rainbow(1 * 360));
-			//coords
-			if(Frog.getInstance().mc.player.dimension == 0) {
-				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " Nether: X " + (long) Frog.getInstance().mc.player.posX / 8 + " Z " + (long) Frog.getInstance().mc.player.posZ / 8, 2, 500, rainbow(1 * 360));
-			} else if(Frog.getInstance().mc.player.dimension == -1) {
-				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " OverWorld: X " + (long) Frog.getInstance().mc.player.posX * 8 + " Z " + (long) Frog.getInstance().mc.player.posZ * 8, 2, 500, rainbow(1 * 360));
-			} else {
-				fr.drawStringWithShadow("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ, 2, 500, rainbow(1 * 360));
-			}
+			
 		}
 		
 		
@@ -98,12 +83,6 @@ public class Hud extends Gui {
 		
 	}
 	
-	public int rainbow(int delay) {
-		double rainbowState = Math.ceil((System.currentTimeMillis() + delay) / 20.0);
-		rainbowState %= 360;
-		return Color.getHSBColor((float) (rainbowState / 360.0f), 0.5f, 1f).getRGB();
-	}
-	
 	public double getSpeed() {
 		double speed;
 		double prevPosX = 0;
@@ -115,6 +94,12 @@ public class Hud extends Gui {
 		speed = Math.floor(((MathHelper.sqrt((mc.player.posX - prevPosX) * (mc.player.posX - prevPosX)+ (mc.player.posZ - prevPosZ) * (mc.player.posZ - prevPosZ))) / 1000.0f)/ (0.05f / 3600.0f));
 		return speed;
 		
+	}
+	
+	public static int rainbow(int delay) {
+		double rainbowState = Math.ceil((System.currentTimeMillis() + delay) / 20.0);
+		rainbowState %= 360;
+		return Color.getHSBColor((float) (rainbowState / 360.0f), 0.5f, 1f).getRGB();
 	}
 	
 	

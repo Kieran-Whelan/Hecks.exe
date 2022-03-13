@@ -1,14 +1,12 @@
-package me.frogdog.frogclient.module.modules.render.clickgui.item.properties;
+package me.frogdog.frogclient.clickgui.item.properties;
 
 import org.lwjgl.input.Mouse;
 
+import me.frogdog.frogclient.clickgui.item.Item;
 import me.frogdog.frogclient.module.modules.client.Colors;
-import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
-import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.Item;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
-import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
+import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 
 public class NumberSlider extends Item {
     private NumberProperty numberProperty;
@@ -27,10 +25,7 @@ public class NumberSlider extends Item {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         dragSetting(mouseX, mouseY);
-//        RenderMethods.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? 2012955202 : -1711586750);
         RenderMethods.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? Colors.getClientColorCustomAlpha(77) : Colors.getClientColorCustomAlpha(55));
-//        RenderMethods.drawRect(x, y, x + getValueWidth(), y + height, !isHovering(mouseX, mouseY) ? 0x775CE843 : 0x66A317BD);//2002577475 : -1721964477);
-//        FontUtil.drawString(String.format("%s\u00a77 %s", this.getLabel(), this.numberProperty.getValue()), this.x + 2.3f, this.y - 1.0f, -1);
         FontUtil.drawString(String.format("%s\u00a77 %s", this.getLabel(), this.numberProperty.getValue()), this.x + 2.0f, this.y + 4.0f, -1);
     }
 

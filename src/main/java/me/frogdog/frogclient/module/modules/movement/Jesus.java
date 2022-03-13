@@ -20,12 +20,12 @@ public class Jesus extends ToggleableModule {
 			
 			@Override
 			public void call(TickEvent event) {
-				if(Jesus.this.mode.getValue() == Mode.Solid) {
+				if (Jesus.this.mode.getValue() == Mode.Solid) {
 					
 				}
 				
-				if(Jesus.this.mode.getValue() == Mode.Dolphin) {
-					if(mc.player.isInWater() || mc.player.isInLava()) {
+				if (Jesus.this.mode.getValue() == Mode.Dolphin) {
+					if (mc.player.isInWater() || mc.player.isInLava()) {
 						mc.player.jump();
 					}
 				}

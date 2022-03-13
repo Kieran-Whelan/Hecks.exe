@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.math.AxisAlignedBB;
 import org.lwjgl.opengl.GL11;
 
-@SuppressWarnings("redundant")
 public final class RenderMethods {
     public static java.nio.FloatBuffer matModelView = GLAllocation.createDirectFloatBuffer(16);
     public static java.nio.FloatBuffer matProjection = GLAllocation.createDirectFloatBuffer(16);
@@ -640,4 +639,5 @@ public final class RenderMethods {
         Gui.drawScaledCustomSizeModalRect(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
     }
 }
+
 

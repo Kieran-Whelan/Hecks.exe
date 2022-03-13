@@ -1,14 +1,10 @@
-package me.frogdog.frogclient.module.modules.render.clickgui.item.properties;
+package me.frogdog.frogclient.clickgui.item.properties;
 
+import me.frogdog.frogclient.clickgui.item.Button;
 import me.frogdog.frogclient.module.modules.client.Colors;
-import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
 import me.frogdog.frogclient.properties.EnumProperty;
+import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
-import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.util.ResourceLocation;
 
 public class EnumButton extends Button {
     private EnumProperty property;

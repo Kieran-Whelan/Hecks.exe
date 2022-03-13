@@ -10,7 +10,7 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 
-public class Scaffold extends ToggleableModule {
+public final class Scaffold extends ToggleableModule {
 	
 	float yaw;
 
@@ -19,10 +19,9 @@ public class Scaffold extends ToggleableModule {
 		this.offerProperties(this.keybind);
         this.listeners.add(new Listener<TickEvent>("tick_listener"){
 
-            @SuppressWarnings("static-access")
 			@Override
             public void call(TickEvent event) {
-            	if(Keyboard.getEventKey() == Keyboard.KEY_W) {
+            	if (Keyboard.getEventKey() == Keyboard.KEY_W) {
             		KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), false);
             		KeyBinding.setKeyBindState(mc.gameSettings.keyBindBack.getKeyCode(), true);
             		placeBlock();

@@ -6,7 +6,7 @@ import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import net.minecraft.util.EnumFacing;
 
-public class YawLock extends ToggleableModule {
+public final class YawLock extends ToggleableModule {
 	
 	float yaw;
 

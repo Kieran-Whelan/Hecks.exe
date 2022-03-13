@@ -26,7 +26,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.BlockSnapshot;
 
-public class OreESP extends ToggleableModule{
+public final class OreESP extends ToggleableModule{
 	private final Property<Boolean> diamond = new Property<Boolean>(false, "Diamond", "c");
 	private final Property<Boolean> iron = new Property<Boolean>(false, "Iron", "ec");
 	private final Property<Boolean> gold = new Property<Boolean>(false, "Gold", "f");

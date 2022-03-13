@@ -23,6 +23,7 @@ import me.frogdog.frogclient.friend.FriendManager;
 import me.frogdog.frogclient.keybind.KeybindManager;
 import me.frogdog.frogclient.module.ModuleManager;
 import me.frogdog.frogclient.ui.Hud;
+import me.frogdog.frogclient.ui.HudManager;
 
 @Mod(modid = Frog.MODID, name = Frog.NAME, version = Frog.VERSION)
 public final class Frog {
@@ -37,6 +38,7 @@ public final class Frog {
     private CommandManager commandManager;
     private FriendManager friendManager;
     private ConfigManager configManager;
+    private HudManager hudManager;
     private File directory;
 
     public static EventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
@@ -64,6 +66,7 @@ public final class Frog {
         this.keybindManager = new KeybindManager();
         this.moduleManager = new ModuleManager();
         this.commandManager = new CommandManager();
+        this.hudManager = new HudManager();
         this.getConfigManager().getRegistry().forEach(config -> config.load(new Object[0]));
         
         Runtime.getRuntime().addShutdownHook(new Thread("Shutdown Hook Thread"){

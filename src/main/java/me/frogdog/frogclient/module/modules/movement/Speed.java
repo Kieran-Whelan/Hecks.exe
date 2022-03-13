@@ -18,9 +18,9 @@ public final class Speed extends ToggleableModule {
         	
         	@Override
         	public void call(TickEvent event) {
-        		if(Speed.this.mode.getValue() == Mode.STRAFE) {
-        			if(mc.player.onGround) {
-        				if(mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()) {
+        		if (Speed.this.mode.getValue() == Mode.STRAFE) {
+        			if (mc.player.onGround) {
+        				if (mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()) {
         					mc.player.jump();
         					double[] direction = directionSpeed(speed.getValue());
         					mc.player.motionX = direction[0];
@@ -34,8 +34,8 @@ public final class Speed extends ToggleableModule {
         			}
         		}
         		
-        		if(Speed.this.mode.getValue() == Mode.BHop) {
-        			if(mc.player.onGround) {
+        		if (Speed.this.mode.getValue() == Mode.BHop) {
+        			if (mc.player.onGround) {
         				mc.player.jump();
         			}
         		}
@@ -55,11 +55,11 @@ public final class Speed extends ToggleableModule {
                 yaw += (forward > 0 ? 45 : -45);
             }
             side = 0;
-
-            if (forward > 0) {
-                forward = 1;
-            } else if (forward < 0) {
-                forward = -1;
+            
+	        if (forward > 0) {
+	                forward = 1;
+	        } else if (forward < 0) {
+	                forward = -1;
             }
         }
 

@@ -8,7 +8,7 @@ import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 
-public class FakePlayer extends ToggleableModule {
+public final class FakePlayer extends ToggleableModule {
 
 	public FakePlayer() {
 		super("FakePlayer", new String[] {"FakePlayer", "fakeplayer"}, ModuleType.MISCELLANEOUS);

@@ -14,11 +14,12 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 
-public class ESP extends ToggleableModule {
+public final class ESP extends ToggleableModule {
 	private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
 	private final NumberProperty<Integer> red = new NumberProperty<Integer>(0, 0, 255, "Red");
 	private final NumberProperty<Integer> green = new NumberProperty<Integer>(255, 0, 255, "Green");
@@ -27,17 +28,21 @@ public class ESP extends ToggleableModule {
 
 	public ESP() {
 		super("ESP", new String[] {"esp", "ESP"}, ModuleType.RENDER);
-		this.offerProperties(this.width, this.keybind);
+		this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
         this.listeners.add(new Listener<RenderEvent>("render_listener"){
 
             @Override
             public void call(RenderEvent event) {
-            	for(Entity entity : Frog.getInstance().mc.world.loadedEntityList) {
-            		if(entity instanceof EntityPlayer && entity != Frog.getInstance().mc.player) {
+            	for (Entity entity : Frog.getInstance().mc.world.loadedEntityList) {
+            		if (entity instanceof EntityPlayer && entity != Frog.getInstance().mc.player) {
             			drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width, entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
             		}
             		
-            		if(entity instanceof EntityMob) {
+            		if (entity instanceof EntityMob) {
+            			drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+            		}
+            		
+            		if (entity instanceof EntityAnimal) {
             			drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
             		}
             	}
@@ -55,9 +60,9 @@ public class ESP extends ToggleableModule {
 		GL11.glEnable(2848);
 		GL11.glHint(3154, 4354);
 		GL11.glLineWidth(lineWidth);
-		double x = posX - Frog.getInstance().mc.getRenderManager().viewerPosX - 0.5;
-		double y = posY - Frog.getInstance().mc.getRenderManager().viewerPosY;
-		double z = posZ - Frog.getInstance().mc.getRenderManager().viewerPosZ - 0.5;
+		double x = posX - mc.getRenderManager().viewerPosX - 0.3;
+		double y = posY - mc.getRenderManager().viewerPosY;
+		double z = posZ - mc.getRenderManager().viewerPosZ - 0.3;
         AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + width, y + height, z + width);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();

@@ -1,15 +1,14 @@
-package me.frogdog.frogclient.module.modules.render.clickgui;
+package me.frogdog.frogclient.clickgui;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.clickgui.item.Item;
 import me.frogdog.frogclient.module.modules.client.Colors;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.Item;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
-import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
+import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
@@ -110,7 +109,7 @@ public abstract class Panel implements Labeled {
         this.getItems().forEach(item -> item.mouseClicked(mouseX, mouseY, mouseButton));
     }
 
-    public void addButton(Button button) {
+    public void addButton(Item button) {
         this.items.add(button);
     }
 

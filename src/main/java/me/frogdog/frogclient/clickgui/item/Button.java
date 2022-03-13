@@ -1,13 +1,11 @@
-package me.frogdog.frogclient.module.modules.render.clickgui.item;
+package me.frogdog.frogclient.clickgui.item;
 
-import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.module.Module;
+import me.frogdog.frogclient.clickgui.ClickGui;
+import me.frogdog.frogclient.clickgui.Panel;
 import me.frogdog.frogclient.module.modules.client.Colors;
-import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
-import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
-import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
+import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 
 public class Button extends Item implements Labeled {
     private boolean state;

@@ -1,14 +1,14 @@
-package me.frogdog.frogclient.module.modules.render.clickgui.item.properties;
+package me.frogdog.frogclient.clickgui.item.properties;
 
 import org.lwjgl.input.Keyboard;
 
 import me.frogdog.frogclient.Frog;
+import me.frogdog.frogclient.clickgui.item.Button;
 import me.frogdog.frogclient.command.Command;
 import me.frogdog.frogclient.module.Module;
-import me.frogdog.frogclient.module.modules.render.clickgui.item.Button;
 import me.frogdog.frogclient.properties.Property;
+import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
-import me.frogdog.frogclient.util.minecraft.render.font.FontUtil;
 
 public class KeybindButton extends Button {
     private Property property;

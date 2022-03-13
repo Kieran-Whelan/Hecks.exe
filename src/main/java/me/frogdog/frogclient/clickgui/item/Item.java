@@ -1,7 +1,7 @@
-package me.frogdog.frogclient.module.modules.render.clickgui.item;
+package me.frogdog.frogclient.clickgui.item;
 
-import me.frogdog.frogclient.module.modules.render.clickgui.ClickGui;
-import me.frogdog.frogclient.module.modules.render.clickgui.Panel;
+import me.frogdog.frogclient.clickgui.ClickGui;
+import me.frogdog.frogclient.clickgui.Panel;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public class Item implements Labeled {
