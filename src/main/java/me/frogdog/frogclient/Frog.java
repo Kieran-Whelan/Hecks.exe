@@ -120,5 +120,9 @@ public final class Frog {
     public File getDirectory() {
         return this.directory;
     }
+
+	public HudManager getHudManager() {
+		return hudManager;
+	}
     	
 }

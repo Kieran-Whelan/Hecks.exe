@@ -7,18 +7,19 @@ import me.frogdog.frogclient.ui.HudComponent;
 import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 
 public final class Coords extends HudComponent {
-
+	
 	public Coords() {
-		super("coords");
+		super("coords", true, 2, 500);
 	}
 	
-	public void render() {
+	@Override
+	public String getComponent() {
 		if (Frog.getInstance().mc.player.dimension == 0) {
-			FontUtil.drawString("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " Nether: X " + (long) Frog.getInstance().mc.player.posX / 8 + " Z " + (long) Frog.getInstance().mc.player.posZ / 8, 2, 500, FontUtil.rainbow(1 * 360));
+			return "X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " Nether: X " + (long) Frog.getInstance().mc.player.posX / 8 + " Z " + (long) Frog.getInstance().mc.player.posZ / 8;
 		} else if (Frog.getInstance().mc.player.dimension == -1) {
-			FontUtil.drawString("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " OverWorld: X " + (long) Frog.getInstance().mc.player.posX * 8 + " Z " + (long) Frog.getInstance().mc.player.posZ * 8, 2, 500, FontUtil.rainbow(1 * 360));
+			return "X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ + " OverWorld: X " + (long) Frog.getInstance().mc.player.posX * 8 + " Z " + (long) Frog.getInstance().mc.player.posZ * 8;
 		} else {
-			FontUtil.drawString("X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ, 2, 500, FontUtil.rainbow(1 * 360));
+			return "X " + (long) Frog.getInstance().mc.player.posX + " Y " + (long) Frog.getInstance().mc.player.posY + " Z " +  (long) Frog.getInstance().mc.player.posZ;
 		}
 	}
 

@@ -19,5 +19,6 @@ public class ListRegistry<T> {
     public java.util.List<T> getRegistry() {
         return this.registry;
     }
+
 }
 
