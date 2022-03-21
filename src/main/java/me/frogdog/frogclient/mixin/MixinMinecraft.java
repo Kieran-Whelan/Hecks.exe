@@ -15,4 +15,5 @@ public abstract class MixinMinecraft {
     private void initHook2(CallbackInfo ci) {
         new Frog();
     }
+
 }

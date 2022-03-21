@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.module.modules.client.HudEditor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -17,7 +16,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class Hud extends Gui {
 	
 	public static final Hud INSTANCE = new Hud();
-    public HudEditor hudEditor = new HudEditor();
 	public Minecraft mc = Minecraft.getMinecraft();
 	
 	@SuppressWarnings("unchecked")
@@ -29,17 +27,15 @@ public class Hud extends Gui {
 		
 		if (event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
 			for (HudComponent h : Frog.getInstance().getHudManager().getRegistry()) {
-				if (h.getComponent() instanceof String) {
+				if (h.getComponent() instanceof String && h.isShow()) {
 					fr.drawStringWithShadow((String) h.getComponent(), h.getxPos(), h.getyPos(), rainbow(1 * 360));
-				} else if (h.getComponent() instanceof ArrayList) {
+				} else if (h.getComponent() instanceof ArrayList && h.isShow()) {
 					int y = 2;
-					//ArrayList<String> moduleLabels = new ArrayList<String>();
-					//moduleLabels.addAll((Collection<? extends String>) h.getComponent());
-						for (String s : (Collection<? extends String>) h.getComponent()) {
-									fr.drawStringWithShadow(s, sr.getScaledWidth() - fr.getStringWidth(s) - 2, y, rainbow(1 * 360));
-									y += fr.FONT_HEIGHT;
-						}
-				} else if (h.getComponent() instanceof ResourceLocation) {
+					for (String s : (Collection<? extends String>) h.getComponent()) {
+						fr.drawStringWithShadow(s, sr.getScaledWidth() - fr.getStringWidth(s) - 2, y, rainbow(1 * 360));
+						y += fr.FONT_HEIGHT;
+					}
+				} else if (h.getComponent() instanceof ResourceLocation && h.isShow()) {
 					mc.renderEngine.bindTexture((ResourceLocation) h.getComponent());
 					drawScaledCustomSizeModalRect(h.getxPos(), h.getyPos(), 0, 0, 40, 40, 40, 40, 40, 40);
 				}

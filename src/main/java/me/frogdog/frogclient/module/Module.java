@@ -5,7 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.presets.Preset;
+import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.properties.Property;
 import me.frogdog.frogclient.util.interfaces.Labeled;
@@ -22,7 +22,6 @@ public class Module implements Labeled {
     private String tag;
     private final String[] aliases;
     private final List<Property<?>> properties = new ArrayList<>();
-    private final List<Preset> presets = new ArrayList<Preset>();
     protected Minecraft mc = Minecraft.getMinecraft();
 
     protected Module(String label, String[] aliases) {
@@ -61,25 +60,6 @@ public class Module implements Labeled {
                 if (!alias.equalsIgnoreCase(propertyAlias)) continue;
                 return property;
             }
-        }
-        return null;
-    }
-
-    public List<Preset> getPresets() {
-        return this.presets;
-    }
-
-    protected void offsetPresets(Preset ... presets) {
-        for (Preset preset : presets) {
-            this.presets.add(preset);
-        }
-        this.presets.sort((p1, p2) -> p1.getLabel().compareTo(p2.getLabel()));
-    }
-
-    public Preset getPresetByLabel(String label) {
-        for (Preset preset : presets) {
-            if (!label.equalsIgnoreCase(preset.getLabel())) continue;
-            return preset;
         }
         return null;
     }

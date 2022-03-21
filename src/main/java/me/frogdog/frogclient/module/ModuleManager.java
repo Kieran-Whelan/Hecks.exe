@@ -31,7 +31,6 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Fullbright());
         register(new ClickGui());
         register(new Colors());
-        register(new HudEditor());
         register(new Sprint());
         register(new Speed());
         register(new NoRender());
@@ -41,7 +40,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Notification());
         register(new StorageESP());
         register(new ESP());
-        //register(new OreESP());
+        register(new Tracers());
         register(new KillAura());
         register(new FastPlace());
         register(new Freecam());
