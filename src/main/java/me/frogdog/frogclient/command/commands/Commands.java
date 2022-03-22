@@ -10,17 +10,17 @@ public class Commands extends Command {
 	public void onClientCommand(String command, String[] args) throws Exception {
 		Command.sendClientSideMessage("Commands: ");
 		Frog.getInstance().getCommandManager().getRegistry().forEach(c -> {
-			sendClientSideMessage(c.getClientSyntax());
+			sendClientSideMessage(c.getSyntax());
 		});	
 	}
 	
 	@Override
-	public String getClientSyntax() {
+	public String getSyntax() {
 		return "Commands";
 	}
 
 	@Override
-	public String[] getClientAlias() {
+	public String[] getCommandAlias() {
 		return new String[] {"Commands", "commands"};
 	}
 

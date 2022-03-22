@@ -30,16 +30,16 @@ public final class Frog {
     public static final String MODID = "frogclient";
     public static final String NAME = "Frog Client";
     public static final String VERSION = "Beta 1.0";
-	public Minecraft mc = Minecraft.getMinecraft();
+	public final Minecraft mc = Minecraft.getMinecraft();
     private static Frog instance = null;
-    private BasicEventManager eventManager;
-    private KeybindManager keybindManager;
-    private ModuleManager moduleManager;
-    private CommandManager commandManager;
-    private FriendManager friendManager;
-    private ConfigManager configManager;
-    private HudManager hudManager;
-    private File directory;
+    private final BasicEventManager eventManager;
+    private final KeybindManager keybindManager;
+    private final ModuleManager moduleManager;
+    private final CommandManager commandManager;
+    private final FriendManager friendManager;
+    private final ConfigManager configManager;
+    private final HudManager hudManager;
+    private final File directory;
 
     public static EventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
     

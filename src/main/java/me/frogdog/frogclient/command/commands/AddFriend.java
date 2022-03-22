@@ -15,12 +15,12 @@ public class AddFriend extends Command {
 	}
 
 	@Override
-	public String getClientSyntax() {
+	public String getSyntax() {
 		return "Add (username)";
 	}
 
 	@Override
-	public String[] getClientAlias() {
+	public String[] getCommandAlias() {
 		return new String[] {"add"};
 	}
 

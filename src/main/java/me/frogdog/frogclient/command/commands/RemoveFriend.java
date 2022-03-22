@@ -20,12 +20,12 @@ public class RemoveFriend extends Command {
 	}
 
 	@Override
-	public String getClientSyntax() {
+	public String getSyntax() {
 		return "Remove (username)";
 	}
 
 	@Override
-	public String[] getClientAlias() {
+	public String[] getCommandAlias() {
 		return new String[] {"remove"};
 	}
 

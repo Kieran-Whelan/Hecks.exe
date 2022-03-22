@@ -8,11 +8,9 @@ import me.frogdog.frogclient.command.commands.*;
 import me.frogdog.frogclient.util.registry.ListRegistry;
 
 public class CommandManager extends ListRegistry<Command>{
-	
-    public static final CommandManager INSTANCE = new CommandManager();
-	
-	boolean b;
-	
+
+	private boolean found;
+
 	public CommandManager() {
         this.registry = new ArrayList<Command>();
         
@@ -30,23 +28,23 @@ public class CommandManager extends ListRegistry<Command>{
 	    String[] split = input.split(" (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
 	    String command = split[0];
 	    String args = input.substring(command.length()).trim();
-	    b = false;
-	    getRegistry().forEach(c ->{
+		found = false;
+	    this.getRegistry().forEach(c ->{
 	        for(String s : c.getClientAlias()) {
 	            if (s.equalsIgnoreCase(command)) {
-	                b = true;
+					found = true;
 	                try {
 	                    c.onClientCommand(args, args.split(" (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
 	                } catch (Exception e) {
-	                    if (!s.equalsIgnoreCase("friend")) {
 	                        Command.sendClientSideMessage(ChatFormatting.GREEN + c.getClientSyntax());
-	                    }
-	
 	                }
 	            }
 	        }
 	    });
-	    if(!b) Command.sendClientSideMessage(ChatFormatting.GREEN + "Unknown command!");
+		if (!found) {
+			Command.sendClientSideMessage(ChatFormatting.GREEN + "Unknown command!");
+		}
+
 	}
 	
 }

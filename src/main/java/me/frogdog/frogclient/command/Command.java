@@ -9,8 +9,8 @@ public abstract class Command {
 	
 	public static String prefix = "-";
 	public abstract void onClientCommand(String command, String[] args) throws Exception;
-	public abstract String getClientSyntax();
-	public abstract String[] getClientAlias();
+	public abstract String getSyntax();
+	public abstract String[] getCommandAlias();
 	
 	public static void sendClientSideMessage(String message) {
 			Frog.getInstance().mc.player.sendMessage(new TextComponentString(ChatFormatting.DARK_GREEN + "[FrogClient] "+ ChatFormatting.WHITE + message ));

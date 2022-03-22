@@ -24,12 +24,12 @@ public class Toggle extends Command {
 	}
 
 	@Override
-	public String getClientSyntax() {
+	public String getSyntax() {
 		return "Toggle (module name)";
 	}
 
 	@Override
-	public String[] getClientAlias() {
+	public String[] getCommandAlias() {
 		return new String[] {"toggle"};
 	}
 	

@@ -11,12 +11,12 @@ public class Help extends Command {
 	}
 
 	@Override
-	public String getClientSyntax() {
+	public String getSyntax() {
 		return "Help";
 	}
 
 	@Override
-	public String[] getClientAlias() {
+	public String[] getCommandAlias() {
 		return new String[] {"help"};
 	}
 

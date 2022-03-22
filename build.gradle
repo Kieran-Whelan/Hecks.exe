@@ -10,8 +10,8 @@ buildscript {
             name = 'SpongePowered'
             url = 'https://repo.spongepowered.org/maven'
         }
-        maven { 
-        	url 'https://jitpack.io' 
+        maven {
+            url 'https://jitpack.io'
         }
     }
     dependencies {
@@ -47,8 +47,8 @@ repositories {
         name = 'spongepowered-repo'
         url = 'https://repo.spongepowered.org/maven/'
     }
-    maven { 
-    	url 'https://jitpack.io' 
+    maven {
+        url 'https://jitpack.io'
     }
     jcenter()
 }
@@ -61,7 +61,7 @@ dependencies {
         exclude module: 'gson'
         exclude module: 'commons-io'
     }
-    
+
     implementation 'com.github.Vatuu:discord-rpc:1.6.2'
 }
 
@@ -121,3 +121,6 @@ jar {
 }
 
 build.dependsOn(shadowJar)
+
+sourceSets { main { output.resourcesDir = output.classesDir } }
+

@@ -15,12 +15,12 @@ public class HudToggle extends Command {
 	}
 
 	@Override
-	public String getClientSyntax() {
+	public String getSyntax() {
 		return "hudtoggle (component)";
 	}
 
 	@Override
-	public String[] getClientAlias() {
+	public String[] getCommandAlias() {
 		return new String[] {"hudtoggle"};
 	}
 
