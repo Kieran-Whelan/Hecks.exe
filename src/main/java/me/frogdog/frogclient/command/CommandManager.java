@@ -30,13 +30,13 @@ public class CommandManager extends ListRegistry<Command>{
 	    String args = input.substring(command.length()).trim();
 		found = false;
 	    this.getRegistry().forEach(c ->{
-	        for(String s : c.getClientAlias()) {
+	        for(String s : c.getCommandAlias()) {
 	            if (s.equalsIgnoreCase(command)) {
 					found = true;
 	                try {
 	                    c.onClientCommand(args, args.split(" (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
 	                } catch (Exception e) {
-	                        Command.sendClientSideMessage(ChatFormatting.GREEN + c.getClientSyntax());
+	                        Command.sendClientSideMessage(ChatFormatting.GREEN + c.getSyntax());
 	                }
 	            }
 	        }

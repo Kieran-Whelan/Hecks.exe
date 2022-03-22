@@ -16,7 +16,7 @@ public class HudToggle extends Command {
 
 	@Override
 	public String getSyntax() {
-		return "hudtoggle (component)";
+		return "HudToggle (component)";
 	}
 
 	@Override
