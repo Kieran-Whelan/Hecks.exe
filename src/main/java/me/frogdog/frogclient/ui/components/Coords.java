@@ -9,7 +9,7 @@ import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 public final class Coords extends HudComponent {
 	
 	public Coords() {
-		super("coords", true, 2, 500);
+		super("coords", 2, 500);
 	}
 	
 	@Override

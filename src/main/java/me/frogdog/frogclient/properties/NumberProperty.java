@@ -1,7 +1,6 @@
 package me.frogdog.frogclient.properties;
 
-public class NumberProperty<T extends Number>
-extends Property<T> {
+public class NumberProperty<T extends Number> extends Property<T> {
     private final T minimum;
     private final T maximum;
     private boolean clamp;

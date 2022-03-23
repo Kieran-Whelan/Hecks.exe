@@ -15,7 +15,7 @@ public class ModuleArray extends HudComponent {
 	private ArrayList<String> moduleArray = new ArrayList<String>();
 
 	public ModuleArray() {
-		super("moduleArray", true, 0, 0);
+		super("moduleArray", 0, 0);
 	}
 	
 	public static class ModuleComparator implements Comparator<String> {

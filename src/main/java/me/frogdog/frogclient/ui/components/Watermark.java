@@ -9,7 +9,7 @@ public class Watermark extends HudComponent {
 	private final ResourceLocation watermark = new ResourceLocation(Frog.getInstance().MODID , "textures/watermark.png");
 
 	public Watermark() {
-		super("watermark", true, 10, 15);
+		super("watermark", 10, 15);
 	}
 
 	@Override
