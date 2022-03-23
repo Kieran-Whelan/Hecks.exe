@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.ui;
 
+import me.frogdog.frogclient.module.modules.client.HudEditor;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 
 public abstract class HudComponent implements Labeled {
@@ -9,9 +10,9 @@ public abstract class HudComponent implements Labeled {
 	private int xPos;
 	private int yPos;
 	
-	public HudComponent(String label, boolean show, int xPos, int yPos) {
+	public HudComponent(String label, int xPos, int yPos) {
 		this.label = label;
-		this.show = show;
+		this.show = HudEditor.getShow(this.label);
 		this.xPos = xPos;
 		this.yPos = yPos;
 	}

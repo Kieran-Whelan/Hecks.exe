@@ -6,7 +6,7 @@ import me.frogdog.frogclient.ui.HudComponent;
 public class Facing extends HudComponent {
 
 	public Facing() {
-		super("facing", true, 2, 490);
+		super("facing", 2, 490);
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import me.frogdog.frogclient.ui.HudComponent;
 public class ClientName extends HudComponent {
 
 	public ClientName() {
-		super("clientName", true, 2, 1);
+		super("clientName", 2, 1);
 	}
 
 	@Override

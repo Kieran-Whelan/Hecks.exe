@@ -10,7 +10,7 @@ public class Speed extends HudComponent {
 	private final Timer timer = new Timer();
 
 	public Speed() {
-		super("speed", true, 2, 480);
+		super("speed", 2, 480);
 	}
 
 	@Override

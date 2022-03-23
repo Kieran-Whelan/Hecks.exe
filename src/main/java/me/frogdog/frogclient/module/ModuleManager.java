@@ -31,6 +31,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Fullbright());
         register(new ClickGui());
         register(new Colors());
+        register(new HudEditor());
         register(new Sprint());
         register(new Speed());
         register(new NoRender());
