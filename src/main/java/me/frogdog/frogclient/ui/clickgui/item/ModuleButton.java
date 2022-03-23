@@ -1,14 +1,17 @@
-package me.frogdog.frogclient.clickgui.item;
+package me.frogdog.frogclient.ui.clickgui.item;
 
 import java.util.ArrayList;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.clickgui.item.properties.*;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.EnumProperty;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.properties.Property;
+import me.frogdog.frogclient.ui.clickgui.item.properties.BooleanButton;
+import me.frogdog.frogclient.ui.clickgui.item.properties.EnumButton;
+import me.frogdog.frogclient.ui.clickgui.item.properties.KeybindButton;
+import me.frogdog.frogclient.ui.clickgui.item.properties.NumberSlider;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

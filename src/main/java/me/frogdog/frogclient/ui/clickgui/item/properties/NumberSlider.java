@@ -1,8 +1,8 @@
-package me.frogdog.frogclient.clickgui.item.properties;
+package me.frogdog.frogclient.ui.clickgui.item.properties;
 
+import me.frogdog.frogclient.ui.clickgui.item.Item;
 import org.lwjgl.input.Mouse;
 
-import me.frogdog.frogclient.clickgui.item.Item;
 import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.properties.NumberProperty;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;

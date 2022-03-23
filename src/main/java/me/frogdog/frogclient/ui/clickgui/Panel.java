@@ -1,10 +1,10 @@
-package me.frogdog.frogclient.clickgui;
+package me.frogdog.frogclient.ui.clickgui;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.clickgui.item.Item;
+import me.frogdog.frogclient.ui.clickgui.item.Item;
 import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;
@@ -14,15 +14,15 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
 public abstract class Panel implements Labeled {
-    private Minecraft minecraft = Minecraft.getMinecraft();
+    private final Minecraft mc = Minecraft.getMinecraft();
     private final String label;
     private int angle;
     private int x;
     private int y;
     private int x2;
     private int y2;
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
     private boolean open;
     public boolean drag;
     private final ArrayList<Item> items = new ArrayList();
@@ -60,7 +60,7 @@ public abstract class Panel implements Labeled {
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
         RenderMethods.glColor(new Color(255, 255, 255, 255));
-        minecraft.getTextureManager().bindTexture(new ResourceLocation(Frog.getInstance().MODID, "textures/watermark.png"));
+        mc.getTextureManager().bindTexture(new ResourceLocation(Frog.getInstance().MODID, "textures/watermark.png"));
         GlStateManager.translate(getX() + getWidth() - 7, (getY() + 6) - 0.3F, 0.0F);
         GlStateManager.rotate(calculateRotation(angle), 0.0F, 0.0F, 1.0F);
         RenderMethods.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);

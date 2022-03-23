@@ -1,6 +1,6 @@
-package me.frogdog.frogclient.clickgui.item.properties;
+package me.frogdog.frogclient.ui.clickgui.item.properties;
 
-import me.frogdog.frogclient.clickgui.item.Button;
+import me.frogdog.frogclient.ui.clickgui.item.Button;
 import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.properties.EnumProperty;
 import me.frogdog.frogclient.util.minecraft.render.FontUtil;

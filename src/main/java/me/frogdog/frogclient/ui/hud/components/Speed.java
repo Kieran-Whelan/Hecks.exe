@@ -1,7 +1,7 @@
-package me.frogdog.frogclient.ui.components;
+package me.frogdog.frogclient.ui.hud.components;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.ui.HudComponent;
+import me.frogdog.frogclient.ui.hud.HudComponent;
 import me.frogdog.frogclient.util.Timer;
 import net.minecraft.util.math.MathHelper;
 

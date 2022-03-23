@@ -1,9 +1,9 @@
-package me.frogdog.frogclient.clickgui;
+package me.frogdog.frogclient.ui.clickgui;
 
 import java.util.ArrayList;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.clickgui.item.ModuleButton;
+import me.frogdog.frogclient.ui.clickgui.item.ModuleButton;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;

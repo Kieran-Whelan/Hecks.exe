@@ -4,12 +4,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventBus;
 
 import java.io.File;
-import java.io.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,8 +20,8 @@ import me.frogdog.frogclient.event.basic.BasicEventManager;
 import me.frogdog.frogclient.friend.FriendManager;
 import me.frogdog.frogclient.keybind.KeybindManager;
 import me.frogdog.frogclient.module.ModuleManager;
-import me.frogdog.frogclient.ui.Hud;
-import me.frogdog.frogclient.ui.HudManager;
+import me.frogdog.frogclient.ui.hud.Hud;
+import me.frogdog.frogclient.ui.hud.HudManager;
 
 @Mod(modid = Frog.MODID, name = Frog.NAME, version = Frog.VERSION)
 public final class Frog {

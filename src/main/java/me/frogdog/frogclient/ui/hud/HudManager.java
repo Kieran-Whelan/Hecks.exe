@@ -1,8 +1,10 @@
-package me.frogdog.frogclient.ui;
+package me.frogdog.frogclient.ui.hud;
 
 import java.util.ArrayList;
 
-import me.frogdog.frogclient.ui.components.*;
+import me.frogdog.frogclient.ui.hud.components.*;
+import me.frogdog.frogclient.ui.hud.HudComponent;
+import me.frogdog.frogclient.ui.hud.components.*;
 import me.frogdog.frogclient.util.registry.ListRegistry;
 
 public final class HudManager extends ListRegistry<HudComponent> {

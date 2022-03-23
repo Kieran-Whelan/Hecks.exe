@@ -1,4 +1,4 @@
-package me.frogdog.frogclient.ui;
+package me.frogdog.frogclient.ui.hud;
 
 import java.awt.Color;
 import java.util.ArrayList;

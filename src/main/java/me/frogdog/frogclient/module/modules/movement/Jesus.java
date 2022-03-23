@@ -5,28 +5,59 @@ import me.frogdog.frogclient.event.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.EnumProperty;
+import me.frogdog.frogclient.properties.NumberProperty;
+import me.frogdog.frogclient.properties.Property;
 import me.frogdog.frogclient.util.Timer;
+import net.minecraft.block.Block;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.Mod;
 
 public class Jesus extends ToggleableModule {
-	private final EnumProperty<Mode> mode = new EnumProperty<Mode> (Mode.Solid, "Mode", "m");
+	private final EnumProperty<Mode> mode = new EnumProperty<> (Mode.Solid, "Mode", "m");
+	private final NumberProperty<Float> speed = new NumberProperty<>(0.5f, 0.0f, 1.0f, "Speed");
+	private final Property<Boolean> damage = new Property<>(true, "Damage");
 	
 	Timer timer = new Timer();
 
 	public Jesus() {
 		super("Jesus", new String[] {"Jesus", "jesus"}, ModuleType.MOVEMENT);
-		this.offerProperties(this.mode);
+		this.offerProperties(this.mode, this.speed, this.damage);
         this.offerProperties(this.keybind);
 		this.listeners.add(new Listener<TickEvent>("tick_listener") {
 			
 			@Override
 			public void call(TickEvent event) {
-				if (Jesus.this.mode.getValue() == Mode.Solid) {
-					
+				if (mc.player.isRiding()) {
+					return;
 				}
-				
+				if (Jesus.this.mode.getValue() == Mode.Bounce) {
+					if (mc.player.isInWater()) {
+						if (!mc.player.isSneaking()) {
+							mc.player.motionY = 0.03999999910593033D * speed.getValue();
+						}
+						else {
+							mc.player.motionY = -0.03999999910593033D * speed.getValue();
+						}
+					}
+				}
+				if (Jesus.this.mode.getValue() == Mode.Solid) {
+					if (!mc.player.isSneaking()) {
+						if (mc.world.getBlockState(new BlockPos(mc.player.posX, mc.player.posY - 0.2f, mc.player.posZ))
+								.getBlock() == Block.getBlockFromName("water") && mc.player.motionY < 0.0D) {
+							mc.player.posY -= mc.player.motionY;
+							mc.player.motionY = 0;
+							if (damage.getValue()) {
+								mc.player.fallDistance = 0;
+							}
+						}
+						if (mc.player.isInWater()) {
+							mc.player.motionY = 0.03999999910593033D * speed.getValue();
+						}
+					}
+				}
 				if (Jesus.this.mode.getValue() == Mode.Dolphin) {
-					if (mc.player.isInWater() || mc.player.isInLava()) {
-						mc.player.jump();
+					if (mc.player.isInWater() && !mc.player.isSneaking()) {
+						mc.player.motionY += 0.03999999910593033D;
 					}
 				}
 			}
@@ -36,7 +67,8 @@ public class Jesus extends ToggleableModule {
 	
 	public enum Mode {
 		Solid,
-		Dolphin
+		Dolphin,
+		Bounce
 	}
 	
 	

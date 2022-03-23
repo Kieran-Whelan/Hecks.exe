@@ -12,7 +12,7 @@ public final class ClickGui extends ToggleableModule {
     @Override
     public void onEnable() {
         super.onEnable();
-        this.mc.displayGuiScreen(me.frogdog.frogclient.clickgui.ClickGui.getClickGui());
+        this.mc.displayGuiScreen(me.frogdog.frogclient.ui.clickgui.ClickGui.getClickGui());
         this.setRunning(false);
     }
 }

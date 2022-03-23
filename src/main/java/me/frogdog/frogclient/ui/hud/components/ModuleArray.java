@@ -1,4 +1,4 @@
-package me.frogdog.frogclient.ui.components;
+package me.frogdog.frogclient.ui.hud.components;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import java.util.Comparator;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
-import me.frogdog.frogclient.ui.HudComponent;
+import me.frogdog.frogclient.ui.hud.HudComponent;
 import me.frogdog.frogclient.util.minecraft.render.FontUtil;
 
 public class ModuleArray extends HudComponent {

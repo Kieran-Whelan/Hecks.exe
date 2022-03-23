@@ -1,9 +1,9 @@
-package me.frogdog.frogclient.clickgui.item.properties;
+package me.frogdog.frogclient.ui.clickgui.item.properties;
 
+import me.frogdog.frogclient.ui.clickgui.item.Button;
 import org.lwjgl.input.Keyboard;
 
 import me.frogdog.frogclient.Frog;
-import me.frogdog.frogclient.clickgui.item.Button;
 import me.frogdog.frogclient.command.Command;
 import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.properties.Property;

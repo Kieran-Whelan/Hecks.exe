@@ -1,7 +1,7 @@
-package me.frogdog.frogclient.clickgui.item;
+package me.frogdog.frogclient.ui.clickgui.item;
 
-import me.frogdog.frogclient.clickgui.ClickGui;
-import me.frogdog.frogclient.clickgui.Panel;
+import me.frogdog.frogclient.ui.clickgui.ClickGui;
+import me.frogdog.frogclient.ui.clickgui.Panel;
 import me.frogdog.frogclient.module.modules.client.Colors;
 import me.frogdog.frogclient.util.interfaces.Labeled;
 import me.frogdog.frogclient.util.minecraft.render.RenderMethods;

@@ -1,4 +1,4 @@
-package me.frogdog.frogclient.ui;
+package me.frogdog.frogclient.ui.hud;
 
 import me.frogdog.frogclient.module.modules.client.HudEditor;
 import me.frogdog.frogclient.util.interfaces.Labeled;
