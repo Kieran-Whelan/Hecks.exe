@@ -37,7 +37,7 @@ public class EventProcessor {
     @SubscribeEvent
     public void onChatSend(ClientChatEvent event) {
     	String message = event.getMessage();
-        if (message.startsWith(Command.getClientPrefix())) {
+        if (message.startsWith(Command.getPrefix())) {
             event.setCanceled(true);
             try {
                 Frog.getInstance().mc.ingameGUI.getChatGUI().addToSentMessages(message);

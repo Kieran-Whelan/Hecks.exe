@@ -4,7 +4,11 @@ import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
 import me.frogdog.frogclient.friend.Friend;
 
-public class RemoveFriend extends Command {
+public final class RemoveFriend extends Command {
+
+	public RemoveFriend() {
+		super(new String[] {"remove", "unadd"}, "Remove (username)");
+	}
 
 	@Override
 	public void onClientCommand(String command, String[] args) throws Exception {
@@ -17,16 +21,6 @@ public class RemoveFriend extends Command {
 			Command.sendClientSideMessage("Removed " + username + " from your friends list");
 		}
 		
-	}
-
-	@Override
-	public String getSyntax() {
-		return "Remove (username)";
-	}
-
-	@Override
-	public String[] getCommandAlias() {
-		return new String[] {"remove"};
 	}
 
 }

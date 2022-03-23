@@ -6,8 +6,12 @@ import me.frogdog.frogclient.module.Module;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.util.interfaces.Toggleable;
 
-public class Toggle extends Command {
-	
+public final class Toggle extends Command {
+
+	public Toggle() {
+		super(new String[] {"toggle"}, "Toggle (module)");
+	}
+
 	@Override
 	public void onClientCommand(String command, String[] args) throws Exception {
         Module module = Frog.getInstance().getModuleManager().getModuleByAlias(args[0]);
@@ -22,16 +26,5 @@ public class Toggle extends Command {
         }
         
 	}
-
-	@Override
-	public String getSyntax() {
-		return "Toggle (module name)";
-	}
-
-	@Override
-	public String[] getCommandAlias() {
-		return new String[] {"toggle"};
-	}
-	
 
 }

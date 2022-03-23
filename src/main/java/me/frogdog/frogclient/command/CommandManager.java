@@ -30,7 +30,7 @@ public class CommandManager extends ListRegistry<Command>{
 	    String args = input.substring(command.length()).trim();
 		found = false;
 	    this.getRegistry().forEach(c ->{
-	        for(String s : c.getCommandAlias()) {
+	        for(String s : c.getAlias()) {
 	            if (s.equalsIgnoreCase(command)) {
 					found = true;
 	                try {

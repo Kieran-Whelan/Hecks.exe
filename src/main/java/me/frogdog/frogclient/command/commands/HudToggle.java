@@ -4,7 +4,11 @@ import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
 import me.frogdog.frogclient.properties.Property;
 
-public class HudToggle extends Command {
+public final class HudToggle extends Command {
+
+	public HudToggle() {
+		super(new String[] {"hudtoggle"}, "HudToggle (component)");
+	}
 
 	@Override
 	public void onClientCommand(String command, String[] args) throws Exception {
@@ -14,16 +18,6 @@ public class HudToggle extends Command {
 		} else {
 			property.setValue(true);
 		}
-	}
-
-	@Override
-	public String getSyntax() {
-		return "HudToggle (component)";
-	}
-
-	@Override
-	public String[] getCommandAlias() {
-		return new String[] {"hudtoggle"};
 	}
 
 }

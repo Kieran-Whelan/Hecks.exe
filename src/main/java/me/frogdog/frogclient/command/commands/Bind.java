@@ -5,7 +5,11 @@ import org.lwjgl.input.Keyboard;
 import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.command.Command;
 
-public class Bind extends Command {
+public final class Bind extends Command {
+
+	public Bind() {
+		super(new String[] {"bind", "keybind"}, "bind (module) (key)");
+	}
 
 	@Override
 	public void onClientCommand(String command, String[] args) throws Exception {
@@ -13,16 +17,6 @@ public class Bind extends Command {
 		Frog.getInstance().getKeybindManager().getKeybindByLabel(args[0]).setKey(Keyboard.getKeyIndex(key));
 		Command.sendClientSideMessage(args[0] + "'s bind has been set to " + key);
 		
-	}
-
-	@Override
-	public String getSyntax() {
-		return "Bind (module name) (key)";
-	}
-
-	@Override
-	public String[] getCommandAlias() {
-		return new String[] {"bind"};
 	}
 
 }
