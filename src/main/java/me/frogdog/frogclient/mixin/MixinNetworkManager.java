@@ -17,8 +17,7 @@ public class MixinNetworkManager {
     @Inject(method = "sendPacket(Lnet/minecraft/network/Packet;)V", at = @At("HEAD"), cancellable = true)
     public void onPacketSend(Packet<?> packet, CallbackInfo info) {
         PacketEvent packetSendEvent = new PacketEvent(packet);
-        Frog.getInstance().getEventManager()
-                .dispatch(packetSendEvent);
+        Frog.getInstance().getEventManager().dispatch(packetSendEvent);
 
         if (packetSendEvent.isCanceled()) {
             info.cancel();
@@ -28,8 +27,7 @@ public class MixinNetworkManager {
     @Inject(method = "channelRead0", at = @At("HEAD"), cancellable = true)
     public void onPacketReceive(ChannelHandlerContext chc, Packet<?> packet, CallbackInfo info) {
         PacketEvent packetReceiveEvent = new PacketEvent(packet);
-        Frog.getInstance().getEventManager()
-                .dispatch(packetReceiveEvent);
+        Frog.getInstance().getEventManager().dispatch(packetReceiveEvent);
 
         if (packetReceiveEvent.isCanceled()) {
             info.cancel();

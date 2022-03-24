@@ -36,7 +36,7 @@ public final class BasicEventManager implements EventManager {
     @Override
     public void dispatch(Event event) {
         this.listeners.forEach(listener -> {
-            if (this.filter(listener, event) && listener.getEvent() == event.getClass() && Minecraft.getMinecraft().player != null && Minecraft.getMinecraft().world != null) {
+            if (this.filter(listener, event) && listener.getEvent() == event.getClass() &&  Minecraft.getMinecraft().player != null && Minecraft.getMinecraft().world != null) {
                 listener.call(event);
             }
         });

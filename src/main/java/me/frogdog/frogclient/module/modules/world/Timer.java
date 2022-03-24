@@ -17,7 +17,7 @@ public final class Timer extends ToggleableModule {
 
             @Override
             public void call(TickEvent event) {
-                mc.timer.tickLength = 50f / Timer.this.speed.getValue();
+                mc.timer.tickLength = 50f / (Timer.this.speed.getValue() == 0f ? 0.1f : Timer.this.speed.getValue());
             }
         });
     }

@@ -41,6 +41,8 @@ minecraft {
     makeObfSourceJar = false
 }
 
+sourceSets { main { output.resourcesDir = output.classesDir } }
+
 repositories {
     mavenCentral()
     maven {
@@ -96,7 +98,11 @@ shadowJar {
 
 mixin {
     defaultObfuscationEnv searge
-    add sourceSets.main, 'mixins.frogclient.refmap.json'
+    sourceSets {
+        main {
+            ext.refMap = 'mixins.hitlerhax.refmap.json'
+        }
+    }
 }
 
 reobf {
@@ -121,6 +127,3 @@ jar {
 }
 
 build.dependsOn(shadowJar)
-
-sourceSets { main { output.resourcesDir = output.classesDir } }
-

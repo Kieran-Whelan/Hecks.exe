@@ -1,5 +1,6 @@
 package me.frogdog.frogclient;
 
+import me.frogdog.frogclient.util.DiscordRP;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -79,12 +80,9 @@ public final class Frog {
     
     @EventHandler
     public void init(FMLPostInitializationEvent event) {
-    	/**
     	DiscordRP discordRP = new DiscordRP();
     	discordRP.start();
     	discordRP.update("Playing " + NAME, "In Game");
-    	**/
-
     }
 
     public static Frog getInstance() {

@@ -1,8 +1,11 @@
 package me.frogdog.frogclient.event;
 
 import me.frogdog.frogclient.event.events.PacketEvent;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.Packet;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.client.CPacketPlayer;
+import net.minecraftforge.fml.common.network.PacketLoggingHandler;
 import org.lwjgl.input.Keyboard;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -56,9 +59,6 @@ public class EventProcessor {
     public void onTick(TickEvent event) {
     	if(!(Frog.getInstance().mc.player == null)) {
     		 me.frogdog.frogclient.event.events.TickEvent tickEvent = new me.frogdog.frogclient.event.events.TickEvent();
-             me.frogdog.frogclient.event.events.PacketEvent packetEvent = new me.frogdog.frogclient.event.events.PacketEvent(null);
-
-             Frog.getInstance().getEventManager().dispatch(packetEvent);
     		 
     		 Frog.getInstance().getEventManager().dispatch(tickEvent);
 
@@ -72,17 +72,6 @@ public class EventProcessor {
              me.frogdog.frogclient.event.events.RenderEvent renderEvent = new me.frogdog.frogclient.event.events.RenderEvent(0);
 
              Frog.getInstance().getEventManager().dispatch(renderEvent);
-
-    	}
-    	
-    }
-    
-    @SubscribeEvent
-    public void onPushOutOfBlock(PlayerSPPushOutOfBlocksEvent event) {
-    	if(!(Frog.getInstance().mc.player == null)) {
-             me.frogdog.frogclient.event.events.PushOutOfBlocksEvent pushOutOfBlocksEvent = new me.frogdog.frogclient.event.events.PushOutOfBlocksEvent();
-
-             Frog.getInstance().getEventManager().dispatch(pushOutOfBlocksEvent);
 
     	}
     	
