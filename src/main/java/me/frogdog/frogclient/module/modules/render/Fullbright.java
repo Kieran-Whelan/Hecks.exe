@@ -1,14 +1,11 @@
 package me.frogdog.frogclient.module.modules.render;
 
+import me.frogdog.frogclient.event.Event;
 import me.frogdog.frogclient.event.Listener;
-import me.frogdog.frogclient.Frog;
 import me.frogdog.frogclient.event.events.RenderEvent;
-import me.frogdog.frogclient.event.events.TickEvent;
-import me.frogdog.frogclient.keybind.Keybind;
 import me.frogdog.frogclient.module.ModuleType;
 import me.frogdog.frogclient.module.ToggleableModule;
 import me.frogdog.frogclient.properties.EnumProperty;
-import me.frogdog.frogclient.properties.NumberProperty;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 

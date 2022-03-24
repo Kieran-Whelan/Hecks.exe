@@ -1,5 +1,8 @@
 package me.frogdog.frogclient.event;
 
+import me.frogdog.frogclient.event.events.PacketEvent;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketPlayer;
 import org.lwjgl.input.Keyboard;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -21,9 +24,9 @@ public class EventProcessor {
     @SubscribeEvent
     public void onInput(InputEvent.KeyInputEvent event) {
     	if(!(Keyboard.isRepeatEvent()) && !(Keyboard.isKeyDown(Keyboard.getEventKey()))) {
-	        me.frogdog.frogclient.event.events.InputEvent inputEvent = new me.frogdog.frogclient.event.events.InputEvent(me.frogdog.frogclient.event.events.InputEvent.Type.KEYBOARD_KEY_PRESS);
-	
-	        Frog.getInstance().getEventManager().dispatch(inputEvent);
+            me.frogdog.frogclient.event.events.InputEvent inputEvent = new me.frogdog.frogclient.event.events.InputEvent(me.frogdog.frogclient.event.events.InputEvent.Type.KEYBOARD_KEY_PRESS);
+
+            Frog.getInstance().getEventManager().dispatch(inputEvent);
     	}
     }
     
@@ -53,6 +56,9 @@ public class EventProcessor {
     public void onTick(TickEvent event) {
     	if(!(Frog.getInstance().mc.player == null)) {
     		 me.frogdog.frogclient.event.events.TickEvent tickEvent = new me.frogdog.frogclient.event.events.TickEvent();
+             me.frogdog.frogclient.event.events.PacketEvent packetEvent = new me.frogdog.frogclient.event.events.PacketEvent(null);
+
+             Frog.getInstance().getEventManager().dispatch(packetEvent);
     		 
     		 Frog.getInstance().getEventManager().dispatch(tickEvent);
 
@@ -63,9 +69,9 @@ public class EventProcessor {
     @SubscribeEvent
     public void onRender(RenderWorldLastEvent event) {
     	if(!(Frog.getInstance().mc.player == null)) {
-   		 me.frogdog.frogclient.event.events.RenderEvent renderEvent = new me.frogdog.frogclient.event.events.RenderEvent(0);
-   		 
-   		 Frog.getInstance().getEventManager().dispatch(renderEvent);
+             me.frogdog.frogclient.event.events.RenderEvent renderEvent = new me.frogdog.frogclient.event.events.RenderEvent(0);
+
+             Frog.getInstance().getEventManager().dispatch(renderEvent);
 
     	}
     	
@@ -74,9 +80,9 @@ public class EventProcessor {
     @SubscribeEvent
     public void onPushOutOfBlock(PlayerSPPushOutOfBlocksEvent event) {
     	if(!(Frog.getInstance().mc.player == null)) {
-   		 me.frogdog.frogclient.event.events.PushOutOfBlocksEvent pushOutOfBlocksEvent = new me.frogdog.frogclient.event.events.PushOutOfBlocksEvent();
-   		 
-   		 Frog.getInstance().getEventManager().dispatch(pushOutOfBlocksEvent);
+             me.frogdog.frogclient.event.events.PushOutOfBlocksEvent pushOutOfBlocksEvent = new me.frogdog.frogclient.event.events.PushOutOfBlocksEvent();
+
+             Frog.getInstance().getEventManager().dispatch(pushOutOfBlocksEvent);
 
     	}
     	

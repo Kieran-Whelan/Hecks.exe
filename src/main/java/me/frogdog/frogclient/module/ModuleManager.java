@@ -51,6 +51,7 @@ public final class ModuleManager extends ListRegistry<Module> {
         register(new Jesus());
         register(new VerticalRender());
         register(new SmallOffhand());
+        register(new Timer());
         this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Frog.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);

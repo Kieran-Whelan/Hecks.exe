@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.module.modules.movement;
 
+import me.frogdog.frogclient.event.Event;
 import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.event.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;
@@ -10,7 +11,6 @@ import me.frogdog.frogclient.properties.Property;
 import me.frogdog.frogclient.util.Timer;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.fml.common.Mod;
 
 public class Jesus extends ToggleableModule {
 	private final EnumProperty<Mode> mode = new EnumProperty<> (Mode.Solid, "Mode", "m");

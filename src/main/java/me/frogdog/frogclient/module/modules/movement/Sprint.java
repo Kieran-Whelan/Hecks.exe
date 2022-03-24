@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.module.modules.movement;
 
+import me.frogdog.frogclient.event.Event;
 import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.event.events.TickEvent;
 import me.frogdog.frogclient.module.ModuleType;

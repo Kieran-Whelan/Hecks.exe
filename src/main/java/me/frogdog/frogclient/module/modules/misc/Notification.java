@@ -3,6 +3,7 @@ package me.frogdog.frogclient.module.modules.misc;
 import java.util.ArrayList;
 
 import me.frogdog.frogclient.command.Command;
+import me.frogdog.frogclient.event.Event;
 import me.frogdog.frogclient.event.Listener;
 import me.frogdog.frogclient.event.events.RenderEvent;
 import me.frogdog.frogclient.event.events.TickEvent;

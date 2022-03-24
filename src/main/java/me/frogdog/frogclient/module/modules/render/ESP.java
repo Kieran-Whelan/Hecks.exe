@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.module.modules.render;
 
+import me.frogdog.frogclient.event.Event;
 import org.lwjgl.opengl.GL11;
 
 import me.frogdog.frogclient.Frog;
@@ -17,7 +18,6 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 
 public final class ESP extends ToggleableModule {
 	private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");

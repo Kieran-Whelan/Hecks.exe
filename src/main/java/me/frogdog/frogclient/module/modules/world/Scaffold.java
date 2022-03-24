@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.module.modules.world;
 
+import me.frogdog.frogclient.event.Event;
 import org.lwjgl.input.Keyboard;
 
 import me.frogdog.frogclient.event.Listener;
@@ -17,7 +18,7 @@ public final class Scaffold extends ToggleableModule {
 	public Scaffold() {
 		super("Scaffold", new String[] {"Scaffold", "scaffold"}, ModuleType.WORLD);
 		this.offerProperties(this.keybind);
-        this.listeners.add(new Listener<TickEvent>("tick_listener"){
+        this.listeners.add(new Listener<TickEvent>("tick_listener") {
 
 			@Override
             public void call(TickEvent event) {

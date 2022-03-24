@@ -1,5 +1,6 @@
 package me.frogdog.frogclient.module.modules.render;
 
+import me.frogdog.frogclient.event.Event;
 import org.lwjgl.opengl.GL11;
 
 import me.frogdog.frogclient.event.Listener;
