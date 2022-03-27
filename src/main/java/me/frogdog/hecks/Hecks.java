@@ -3,6 +3,10 @@ package me.frogdog.hecks;
 import me.frogdog.hecks.command.CommandManager;
 import me.frogdog.hecks.config.ConfigManager;
 import me.frogdog.hecks.event.EventProcessor;
+import me.frogdog.hecks.friend.FriendManager;
+import me.frogdog.hecks.keybind.KeybindManager;
+import me.frogdog.hecks.module.ModuleManager;
+import me.frogdog.hecks.ui.hud.HudManager;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -23,14 +27,33 @@ public final class Hecks {
     public static Hecks instance = null;
     private final CommandManager commandManager;
     private final ConfigManager configManager;
+    private final KeybindManager keybindManager;
+    private final ModuleManager moduleManager;
+    private final FriendManager friendManager;
+    private final HudManager hudManager;
     private File directory;
 
     public Hecks() {
         EVENT_BUS.register(EventProcessor.INSTANCE);
         instance = this;
 
+        this.directory = new File("user.home", "frogclient");
+
         this.commandManager = new CommandManager();
         this.configManager = new ConfigManager();
+        this.keybindManager = new KeybindManager();
+        this.moduleManager = new ModuleManager();
+        this.friendManager = new FriendManager();
+        this.hudManager = new HudManager();
+
+        Runtime.getRuntime().addShutdownHook(new Thread("Shutdown Hook Thread"){
+
+            @Override
+            public void run() {
+                getConfigManager().getRegistry().forEach(config -> config.save(new Object[0]));
+            }
+        });
+
         Display.setTitle(NAME + " " + VERSION);
     }
 
@@ -44,6 +67,22 @@ public final class Hecks {
 
     public ConfigManager getConfigManager() {
         return this.configManager;
+    }
+
+    public KeybindManager getKeybindManager() {
+        return this.keybindManager;
+    }
+
+    public ModuleManager getModuleManager() {
+        return this.moduleManager;
+    }
+
+    public FriendManager getFriendManager() {
+        return this.friendManager;
+    }
+
+    public HudManager getHudManager() {
+        return this.hudManager;
     }
 
     public File getDirectory() {

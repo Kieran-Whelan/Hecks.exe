@@ -15,8 +15,8 @@ public class CommandManager extends Registry<Command> {
 
         register(new Help());
         //register(new Commands());
-        //register(new Toggle());
-        //register(new HudToggle());
+        register(new Toggle());
+        register(new HudToggle());
         //register(new Bind());
         //register(new AddFriend());
         //(new RemoveFriend());

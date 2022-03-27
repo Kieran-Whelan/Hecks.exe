@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.*;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class Module implements Labeled {
 
@@ -143,7 +144,7 @@ public class Module implements Labeled {
             e.printStackTrace();
             return;
         }
-        try (FileWriter writer = new FileWriter(file);){
+        try (FileWriter writer = new FileWriter(file);) {
             writer.write(new GsonBuilder().setPrettyPrinting().create().toJson((JsonElement)node));
         }
         catch (IOException e) {
@@ -151,4 +152,4 @@ public class Module implements Labeled {
             file.delete();
         }
     }
-    }
+}
