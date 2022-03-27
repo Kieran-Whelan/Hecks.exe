@@ -6,6 +6,7 @@ import me.frogdog.hecks.event.events.PacketEvent;
 import me.frogdog.hecks.keybind.Keybind;
 import me.frogdog.hecks.property.Property;
 import me.frogdog.hecks.util.interfaces.Toggleable;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class ToggleableModule extends Module implements Toggleable {
@@ -77,4 +78,6 @@ public class ToggleableModule extends Module implements Toggleable {
     public void update(TickEvent event) {}
 
     public void packet(PacketEvent event) {}
+
+    public void render(RenderWorldLastEvent event) {}
 }

@@ -10,8 +10,6 @@ import me.frogdog.hecks.ui.hud.HudManager;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventBus;
 import org.lwjgl.opengl.Display;
 
@@ -31,7 +29,7 @@ public final class Hecks {
     private final ModuleManager moduleManager;
     private final FriendManager friendManager;
     private final HudManager hudManager;
-    private File directory;
+    private final File directory;
 
     public Hecks() {
         EVENT_BUS.register(EventProcessor.INSTANCE);

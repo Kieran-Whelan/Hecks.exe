@@ -5,7 +5,7 @@ import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.property.EnumProperty;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 
 public final class Fullbright extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode>(Mode.POTION, "Mode", "m");
@@ -15,7 +15,7 @@ public final class Fullbright extends ToggleableModule {
         this.offerProperties(this.mode, this.keybind);
     }
 
-    public void update(TickEvent event) {
+    public void render(RenderWorldLastEvent event) {
         if (Fullbright.this.mode.getValue() == Mode.GAMMA) {
             mc.gameSettings.gammaSetting = 1000f;
         }

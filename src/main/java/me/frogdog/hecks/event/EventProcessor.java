@@ -7,6 +7,7 @@ import me.frogdog.hecks.module.Module;
 import me.frogdog.hecks.module.ToggleableModule;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -51,6 +52,13 @@ public class EventProcessor {
     public void renderGameOverlay(RenderGameOverlayEvent event) {
         if (Hecks.getInstance().mc.world != null) {
             Hecks.getInstance().getHudManager().renderHud(event);
+        }
+    }
+
+    @SubscribeEvent
+    public void renderWorld(RenderWorldLastEvent event) {
+        if (Hecks.getInstance().mc.world != null) {
+            Hecks.getInstance().getModuleManager().render(event);
         }
     }
 

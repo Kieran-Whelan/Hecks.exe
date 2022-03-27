@@ -6,10 +6,13 @@ import me.frogdog.hecks.config.Config;
 import me.frogdog.hecks.event.events.PacketEvent;
 import me.frogdog.hecks.module.modules.client.*;
 import me.frogdog.hecks.module.modules.combat.*;
+import me.frogdog.hecks.module.modules.exploit.*;
+import me.frogdog.hecks.module.modules.misc.*;
 import me.frogdog.hecks.module.modules.player.*;
 import me.frogdog.hecks.module.modules.render.*;
 import me.frogdog.hecks.util.Registry;
 import me.frogdog.hecks.util.interfaces.Toggleable;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
@@ -31,19 +34,19 @@ public final class ModuleManager extends Registry<Module> {
         //register(new AutoWalk());
         //register(new Scaffold());
         //register(new AntiDesync());
-        //register(new Notification());
+        register(new Notification());
         //register(new StorageESP());
-        //register(new ESP());
+        register(new ESP());
         //register(new Tracers());
         //register(new KillAura());
-        //register(new FastPlace());
+        register(new FastPlace());
         //register(new Freecam());
         //register(new YawLock());
         register(new AutoTotem());
         //register(new FakePlayer());
         register(new Jesus());
         //register(new VerticalRender());
-        //register(new SmallOffhand());
+        register(new SmallOffhand());
         //register(new Timer());
         register(new Criticals());
         //this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
@@ -204,6 +207,17 @@ public final class ModuleManager extends Registry<Module> {
                 ToggleableModule toggleableModule = (ToggleableModule)m;
                 if (toggleableModule.isRunning()) {
                     toggleableModule.packet(event);
+                }
+            }
+        }
+    }
+
+    public void render(RenderWorldLastEvent event) {
+        for (Module m : this.registry) {
+            if (m instanceof Toggleable) {
+                ToggleableModule toggleableModule = (ToggleableModule)m;
+                if (toggleableModule.isRunning()) {
+                    toggleableModule.render(event);
                 }
             }
         }
