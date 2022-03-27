@@ -7,6 +7,7 @@ import me.frogdog.hecks.event.events.PacketEvent;
 import me.frogdog.hecks.module.modules.client.*;
 import me.frogdog.hecks.module.modules.combat.*;
 import me.frogdog.hecks.module.modules.player.*;
+import me.frogdog.hecks.module.modules.render.*;
 import me.frogdog.hecks.util.Registry;
 import me.frogdog.hecks.util.interfaces.Toggleable;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -20,7 +21,7 @@ public final class ModuleManager extends Registry<Module> {
     public ModuleManager() {
         this.registry = new ArrayList<Module>();
 
-        //register(new Fullbright());
+        register(new Fullbright());
         register(new ClickGui());
         register(new Colours());
         register(new Hud());
@@ -38,9 +39,9 @@ public final class ModuleManager extends Registry<Module> {
         //register(new FastPlace());
         //register(new Freecam());
         //register(new YawLock());
-        //register(new AutoTotem());
+        register(new AutoTotem());
         //register(new FakePlayer());
-        //register(new Jesus());
+        register(new Jesus());
         //register(new VerticalRender());
         //register(new SmallOffhand());
         //register(new Timer());

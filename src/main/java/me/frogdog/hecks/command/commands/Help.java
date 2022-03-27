@@ -10,8 +10,7 @@ public final class Help extends Command {
 
     @Override
     public void onClientCommand(String command, String[] args) throws Exception {
-        Command.sendClientSideMessage("To see a list of all commands please use " +this.getPrefix()+ "commands");
-
+        Command.sendClientSideMessage("To see a list of all commands please use " + this.getPrefix() + "commands");
     }
 
 }

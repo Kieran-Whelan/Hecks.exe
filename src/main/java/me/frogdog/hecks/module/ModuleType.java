@@ -3,7 +3,6 @@ package me.frogdog.hecks.module;
 import me.frogdog.hecks.util.interfaces.Labeled;
 
 public enum ModuleType implements Labeled {
-    CLIENT("Client"),
     COMBAT("Combat"),
     EXPLOIT("Exploit"),
     MISC("Misc"),
