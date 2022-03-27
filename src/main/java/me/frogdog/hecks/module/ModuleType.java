@@ -1,10 +1,23 @@
 package me.frogdog.hecks.module;
 
-public enum ModuleType {
-    CLIENT,
-    COMBAT,
-    EXPLOIT,
-    MISC,
-    PLAYER,
-    RENDER
+import me.frogdog.hecks.util.interfaces.Labeled;
+
+public enum ModuleType implements Labeled {
+    CLIENT("Client"),
+    COMBAT("Combat"),
+    EXPLOIT("Exploit"),
+    MISC("Misc"),
+    PLAYER("Player"),
+    RENDER("Render");
+
+    private String label;
+
+    private ModuleType(String label) {
+        this.label = label;
+    }
+
+    @Override
+    public String getLabel() {
+        return this.label;
+    }
 }

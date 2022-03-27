@@ -20,7 +20,7 @@ public final class ModuleManager extends Registry<Module> {
         this.registry = new ArrayList<Module>();
 
         //register(new Fullbright());
-        //register(new ClickGui());
+        register(new ClickGui());
         //register(new Colors());
         register(new Hud());
         register(new Sprint());
@@ -46,7 +46,7 @@ public final class ModuleManager extends Registry<Module> {
         //register(new Criticals());
         //this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
-        //Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
+        Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
 
         new Config("module_configurations.json"){
 
