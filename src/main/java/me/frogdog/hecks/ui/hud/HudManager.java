@@ -21,12 +21,12 @@ public class HudManager extends Registry<HudComponent> {
     public HudManager() {
         this.registry = new ArrayList<HudComponent>();
 
-        //register(new Coords());
+        register(new Coords());
         register(new Title());
-        //register(new Facing());
-        //register(new Speed());
-        //register(new ArrayList());
-        //register(new Watermark());
+        register(new Facing());
+        register(new Speed());
+        register(new ModuleArray());
+        register(new Watermark());
 
     }
 

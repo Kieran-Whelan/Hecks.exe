@@ -30,26 +30,26 @@ public final class ModuleManager extends Registry<Module> {
         register(new Hud());
         register(new Sprint());
         register(new Strafe());
-        //register(new NoRender());
-        //register(new AutoWalk());
+        register(new NoRender());
+        register(new AutoWalk());
         //register(new Scaffold());
         //register(new AntiDesync());
         register(new Notification());
-        //register(new StorageESP());
+        register(new StorageESP());
         register(new ESP());
-        //register(new Tracers());
+        register(new Tracers());
         //register(new KillAura());
         register(new FastPlace());
-        //register(new Freecam());
-        //register(new YawLock());
+        register(new Freecam());
+        register(new YawLock());
         register(new AutoTotem());
-        //register(new FakePlayer());
+        register(new FakePlayer());
         register(new Jesus());
-        //register(new VerticalRender());
+        register(new VerticalRender());
         register(new SmallOffhand());
-        //register(new Timer());
+        register(new Timer());
         register(new Criticals());
-        //this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
+        register(new DiscordRP());
 
         Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
 
