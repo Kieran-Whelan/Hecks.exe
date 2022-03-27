@@ -37,7 +37,7 @@ public final class Hecks {
         EVENT_BUS.register(EventProcessor.INSTANCE);
         instance = this;
 
-        this.directory = new File("user.home", "frogclient");
+        this.directory = new File(System.getProperty("user.home"), "froghecks");
 
         this.commandManager = new CommandManager();
         this.configManager = new ConfigManager();
@@ -45,6 +45,7 @@ public final class Hecks {
         this.moduleManager = new ModuleManager();
         this.friendManager = new FriendManager();
         this.hudManager = new HudManager();
+        this.getConfigManager().getRegistry().forEach(config -> config.load(new Object[0]));
 
         Runtime.getRuntime().addShutdownHook(new Thread("Shutdown Hook Thread"){
 

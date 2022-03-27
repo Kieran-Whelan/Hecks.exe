@@ -5,6 +5,7 @@ import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.config.Config;
 import me.frogdog.hecks.event.events.PacketEvent;
 import me.frogdog.hecks.module.modules.client.*;
+import me.frogdog.hecks.module.modules.combat.*;
 import me.frogdog.hecks.module.modules.player.*;
 import me.frogdog.hecks.util.Registry;
 import me.frogdog.hecks.util.interfaces.Toggleable;
@@ -21,10 +22,10 @@ public final class ModuleManager extends Registry<Module> {
 
         //register(new Fullbright());
         register(new ClickGui());
-        //register(new Colors());
+        register(new Colours());
         register(new Hud());
         register(new Sprint());
-        //register(new Speed());
+        register(new Strafe());
         //register(new NoRender());
         //register(new AutoWalk());
         //register(new Scaffold());
@@ -43,7 +44,7 @@ public final class ModuleManager extends Registry<Module> {
         //register(new VerticalRender());
         //register(new SmallOffhand());
         //register(new Timer());
-        //register(new Criticals());
+        register(new Criticals());
         //this.registry.sort((mod1, mod2) -> mod1.getLabel().compareTo(mod2.getLabel()));
 
         Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);

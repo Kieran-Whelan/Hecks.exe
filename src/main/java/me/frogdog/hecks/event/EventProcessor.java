@@ -18,7 +18,7 @@ public class EventProcessor {
 
     @SubscribeEvent
     public void onTick(TickEvent event) {
-        if (Hecks.getInstance().mc.world != null) {
+        if (Hecks.getInstance().mc.world != null && Hecks.getInstance().mc.player != null) {
             Hecks.getInstance().getModuleManager().update(event);
         }
     }
