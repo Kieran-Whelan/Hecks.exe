@@ -27,8 +27,9 @@ public final class Notification extends ToggleableModule {
         this.offerProperties(this.visualRange, this.totemPop, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
-        if (Notification.this.visualRange.getValue() == true) {
+        if (Notification.this.visualRange.getValue()) {
             for (Entity player : mc.world.loadedEntityList) {
                 if (player instanceof EntityPlayer && player.getName() != mc.player.getName()) {
                     delay++;
@@ -51,8 +52,9 @@ public final class Notification extends ToggleableModule {
         }
     }
 
+    @Override
     public void update(TickEvent event) {
-        if(Notification.this.totemPop.getValue() == true) {
+        if(Notification.this.totemPop.getValue()) {
             totemCount = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
             if(totemCount > totalTotems) {
                 Command.sendClientSideMessage("You just popped a totem, you now have " + totemCount + " totems left");

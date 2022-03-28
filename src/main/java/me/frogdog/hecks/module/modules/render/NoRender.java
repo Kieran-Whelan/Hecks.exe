@@ -19,20 +19,21 @@ public final class NoRender extends ToggleableModule {
         this.offerProperties(this.pumpkin, this.fire, this.hurtcam, this.armour, this.portalNausea, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
-        if (NoRender.this.pumpkin.getValue() == true) {
+        if (NoRender.this.pumpkin.getValue()) {
 
         }
 
-        if (NoRender.this.fire.getValue() == true) {
+        if (NoRender.this.fire.getValue()) {
 
         }
 
-        if (NoRender.this.hurtcam.getValue() == true) {
+        if (NoRender.this.hurtcam.getValue()) {
 
         }
 
-        if (NoRender.this.portalNausea.getValue() == true) {
+        if (NoRender.this.portalNausea.getValue()) {
             GuiIngameForge.renderPortal = false;
             mc.player.removeActivePotionEffect(MobEffects.NAUSEA);
         }

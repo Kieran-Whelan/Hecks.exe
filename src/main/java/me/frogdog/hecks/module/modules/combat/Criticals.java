@@ -17,6 +17,7 @@ public final class Criticals extends ToggleableModule {
         this.offerProperties(this.keybind);
     }
 
+    @Override
     public void packet(PacketEvent event) {
         if (event.getPacket() instanceof CPacketUseEntity) {
             CPacketUseEntity packet = (CPacketUseEntity)event.getPacket();

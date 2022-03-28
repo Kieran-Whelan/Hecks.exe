@@ -23,6 +23,7 @@ public final class Tracers extends ToggleableModule {
         this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
         for (Entity entity : Hecks.getInstance().mc.world.loadedEntityList) {
             drawLine(mc.player.posX - mc.getRenderManager().viewerPosX, mc.player.posY - mc.getRenderManager().viewerPosY, mc.player.posZ - mc.getRenderManager().viewerPosZ , entity.posX - mc.getRenderManager().viewerPosX, entity.posY - mc.getRenderManager().viewerPosY, entity.posZ - mc.getRenderManager().viewerPosZ, 1);

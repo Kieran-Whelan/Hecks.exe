@@ -23,6 +23,7 @@ public class Jesus extends ToggleableModule {
         this.offerProperties(this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         if (mc.player.isRiding()) {
             return;

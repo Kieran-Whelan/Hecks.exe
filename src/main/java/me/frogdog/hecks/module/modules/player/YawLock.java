@@ -14,6 +14,7 @@ public final class YawLock extends ToggleableModule {
         this.offerProperties(this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         if (mc.player.rotationYaw < yaw - 1.1f ) {
             mc.player.rotationYaw++;

@@ -30,6 +30,7 @@ public final class StorageESP extends ToggleableModule {
         this.offerProperties(this.chest, this.enderChest, this.furance, this.dispenser, this.dropper, this.hopper, this.shulker, this.width, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
         for(TileEntity tile : Hecks.getInstance().mc.world.loadedTileEntityList) {
             if(tile instanceof TileEntityChest && StorageESP.this.chest.getValue() == true) {

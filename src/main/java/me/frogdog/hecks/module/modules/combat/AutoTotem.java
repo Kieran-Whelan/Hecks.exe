@@ -19,6 +19,7 @@ public final class AutoTotem extends ToggleableModule {
         this.offerProperties(this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         totalTotems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
 

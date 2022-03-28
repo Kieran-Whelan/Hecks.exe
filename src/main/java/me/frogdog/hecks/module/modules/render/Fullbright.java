@@ -15,6 +15,7 @@ public final class Fullbright extends ToggleableModule {
         this.offerProperties(this.mode, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
         if (Fullbright.this.mode.getValue() == Mode.GAMMA) {
             mc.gameSettings.gammaSetting = 1000f;

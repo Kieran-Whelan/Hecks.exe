@@ -27,6 +27,7 @@ public final class ESP extends ToggleableModule {
         this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
         for (Entity entity : mc.world.getLoadedEntityList()) {
             if (entity instanceof EntityPlayer && entity != mc.player) {

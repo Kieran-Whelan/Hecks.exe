@@ -13,6 +13,7 @@ public final class Strafe extends ToggleableModule {
         this.offerProperties(this.speed, this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         if (mc.player.onGround) {
             if (mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown()) {

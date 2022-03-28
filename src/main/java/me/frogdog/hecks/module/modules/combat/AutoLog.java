@@ -21,6 +21,7 @@ public final class AutoLog extends ToggleableModule {
         this.offerProperties(this.health, this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         if (mc.player.getHealth() < health.getValue()) {
             //mc.getConnection().onDisconnect(new TextComponentString("[Hecks.exe] Disconnected because health was " + mc.player.getHealth()));

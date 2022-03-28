@@ -14,12 +14,13 @@ public final class SmallOffhand extends ToggleableModule {
 
     }
 
+    @Override
     public void update(TickEvent event) {
-        if (SmallOffhand.this.mode.getValue() == Mode.Small) {
+        if (SmallOffhand.this.mode.getValue().equals(Mode.Small)) {
             mc.entityRenderer.itemRenderer.equippedProgressOffHand = 0.5f;
         }
 
-        if (SmallOffhand.this.mode.getValue() == Mode.Invis) {
+        if (SmallOffhand.this.mode.getValue().equals(Mode.Invis)) {
             mc.entityRenderer.itemRenderer.equippedProgressOffHand = -1.0f;
         }
 

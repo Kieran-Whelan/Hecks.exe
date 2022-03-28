@@ -26,6 +26,7 @@ public final class VerticalRender extends ToggleableModule {
         this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
     }
 
+    @Override
     public void render(RenderWorldLastEvent event) {
         Entity entity = mc.player;
         drawRect(entity.getPosition(), width.getValue(), red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());

@@ -12,6 +12,7 @@ public final class Sprint extends ToggleableModule {
         this.offerProperties(this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         if (!(mc.player.isSprinting()) && !(mc.player.collidedHorizontally) && mc.gameSettings.keyBindForward.isKeyDown()) {
             mc.player.setSprinting(true);

@@ -12,6 +12,7 @@ public final class AutoWalk extends ToggleableModule {
         this.offerProperties(this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         KeyBinding.setKeyBindState(mc.gameSettings.keyBindForward.getKeyCode(), true);
     }
