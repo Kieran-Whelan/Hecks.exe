@@ -3,6 +3,9 @@ package me.frogdog.hecks.module.modules.misc;
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.property.NumberProperty;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public final class AutoEat extends ToggleableModule {
@@ -13,8 +16,29 @@ public final class AutoEat extends ToggleableModule {
         this.offerProperties(this.hunger, this.keybind);
     }
 
+    @Override
     public void update(TickEvent event) {
         if (mc.player.getFoodStats().getFoodLevel() < hunger.getValue()) {
+
+            for (int i = 0; i < 9; i++) {
+                ItemStack slotStack = mc.player.inventory.getStackInSlot(i);
+
+                if (slotStack.isEmpty()) {
+                    continue;
+                }
+
+                if (slotStack.getItem() instanceof ItemFood && !isEating()) {
+                    mc.player.inventory.currentItem = i;
+                    mc.playerController.processRightClick(mc.player, mc.world, EnumHand.MAIN_HAND);
+                }
+            }
         }
+    }
+
+    public boolean isEating() {
+        if (mc.player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemFood && mc.player.isHandActive()) {
+            return true;
+        }
+        return false;
     }
 }
