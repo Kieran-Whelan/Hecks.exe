@@ -70,6 +70,8 @@ public final class Notification extends ToggleableModule {
     @Override
     public void onEnable() {
         super.onEnable();
-        totalTotems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
+        if (mc.player != null) {
+            totalTotems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
+        }
     }
 }

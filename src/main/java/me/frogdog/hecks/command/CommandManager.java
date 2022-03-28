@@ -14,12 +14,12 @@ public class CommandManager extends Registry<Command> {
         this.registry = new ArrayList<Command>();
 
         register(new Help());
-        //register(new Commands());
+        register(new Commands());
         register(new Toggle());
         register(new HudToggle());
-        //register(new Bind());
-        //register(new AddFriend());
-        //(new RemoveFriend());
+        register(new Bind());
+        register(new AddFriend());
+        register(new RemoveFriend());
 
     }
 

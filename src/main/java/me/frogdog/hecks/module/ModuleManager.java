@@ -50,6 +50,8 @@ public final class ModuleManager extends Registry<Module> {
         register(new Timer());
         register(new Criticals());
         register(new DiscordRP());
+        register(new AutoEat());
+        register(new AutoLog());
 
         Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
 
