@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 
 public class EventProcessor {
 
@@ -45,6 +46,27 @@ public class EventProcessor {
             me.frogdog.hecks.event.events.InputEvent inputEvent = new me.frogdog.hecks.event.events.InputEvent(me.frogdog.hecks.event.events.InputEvent.Type.KEYBOARD_KEY_PRESS);
 
             Hecks.getInstance().getKeybindManager().update(inputEvent);
+        }
+    }
+
+    @SubscribeEvent
+    public void onMouseInput(InputEvent.MouseInputEvent event) {
+        int button = Mouse.getEventButton();
+        switch (button) {
+            case 0:
+                me.frogdog.hecks.event.events.InputEvent leftClickEvent = new me.frogdog.hecks.event.events.InputEvent(me.frogdog.hecks.event.events.InputEvent.Type.MOUSE_LEFT_CLICK);
+                Hecks.getInstance().getModuleManager().input(leftClickEvent);
+                break;
+            case 1:
+                me.frogdog.hecks.event.events.InputEvent middleClickEvent = new me.frogdog.hecks.event.events.InputEvent(me.frogdog.hecks.event.events.InputEvent.Type.MOUSE_MIDDLE_CLICK);
+                Hecks.getInstance().getModuleManager().input(middleClickEvent);
+                break;
+            case 2:
+                me.frogdog.hecks.event.events.InputEvent rightClickEvent = new me.frogdog.hecks.event.events.InputEvent(me.frogdog.hecks.event.events.InputEvent.Type.MOUSE_RIGHT_CLICK);
+                Hecks.getInstance().getModuleManager().input(rightClickEvent);
+                break;
+            default:
+                break;
         }
     }
 

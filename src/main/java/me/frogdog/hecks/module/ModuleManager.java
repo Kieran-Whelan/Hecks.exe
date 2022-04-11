@@ -13,6 +13,7 @@ import me.frogdog.hecks.module.modules.render.*;
 import me.frogdog.hecks.util.Registry;
 import me.frogdog.hecks.util.interfaces.Toggleable;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
@@ -53,6 +54,8 @@ public final class ModuleManager extends Registry<Module> {
         register(new AutoEat());
         register(new AutoLog());
         //register(new Reach());
+        register(new AutoFish());
+        register(new Trigger());
 
         Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
 
@@ -221,6 +224,17 @@ public final class ModuleManager extends Registry<Module> {
                 ToggleableModule toggleableModule = (ToggleableModule)m;
                 if (toggleableModule.isRunning()) {
                     toggleableModule.render(event);
+                }
+            }
+        }
+    }
+
+    public void input(me.frogdog.hecks.event.events.InputEvent event) {
+        for (Module m : this.registry) {
+            if (m instanceof Toggleable) {
+                ToggleableModule toggleableModule = (ToggleableModule)m;
+                if (toggleableModule.isRunning()) {
+                    toggleableModule.input(event);
                 }
             }
         }

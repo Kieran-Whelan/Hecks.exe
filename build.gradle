@@ -16,7 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-version = '0.1.0S'
+version = '0.1.0'
 group = 'me.frogdog.hecks'
 archivesBaseName = 'hecks'
 

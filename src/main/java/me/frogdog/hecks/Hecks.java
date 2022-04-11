@@ -37,6 +37,10 @@ public final class Hecks {
 
         this.directory = new File(System.getProperty("user.home"), "froghecks");
 
+        if (!this.directory.exists()) {
+            this.directory.mkdir();
+        }
+
         this.commandManager = new CommandManager();
         this.configManager = new ConfigManager();
         this.keybindManager = new KeybindManager();
