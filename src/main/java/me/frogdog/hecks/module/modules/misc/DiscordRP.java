@@ -38,7 +38,7 @@ public class DiscordRP extends ToggleableModule {
             discordRPC.Discord_Initialize(discordID, eventHandlers, true, null);
 
             discordRichPresence.startTimestamp = System.currentTimeMillis() / 1000L;
-            discordRichPresence.details = "by FrogDog";
+            discordRichPresence.details = "By FrogDog";
             discordRichPresence.largeImageKey = "large";
             discordRichPresence.largeImageText = "Hecks.exe";
             discordRichPresence.state = null;

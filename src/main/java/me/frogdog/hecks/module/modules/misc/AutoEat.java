@@ -3,6 +3,7 @@ package me.frogdog.hecks.module.modules.misc;
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.property.NumberProperty;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -29,13 +30,13 @@ public final class AutoEat extends ToggleableModule {
 
                 if (slotStack.getItem() instanceof ItemFood && !isEating()) {
                     mc.player.inventory.currentItem = i;
-                    mc.playerController.processRightClick(mc.player, mc.world, EnumHand.MAIN_HAND);
+                    KeyBinding.setKeyBindState(mc.gameSettings.keyBindUseItem.getKeyCode(), true);
                 }
             }
         }
     }
 
-    public boolean isEating() {
+    private boolean isEating() {
         if (mc.player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemFood && mc.player.isHandActive()) {
             return true;
         }
