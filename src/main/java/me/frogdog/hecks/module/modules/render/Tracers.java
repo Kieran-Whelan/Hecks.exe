@@ -19,7 +19,7 @@ public final class Tracers extends ToggleableModule {
     private final NumberProperty<Integer> alpha = new NumberProperty<Integer>(100, 0, 100, "Opacity");
 
     public Tracers() {
-        super("Tracers", new String[] {"tracers", "Tracers"}, ModuleType.RENDER);
+        super("Tracers", new String[] {"tracers", "Tracers"}, "Draws lines to entities", ModuleType.RENDER);
         this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
     }
 

@@ -19,14 +19,15 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 public class Module implements Labeled {
 
     private final String label;
-    private String tag;
+    private final String tooltip;
     private final String[] aliases;
     private final List<Property<?>> properties = new ArrayList<>();
     protected Minecraft mc = Minecraft.getMinecraft();
 
-    protected Module(String label, String[] aliases) {
-        this.label = this.tag = label;
+    protected Module(String label, String[] aliases, String tooltip) {
+        this.label = label;
         this.aliases = aliases;
+        this.tooltip = tooltip;
     }
 
     @Override
@@ -34,16 +35,12 @@ public class Module implements Labeled {
         return this.label;
     }
 
+    public String getTooltip() {
+        return this.tooltip;
+    }
+
     public String[] getAliases() {
         return this.aliases;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    protected void setTag(String tag) {
-        this.tag = tag;
     }
 
     public List<Property<?>> getProperties() {

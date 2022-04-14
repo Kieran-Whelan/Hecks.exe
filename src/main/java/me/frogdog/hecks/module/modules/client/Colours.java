@@ -13,7 +13,7 @@ public final class Colours extends Module {
     private static final NumberProperty<Float> lightness = new NumberProperty<>(45f, 0f, 100f, "Lightness", "Light", "Luminance", "Luminace", "Brightness", "Bright", "Brigtness", "Brigntrnew", "Brighgrtnewss");
 
     public Colours(){
-        super("Colors", new String[]{"Colors", "Color"});
+        super("Colors", new String[]{"Colors", "Color"}, "Colors");
         offerProperties(hue, saturation, lightness);
     }
 

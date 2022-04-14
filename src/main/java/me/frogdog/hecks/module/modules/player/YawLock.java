@@ -10,7 +10,7 @@ public final class YawLock extends ToggleableModule {
     float yaw;
 
     public YawLock() {
-        super("YawLock", new String[] {"YawLock", "lock"}, ModuleType.PLAYER);
+        super("YawLock", new String[] {"YawLock", "lock"}, "Locks the players yaw", ModuleType.PLAYER);
         this.offerProperties(this.keybind);
     }
 

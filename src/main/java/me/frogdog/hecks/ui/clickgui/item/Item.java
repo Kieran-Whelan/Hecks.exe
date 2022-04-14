@@ -6,6 +6,7 @@ import me.frogdog.hecks.util.interfaces.Labeled;
 
 public class Item implements Labeled {
     private final String label;
+    private final String tooltip;
     protected float x;
     protected float y;
     protected int width;
@@ -13,6 +14,12 @@ public class Item implements Labeled {
 
     public Item(String label) {
         this.label = label;
+        this.tooltip = "none";
+    }
+
+    public Item(String label, String tooltip) {
+        this.label = label;
+        this.tooltip = tooltip;
     }
 
     public void setLocation(float x, float y) {
@@ -32,6 +39,10 @@ public class Item implements Labeled {
     @Override
     public final String getLabel() {
         return this.label;
+    }
+
+    public final String getTooltip() {
+        return this.tooltip;
     }
 
     public float getX() {

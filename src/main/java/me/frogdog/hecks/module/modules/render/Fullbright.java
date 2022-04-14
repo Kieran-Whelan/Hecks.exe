@@ -11,7 +11,7 @@ public final class Fullbright extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode>(Mode.POTION, "Mode", "m");
 
     public Fullbright() {
-        super("Fullbright", new String[]{"fullbright", "Fullbright", "fb"}, ModuleType.RENDER);
+        super("Fullbright", new String[]{"fullbright", "Fullbright", "fb"}, "Does exactly what it's name indicates", ModuleType.RENDER);
         this.offerProperties(this.mode, this.keybind);
     }
 

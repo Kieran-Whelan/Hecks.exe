@@ -10,7 +10,7 @@ import java.util.UUID;
 public final class FakePlayer extends ToggleableModule {
 
     public FakePlayer() {
-        super("FakePlayer", new String[]{"FakePlayer", "fakeplayer"}, ModuleType.MISC);
+        super("FakePlayer", new String[]{"FakePlayer", "fakeplayer"}, "Clones you", ModuleType.MISC);
         this.offerProperties(this.keybind);
     }
 

@@ -9,7 +9,7 @@ public final class SmallOffhand extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty<Mode> (Mode.Small, "Mode", "m");
 
     public SmallOffhand() {
-        super("SmallOffhand", new String[] {"SmallOffhand", "smalloffhand"}, ModuleType.MISC);
+        super("SmallOffhand", new String[] {"SmallOffhand", "smalloffhand"}, "Makes offhand item smaller", ModuleType.MISC);
         this.offerProperties(this.mode, this.keybind);
 
     }

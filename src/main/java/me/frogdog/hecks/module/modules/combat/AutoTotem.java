@@ -15,7 +15,7 @@ public final class AutoTotem extends ToggleableModule {
     int totalTotems;
 
     public AutoTotem() {
-        super("AutoTotem", new String[]{"AutoTotem", "autototem"}, ModuleType.COMBAT);
+        super("AutoTotem", new String[]{"AutoTotem", "autototem"}, "Replaces tour offhand totem with a new one when it pops", ModuleType.COMBAT);
         this.offerProperties(this.keybind);
     }
 

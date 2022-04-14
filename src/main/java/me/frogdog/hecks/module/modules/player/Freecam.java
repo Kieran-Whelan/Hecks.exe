@@ -21,7 +21,7 @@ public final class Freecam extends ToggleableModule {
     private Entity ridingEntity;
 
     public Freecam() {
-        super("Freecam", new String[] {"Freecam", "freecam"}, ModuleType.PLAYER);
+        super("Freecam", new String[] {"Freecam", "freecam"}, "Spectator mode", ModuleType.PLAYER);
         this.offerProperties(this.keybind);
     }
 

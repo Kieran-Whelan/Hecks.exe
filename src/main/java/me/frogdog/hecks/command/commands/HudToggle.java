@@ -12,12 +12,11 @@ public final class HudToggle extends Command {
 
     @Override
     public void onClientCommand(String command, String[] args) throws Exception {
-        Property property = Hecks.getInstance().getModuleManager().getModuleByAlias("Hud").getPropertyByAlias(args[0]);
+        Property property = Hecks.getInstance().getModuleManager().getModuleByAlias("Hud Editor").getPropertyByAlias(args[0]);
         if (property.getValue() instanceof Boolean && property.getValue().equals(true)) {
             property.setValue(false);
         } else {
             property.setValue(true);
         }
     }
-
 }

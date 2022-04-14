@@ -13,7 +13,7 @@ public final class AutoEat extends ToggleableModule {
     private final NumberProperty<Integer> hunger = new NumberProperty<>(15, 0, 20, "Health");
 
     public AutoEat() {
-        super("AutoEat", new String[] {"AutoEat"}, ModuleType.MISC);
+        super("AutoEat", new String[] {"AutoEat"}, "Automatically eats when the player gets hungry", ModuleType.MISC);
         this.offerProperties(this.hunger, this.keybind);
     }
 

@@ -24,7 +24,7 @@ public final class AutoFish extends ToggleableModule {
     private long timeSinceCast = 0;
 
     public AutoFish() {
-        super("AutoFish", new String[] {"AutoFish", "autofish"}, ModuleType.MISC);
+        super("AutoFish", new String[] {"AutoFish", "autofish"}, "What do you think this does?", ModuleType.MISC);
         this.offerProperties(this.findRod, this.autoRepair, this.recastDelay, this.reelDelay, this.keybind);
     }
 

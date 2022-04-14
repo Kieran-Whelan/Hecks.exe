@@ -23,7 +23,7 @@ public final class ESP extends ToggleableModule {
     private final NumberProperty<Integer> alpha = new NumberProperty<Integer>(100, 0, 100, "Opacity");
 
     public ESP() {
-        super("ESP", new String[] {"esp", "ESP"}, ModuleType.RENDER);
+        super("ESP", new String[] {"esp", "ESP"}, "Allows you to see entities through walls", ModuleType.RENDER);
         this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
     }
 

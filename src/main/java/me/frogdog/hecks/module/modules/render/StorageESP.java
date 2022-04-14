@@ -26,7 +26,7 @@ public final class StorageESP extends ToggleableModule {
     private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
 
     public StorageESP() {
-        super("StorageESP", new String[] {"storageesp", "StorageESP"}, ModuleType.RENDER);
+        super("StorageESP", new String[] {"storageesp", "StorageESP"}, "ESP for storage containers", ModuleType.RENDER);
         this.offerProperties(this.chest, this.enderChest, this.furance, this.dispenser, this.dropper, this.hopper, this.shulker, this.width, this.keybind);
     }
 

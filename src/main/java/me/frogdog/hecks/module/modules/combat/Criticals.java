@@ -12,7 +12,7 @@ public final class Criticals extends ToggleableModule {
     private final EnumProperty<Mode> mode = new EnumProperty(Mode.PACKET, "Mode");
 
     public Criticals() {
-        super("Criticals", new String[] {"criticals", "crits"}, ModuleType.COMBAT);
+        super("Criticals", new String[] {"criticals", "crits"}, "Crits all entities that you hit", ModuleType.COMBAT);
         this.offerProperties(this.mode);
         this.offerProperties(this.keybind);
     }

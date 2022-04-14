@@ -18,7 +18,7 @@ public class Jesus extends ToggleableModule {
     Timer timer = new Timer();
 
     public Jesus() {
-        super("Jesus", new String[] {"Jesus", "jesus"}, ModuleType.PLAYER);
+        super("Jesus", new String[] {"Jesus", "jesus"}, "Allows you to walk on water like me", ModuleType.PLAYER);
         this.offerProperties(this.mode, this.speed, this.damage);
         this.offerProperties(this.keybind);
     }
