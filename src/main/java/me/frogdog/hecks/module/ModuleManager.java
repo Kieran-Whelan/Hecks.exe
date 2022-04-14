@@ -55,6 +55,7 @@ public final class ModuleManager extends Registry<Module> {
         register(new AutoLog());
         //register(new Reach());
         register(new AutoFish());
+        register(new KillAura());
 
         Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").setKey(Keyboard.KEY_O);
 
