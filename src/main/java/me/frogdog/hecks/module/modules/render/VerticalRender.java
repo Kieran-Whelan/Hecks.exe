@@ -22,7 +22,7 @@ public final class VerticalRender extends ToggleableModule {
     private final NumberProperty<Integer> alpha = new NumberProperty<Integer>(100, 0, 100, "Opacity");
 
     public VerticalRender() {
-        super("VertRender", new String[]{"verticalrender", "VerticalRender"}, ModuleType.RENDER);
+        super("VertRender", new String[]{"verticalrender", "VerticalRender"}, "Allows you to see blocks that that align with the player vertically", ModuleType.RENDER);
         this.offerProperties(this.width, this.red, this.green, this.blue, this.alpha, this.keybind);
     }
 

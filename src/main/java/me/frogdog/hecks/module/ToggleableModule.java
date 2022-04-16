@@ -18,8 +18,8 @@ public class ToggleableModule extends Module implements Toggleable {
     private final ModuleType moduleType;
     protected final Property<String> keybind = new Property<String>("Keybind", "keybind", "bind", "Keybind");
 
-    private ToggleableModule(String label, String[] aliases, boolean drawn, int color, ModuleType moduleType) {
-        super(label, aliases);
+    private ToggleableModule(String label, String[] aliases, String tooltip, boolean drawn, int color, ModuleType moduleType) {
+        super(label, aliases, tooltip);
         this.drawn = drawn;
         this.color = color;
         this.moduleType = moduleType;
@@ -32,8 +32,8 @@ public class ToggleableModule extends Module implements Toggleable {
         });
     }
 
-    public ToggleableModule(String label, String[] aliases, ModuleType moduleType) {
-        this(label, aliases, false, 0, moduleType);
+    public ToggleableModule(String label, String[] aliases, String tooltip, ModuleType moduleType) {
+        this(label, aliases, tooltip, false, 0, moduleType);
     }
 
     @Override

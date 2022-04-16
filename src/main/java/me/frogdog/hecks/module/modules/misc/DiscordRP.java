@@ -14,7 +14,7 @@ public class DiscordRP extends ToggleableModule {
     private static final Timer timer = new Timer();
 
     public DiscordRP() {
-        super("DiscordRP", new String[] {"DiscordRP"}, ModuleType.MISC);
+        super("DiscordRP", new String[] {"DiscordRP"}, "Discord Presence", ModuleType.MISC);
         this.offerProperties(this.keybind);
     }
 

@@ -6,7 +6,7 @@ import me.frogdog.hecks.module.ToggleableModule;
 public final class ClickGui extends ToggleableModule {
 
     public ClickGui() {
-        super("ClickGui", new String[]{"clickgui"}, ModuleType.RENDER);
+        super("ClickGui", new String[]{"clickgui"}, "A standard clickgui", ModuleType.RENDER);
     }
 
     @Override

@@ -13,11 +13,11 @@ public final class Hud extends Module {
     private static final Property<Boolean> facing = new Property<>(false,"Facing");
     private static final Property<Boolean> title = new Property<>(true,"Title");
 
-    static ArrayList<Property> properties = new ArrayList<>();
-    static boolean value;
+    private static ArrayList<Property> properties = new ArrayList<>();
+    private static boolean value;
 
     public Hud() {
-        super("HudEditor", new String[] {"HudEditor", "ComponentEditor"});
+        super("HudEditor", new String[] {"HudEditor", "ComponentEditor"}, "Allows you to edit the HUD components");
         this.offerProperties(speed, coords, watermark, moduleArray, facing, title);
         this.getProperties().forEach(p -> {
             properties.add(p);

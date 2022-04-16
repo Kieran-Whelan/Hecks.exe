@@ -9,7 +9,7 @@ public final class Strafe extends ToggleableModule {
     private final NumberProperty<Double> speed = new NumberProperty<Double>(0.5, 0.0, 3.0, "Speed");
 
     public Strafe() {
-        super("Strafe", new String[]{"strafe"}, ModuleType.PLAYER);
+        super("Strafe", new String[]{"strafe"}, "Bhop with a fancy name", ModuleType.PLAYER);
         this.offerProperties(this.speed, this.keybind);
     }
 

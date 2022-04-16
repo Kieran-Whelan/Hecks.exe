@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 public final class AutoWalk extends ToggleableModule {
 
     public AutoWalk() {
-        super("AutoWalk", new String[] {"AutoWalk", "autowalk"}, ModuleType.PLAYER);
+        super("AutoWalk", new String[] {"AutoWalk", "autowalk"}, "Walks forward", ModuleType.PLAYER);
         this.offerProperties(this.keybind);
     }
 

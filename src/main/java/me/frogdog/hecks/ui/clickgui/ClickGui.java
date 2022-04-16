@@ -47,7 +47,7 @@ public final class ClickGui extends GuiScreen {
             @Override
             public void setupItems() {
                 Hecks.getInstance().getModuleManager().getRegistry().forEach(module -> {
-                    if (!(module instanceof Toggleable || module.getLabel().equalsIgnoreCase("Click Gui"))) {
+                    if (!(module instanceof Toggleable || module.getLabel().equalsIgnoreCase("ClickGui"))) {
                         this.addButton(new ModuleButton((Module)module));
                     }
                 });

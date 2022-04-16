@@ -23,7 +23,7 @@ public final class Notification extends ToggleableModule {
     ArrayList<String> players = new ArrayList<String>();
 
     public Notification() {
-        super("Notification", new String[] {"notifs", "Notification", "notification"}, ModuleType.MISC);
+        super("Notification", new String[] {"notifs", "Notification", "notification"}, "Send the player chat notifications", ModuleType.MISC);
         this.offerProperties(this.visualRange, this.totemPop, this.keybind);
     }
 

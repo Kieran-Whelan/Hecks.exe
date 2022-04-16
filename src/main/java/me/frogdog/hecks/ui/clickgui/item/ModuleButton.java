@@ -24,7 +24,7 @@ public class ModuleButton extends Button {
     private int progress;
 
     public ModuleButton(Module module) {
-        super(module.getLabel());
+        super(module.getLabel(), module.getTooltip());
         this.module = module;
         this.progress = 0;
         if (!module.getProperties().isEmpty()) {

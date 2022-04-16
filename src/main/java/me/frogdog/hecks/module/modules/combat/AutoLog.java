@@ -17,7 +17,7 @@ public final class AutoLog extends ToggleableModule {
     private final NumberProperty<Integer> health = new NumberProperty<>(8, 0, 20, "Health");
 
     public AutoLog() {
-        super("AutoLog", new String[] {"AutoLog"}, ModuleType.COMBAT);
+        super("AutoLog", new String[] {"AutoLog"}, "PVP module for babies", ModuleType.COMBAT);
         this.offerProperties(this.health, this.keybind);
     }
 

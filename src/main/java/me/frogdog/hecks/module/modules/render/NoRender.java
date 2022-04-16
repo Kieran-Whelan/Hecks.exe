@@ -15,7 +15,7 @@ public final class NoRender extends ToggleableModule {
     private final Property<Boolean> portalNausea = new Property<Boolean>(false, "NoPortalNausea", "portalnausea",  "np");
 
     public NoRender() {
-        super("NoRender", new String[]{"render", "norender", "nr"}, ModuleType.RENDER);
+        super("NoRender", new String[]{"render", "norender", "nr"}, "Stops annoying effects from being rendered", ModuleType.RENDER);
         this.offerProperties(this.pumpkin, this.fire, this.hurtcam, this.armour, this.portalNausea, this.keybind);
     }
 
