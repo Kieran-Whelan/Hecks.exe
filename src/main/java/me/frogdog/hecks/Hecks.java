@@ -19,7 +19,7 @@ import java.io.File;
 public final class Hecks {
     public static final String MODID = "hecks";
     public static final String NAME = "Hecks.exe";
-    public static final String VERSION = "0.1.0";
+    public static final String VERSION = "0.1.3";
     public static final Minecraft mc = Minecraft.getMinecraft();
     public static EventBus EVENT_BUS = MinecraftForge.EVENT_BUS;
     public static Hecks instance = null;
