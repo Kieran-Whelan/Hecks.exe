@@ -2,8 +2,8 @@ package me.frogdog.hecks.module.modules.misc;
 
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
-import me.frogdog.hecks.util.PlayerUtil;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import org.lwjgl.input.Keyboard;
 
 public final class ElytraAssist extends ToggleableModule {
 
@@ -14,9 +14,9 @@ public final class ElytraAssist extends ToggleableModule {
 
     @Override
     public void update(TickEvent event) {
-        if (mc.player.isElytraFlying() && PlayerUtil.getSpeed() <= 40) {
-            mc.player.sendChatMessage(".toggle Flight");
+        if (mc.player.isInWater()) {
             mc.player.sendChatMessage("'toggle ElytraFlight");
+            mc.player.sendChatMessage(".toggle Flight off");
             toggle();
         }
     }
