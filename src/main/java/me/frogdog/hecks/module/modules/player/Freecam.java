@@ -53,7 +53,7 @@ public final class Freecam extends ToggleableModule {
         mc.world.addEntityToWorld(696984837, entity);
         mc.player.capabilities.allowFlying = true;
         startX = mc.player.posX;
-        startY = mc.player.posZ;
+        startY = mc.player.posY;
         startZ = mc.player.posZ;
 
     }
@@ -65,6 +65,9 @@ public final class Freecam extends ToggleableModule {
         mc.player.capabilities.allowFlying = false;
         mc.player.capabilities.isFlying = false;
         mc.world.removeEntity(entity);
+        mc.player.posX = startX;
+        mc.player.posY = startY;
+        mc.player.posZ = startZ;
     }
 
 }
