@@ -4,7 +4,7 @@ import me.frogdog.hecks.command.Command;
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.property.NumberProperty;
-import me.frogdog.hecks.util.PlayerUtil;
+import me.frogdog.hecks.util.game.PlayerUtil;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;

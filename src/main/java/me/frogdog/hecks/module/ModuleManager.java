@@ -167,8 +167,8 @@ public final class ModuleManager extends Registry<Module> {
                         modObject.addProperty("module-label", mod.getLabel());
                         if (mod instanceof Toggleable) {
                             ToggleableModule toggleableModule = (ToggleableModule)mod;
-                            modObject.addProperty("module-state", Boolean.valueOf(toggleableModule.isRunning()));
-                            modObject.addProperty("module-drawn", Boolean.valueOf(toggleableModule.isDrawn()));
+                            modObject.addProperty("module-state", toggleableModule.isRunning());
+                            modObject.addProperty("module-drawn", toggleableModule.isDrawn());
                             modObject.addProperty("module-keybind", (Number)Hecks.getInstance().getKeybindManager().getKeybindByLabel(toggleableModule.getLabel()).getKey());
                         }
                         mods.add((JsonElement)modObject);

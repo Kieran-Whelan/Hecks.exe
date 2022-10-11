@@ -7,8 +7,8 @@ import me.frogdog.hecks.module.Module;
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.ui.clickgui.item.ModuleButton;
-import me.frogdog.hecks.util.RenderMethods;
 import me.frogdog.hecks.util.interfaces.Toggleable;
+import me.frogdog.hecks.util.render.ui.Renderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 
@@ -60,7 +60,7 @@ public final class ClickGui extends GuiScreen {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
-        RenderMethods.drawGradientRect(0.0F, 0.0F, mc.displayWidth, mc.displayHeight, 536870912, -1879048192);
+        Renderer.drawGradientRect(0.0F, 0.0F, mc.displayWidth, mc.displayHeight, 536870912, -1879048192);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
         this.panels.forEach(panel -> panel.drawScreen(mouseX, mouseY, partialTicks));

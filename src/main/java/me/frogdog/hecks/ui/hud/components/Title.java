@@ -11,6 +11,6 @@ public final class Title extends HudComponent {
 
     @Override
     public Object getComponent() {
-        return Hecks.getInstance().NAME + " " + Hecks.getInstance().VERSION;
+        return Hecks.NAME + " " + Hecks.VERSION;
     }
 }

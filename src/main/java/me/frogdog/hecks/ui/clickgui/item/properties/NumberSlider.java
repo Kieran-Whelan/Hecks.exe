@@ -3,8 +3,8 @@ package me.frogdog.hecks.ui.clickgui.item.properties;
 import me.frogdog.hecks.module.modules.client.Colours;
 import me.frogdog.hecks.property.NumberProperty;
 import me.frogdog.hecks.ui.clickgui.item.Item;
-import me.frogdog.hecks.util.FontUtil;
-import me.frogdog.hecks.util.RenderMethods;
+import me.frogdog.hecks.util.render.ui.FontUtil;
+import me.frogdog.hecks.util.render.ui.Renderer;
 import org.lwjgl.input.Mouse;
 
 public class NumberSlider extends Item {
@@ -24,7 +24,7 @@ public class NumberSlider extends Item {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         dragSetting(mouseX, mouseY);
-        RenderMethods.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55));
+        Renderer.drawRect(x, y, ((Number)numberProperty.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55));
         FontUtil.drawString(String.format("%s\u00a77 %s", this.getLabel(), this.numberProperty.getValue()), this.x + 2.0f, this.y + 4.0f, -1);
     }
 

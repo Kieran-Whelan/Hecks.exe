@@ -1,10 +1,8 @@
 package me.frogdog.hecks.ui.hud.components;
 
-import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.ui.hud.HudComponent;
-import me.frogdog.hecks.util.PlayerUtil;
+import me.frogdog.hecks.util.game.PlayerUtil;
 import me.frogdog.hecks.util.Timer;
-import net.minecraft.util.math.MathHelper;
 
 public class Speed extends HudComponent {
 

@@ -63,7 +63,7 @@ public final class StorageESP extends ToggleableModule {
         }
     }
 
-    public void drawBlockBox(BlockPos pos, float width, int red, int green, int blue, int alpha) {
+    private void drawBlockBox(BlockPos pos, float width, int red, int green, int blue, int alpha) {
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
         GlStateManager.disableDepth();

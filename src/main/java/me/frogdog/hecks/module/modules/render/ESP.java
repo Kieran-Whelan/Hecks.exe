@@ -84,7 +84,7 @@ public final class ESP extends ToggleableModule {
         bufferbuilder.pos(bb.minX, bb.minY, bb.maxZ).color(red, green, blue, alpha).endVertex();
         bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(red, green, blue, alpha).endVertex();
         tessellator.draw();
-        GL11.glDisable((int)2848);
+        GL11.glDisable(2848);
         GlStateManager.depthMask((boolean)true);
         GlStateManager.enableDepth();
         GlStateManager.enableTexture2D();

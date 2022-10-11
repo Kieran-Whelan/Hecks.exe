@@ -5,8 +5,8 @@ import me.frogdog.hecks.command.Command;
 import me.frogdog.hecks.module.Module;
 import me.frogdog.hecks.property.Property;
 import me.frogdog.hecks.ui.clickgui.item.Button;
-import me.frogdog.hecks.util.FontUtil;
-import me.frogdog.hecks.util.RenderMethods;
+import me.frogdog.hecks.util.render.ui.FontUtil;
+import me.frogdog.hecks.util.render.ui.Renderer;
 import org.lwjgl.input.Keyboard;
 
 public class KeybindButton extends Button {
@@ -24,7 +24,7 @@ public class KeybindButton extends Button {
 	
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        RenderMethods.drawRect(this.x, this.y, this.x + (float)this.width + 7.4f, this.y + (float)this.height, (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
+        Renderer.drawRect(this.x, this.y, this.x + (float)this.width + 7.4f, this.y + (float)this.height, (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
         FontUtil.drawString(textToggle ? "Press a key!": "Keybind" + " " + this.getKey(), this.x + 2.0f, this.y + 4.0f, -5592406);
     }
 

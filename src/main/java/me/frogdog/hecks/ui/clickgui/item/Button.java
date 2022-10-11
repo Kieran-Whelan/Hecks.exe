@@ -1,10 +1,9 @@
 package me.frogdog.hecks.ui.clickgui.item;
 
 import me.frogdog.hecks.module.modules.client.Colours;
-import me.frogdog.hecks.ui.clickgui.ClickGui;
 import me.frogdog.hecks.ui.clickgui.Panel;
-import me.frogdog.hecks.util.FontUtil;
-import me.frogdog.hecks.util.RenderMethods;
+import me.frogdog.hecks.util.render.ui.FontUtil;
+import me.frogdog.hecks.util.render.ui.Renderer;
 import me.frogdog.hecks.util.interfaces.Labeled;
 
 public class Button extends Item implements Labeled {
@@ -22,7 +21,7 @@ public class Button extends Item implements Labeled {
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        RenderMethods.drawGradientRect(this.x, this.y, this.x + (float)this.width, this.y + (float)this.height, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x33555555 : 0x77AAAAAB), this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x55555555 : 0x66AAAAAB));
+        Renderer.drawGradientRect(this.x, this.y, this.x + (float)this.width, this.y + (float)this.height, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x33555555 : 0x77AAAAAB), this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x55555555 : 0x66AAAAAB));
         FontUtil.drawString(this.getLabel(), this.x + 2.0f, this.y + 4.0f, this.getState() ? -1 : -5592406);
         FontUtil.drawString(isHovering(mouseX, mouseY) ? this.getLabel() + ": " + this.getTooltip() : "", 1.0f, 140.0f, 0xFFFFFF);
     }
@@ -48,7 +47,7 @@ public class Button extends Item implements Labeled {
     }
 
     protected boolean isHovering(int mouseX, int mouseY) {
-        for (Panel panel : ClickGui.getClickGui().getPanels()) {
+        for (Panel panel : me.frogdog.hecks.ui.clickgui.ClickGui.getClickGui().getPanels()) {
             if (!panel.drag) continue;
             return false;
         }

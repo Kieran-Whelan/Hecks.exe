@@ -3,8 +3,8 @@ package me.frogdog.hecks.ui.clickgui.item.properties;
 import me.frogdog.hecks.module.modules.client.Colours;
 import me.frogdog.hecks.property.Property;
 import me.frogdog.hecks.ui.clickgui.item.Button;
-import me.frogdog.hecks.util.FontUtil;
-import me.frogdog.hecks.util.RenderMethods;
+import me.frogdog.hecks.util.render.ui.FontUtil;
+import me.frogdog.hecks.util.render.ui.Renderer;
 
 public class BooleanButton extends Button {
     private Property property;
@@ -17,7 +17,7 @@ public class BooleanButton extends Button {
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        RenderMethods.drawRect(this.x, this.y, this.x + (float)this.width + 7.4f, this.y + (float)this.height, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(77)) : (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
+        Renderer.drawRect(this.x, this.y, this.x + (float)this.width + 7.4f, this.y + (float)this.height, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(77)) : (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
         FontUtil.drawString(this.getLabel(), this.x + 2.0f, this.y + 4.0f, this.getState() ? -1 : -5592406);
     }
 
