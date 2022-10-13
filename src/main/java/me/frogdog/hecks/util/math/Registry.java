@@ -1,6 +1,5 @@
-package me.frogdog.hecks.util;
+package me.frogdog.hecks.util.math;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Registry<T> {

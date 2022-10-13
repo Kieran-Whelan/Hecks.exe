@@ -2,8 +2,7 @@ package me.frogdog.hecks.ui.clickgui.item;
 
 import me.frogdog.hecks.module.modules.client.Colours;
 import me.frogdog.hecks.ui.clickgui.Panel;
-import me.frogdog.hecks.util.render.ui.FontUtil;
-import me.frogdog.hecks.util.render.ui.Renderer;
+import me.frogdog.hecks.util.game.HudUtil;
 import me.frogdog.hecks.util.interfaces.Labeled;
 
 public class Button extends Item implements Labeled {
@@ -21,9 +20,9 @@ public class Button extends Item implements Labeled {
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        Renderer.drawGradientRect(this.x, this.y, this.x + (float)this.width, this.y + (float)this.height, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x33555555 : 0x77AAAAAB), this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x55555555 : 0x66AAAAAB));
-        FontUtil.drawString(this.getLabel(), this.x + 2.0f, this.y + 4.0f, this.getState() ? -1 : -5592406);
-        FontUtil.drawString(isHovering(mouseX, mouseY) ? this.getLabel() + ": " + this.getTooltip() : "", 1.0f, 140.0f, 0xFFFFFF);
+        HudUtil.drawGradientRect(this.x, this.y, this.x + (float)this.width, this.y + (float)this.height, this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x33555555 : 0x77AAAAAB), this.getState() ? (!this.isHovering(mouseX, mouseY) ? Colours.getClientColorCustomAlpha(77) : Colours.getClientColorCustomAlpha(55)) : (!this.isHovering(mouseX, mouseY) ? 0x55555555 : 0x66AAAAAB));
+        HudUtil.drawString(this.getLabel(), this.x + 2.0f, this.y + 4.0f, this.getState() ? -1 : -5592406);
+        HudUtil.drawString(isHovering(mouseX, mouseY) ? this.getLabel() + ": " + this.getTooltip() : "", 1.0f, 140.0f, 0xFFFFFF);
     }
 
     @Override

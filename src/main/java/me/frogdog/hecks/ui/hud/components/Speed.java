@@ -2,7 +2,7 @@ package me.frogdog.hecks.ui.hud.components;
 
 import me.frogdog.hecks.ui.hud.HudComponent;
 import me.frogdog.hecks.util.game.PlayerUtil;
-import me.frogdog.hecks.util.Timer;
+import me.frogdog.hecks.util.math.Timer;
 
 public class Speed extends HudComponent {
 

@@ -2,11 +2,10 @@ package me.frogdog.hecks.keybind;
 
 import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.command.Command;
-import me.frogdog.hecks.event.Event;
 import me.frogdog.hecks.event.events.InputEvent;
 import me.frogdog.hecks.module.Module;
 import me.frogdog.hecks.module.ToggleableModule;
-import me.frogdog.hecks.util.Registry;
+import me.frogdog.hecks.util.math.Registry;
 import me.frogdog.hecks.util.interfaces.Toggleable;
 
 import java.util.ArrayList;

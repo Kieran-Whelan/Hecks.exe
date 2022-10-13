@@ -5,7 +5,7 @@ import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.property.EnumProperty;
 import me.frogdog.hecks.property.NumberProperty;
 import me.frogdog.hecks.property.Property;
-import me.frogdog.hecks.util.Timer;
+import me.frogdog.hecks.util.math.Timer;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.gameevent.TickEvent;

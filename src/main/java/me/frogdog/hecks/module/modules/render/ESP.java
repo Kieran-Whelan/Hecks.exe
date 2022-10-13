@@ -1,12 +1,16 @@
 package me.frogdog.hecks.module.modules.render;
 
+import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
 import me.frogdog.hecks.property.NumberProperty;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.shader.Shader;
+import net.minecraft.client.shader.ShaderGroup;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -29,21 +33,44 @@ public final class ESP extends ToggleableModule {
 
     @Override
     public void render(RenderWorldLastEvent event) {
+        if (!Hecks.mc.world.getLoadedEntityList().isEmpty()) {
+            ShaderGroup shader = Hecks.mc.renderGlobal.entityOutlineShader;
+        }
+
         for (Entity entity : mc.world.getLoadedEntityList()) {
             if (entity instanceof EntityPlayer && entity != mc.player) {
-                drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width, entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+                //drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width, entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+                drawOutline(entity);
             }
 
             if (entity instanceof EntityMob) {
-                drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+                //drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+                drawOutline(entity);
             }
 
             if (entity instanceof EntityAnimal) {
-                drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+                //drawOutline(entity.posX, entity.posY, entity.posZ, width.getValue(), entity.width , entity.height, red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+                drawOutline(entity);
             }
         }
     }
 
+    private void drawOutline(Entity entity) {
+        GlStateManager.enableTexture2D();
+        GlStateManager.enableCull();
+
+        Boolean renderOutlines = mc.renderManager.renderOutlines;
+        Render renderer = Hecks.mc.renderManager.getEntityRenderObject(entity);
+
+        renderer.setRenderOutlines(true);
+        renderer.doRender(entity, entity.posX, entity.posY, entity.posZ, entity.rotationYaw, Hecks.mc.getRenderPartialTicks());
+        renderer.setRenderOutlines(renderOutlines);
+
+        GlStateManager.disableTexture2D();
+        GlStateManager.disableCull();
+    }
+
+    /*
     public void drawOutline(double posX, double posY, double posZ, float lineWidth, float width, float height, int red, int green, int blue, int alpha) {
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
@@ -91,5 +118,6 @@ public final class ESP extends ToggleableModule {
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
     }
+     */
 
 }

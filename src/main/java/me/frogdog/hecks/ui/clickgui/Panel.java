@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.module.modules.client.Colours;
 import me.frogdog.hecks.ui.clickgui.item.Item;
-import me.frogdog.hecks.util.render.ui.FontUtil;
-import me.frogdog.hecks.util.render.ui.Renderer;
+import me.frogdog.hecks.util.game.HudUtil;
 import me.frogdog.hecks.util.interfaces.Labeled;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
@@ -41,11 +40,11 @@ public abstract class Panel implements Labeled {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drag(mouseX, mouseY);
         float totalItemHeight = this.open ? this.getTotalItemHeight() - 2.0f : 0.0f;
-        Renderer.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colours.getClientColorCustomAlpha(77), Colours.getClientColorCustomAlpha(77) );
+        HudUtil.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colours.getClientColorCustomAlpha(77), Colours.getClientColorCustomAlpha(77) );
         if (this.open) {
-            Renderer.drawRect(this.x, (float)this.y + 12.5f, this.x + this.width, this.open ? (float)(this.y + this.height) + totalItemHeight : (float)(this.y + this.height - 1), 0x77000000);//1996488704
+            HudUtil.drawRect(this.x, (float)this.y + 12.5f, this.x + this.width, this.open ? (float)(this.y + this.height) + totalItemHeight : (float)(this.y + this.height - 1), 0x77000000);//1996488704
         }
-        FontUtil.drawString(this.getLabel(), (float)this.x + 3.0f, (float)this.y + 1.5f, -1);
+        HudUtil.drawString(this.getLabel(), (float)this.x + 3.0f, (float)this.y + 1.5f, -1);
 
         if (!open) {
             if (this.angle > 0) {
@@ -57,11 +56,11 @@ public abstract class Panel implements Labeled {
 
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
-        Renderer.glColor(new Color(255, 255, 255, 255));
-        Hecks.getInstance().mc.getTextureManager().bindTexture(new ResourceLocation(Hecks.getInstance().MODID, "textures/watermark.png"));
+        HudUtil.glColor(new Color(255, 255, 255, 255));
+        Hecks.mc.getTextureManager().bindTexture(new ResourceLocation(Hecks.MODID, "textures/watermark.png"));
         GlStateManager.translate(getX() + getWidth() - 7, (getY() + 6) - 0.3F, 0.0F);
         GlStateManager.rotate(calculateRotation(angle), 0.0F, 0.0F, 1.0F);
-        Renderer.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
+        HudUtil.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
 

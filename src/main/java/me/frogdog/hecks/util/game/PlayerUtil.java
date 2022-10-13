@@ -1,7 +1,7 @@
 package me.frogdog.hecks.util.game;
 
 import me.frogdog.hecks.Hecks;
-import me.frogdog.hecks.util.Timer;
+import me.frogdog.hecks.util.math.Timer;
 import net.minecraft.util.math.MathHelper;
 
 public class PlayerUtil {

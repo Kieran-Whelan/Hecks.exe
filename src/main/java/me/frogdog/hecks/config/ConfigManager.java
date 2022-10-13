@@ -1,6 +1,6 @@
 package me.frogdog.hecks.config;
 
-import me.frogdog.hecks.util.Registry;
+import me.frogdog.hecks.util.math.Registry;
 
 import java.util.ArrayList;
 

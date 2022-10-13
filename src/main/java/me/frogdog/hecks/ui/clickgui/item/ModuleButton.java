@@ -12,7 +12,7 @@ import me.frogdog.hecks.ui.clickgui.item.properties.BooleanButton;
 import me.frogdog.hecks.ui.clickgui.item.properties.EnumButton;
 import me.frogdog.hecks.ui.clickgui.item.properties.KeybindButton;
 import me.frogdog.hecks.ui.clickgui.item.properties.NumberSlider;
-import me.frogdog.hecks.util.render.ui.Renderer;
+import me.frogdog.hecks.util.game.HudUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
@@ -65,10 +65,10 @@ public class ModuleButton extends Button {
 
             GlStateManager.pushMatrix();
             GlStateManager.enableBlend();
-            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(Hecks.getInstance().MODID , "textures/watermark.png"));
+            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(Hecks.MODID, "textures/watermark.png"));
             GlStateManager.translate(getX() + getWidth() - 6.7F, getY() + 7.7F - 0.3F, 0.0F);
             GlStateManager.rotate(calculateRotation((float)this.progress), 0.0F, 0.0F, 1.0F);
-            Renderer.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
+            HudUtil.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
             GlStateManager.disableBlend();
             GlStateManager.popMatrix();
 

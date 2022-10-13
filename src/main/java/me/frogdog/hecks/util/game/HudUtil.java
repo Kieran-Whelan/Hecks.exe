@@ -1,11 +1,14 @@
-package me.frogdog.hecks.util.render.ui;
+package me.frogdog.hecks.util.game;
 
+import me.frogdog.hecks.Hecks;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
-public class Renderer {
+public class HudUtil {
+    private static final FontRenderer fontRenderer = Hecks.mc.fontRenderer;
 
     public static void enableGL2D() {
         GL11.glDisable(2929);
@@ -28,25 +31,25 @@ public class Renderer {
     }
 
     public static void drawRect(float x, float y, float x1, float y1, int color) {
-        Renderer.enableGL2D();
-        Renderer.glColor(color);
-        Renderer.drawRect(x, y, x1, y1);
-        Renderer.disableGL2D();
+        HudUtil.enableGL2D();
+        HudUtil.glColor(color);
+        HudUtil.drawRect(x, y, x1, y1);
+        HudUtil.disableGL2D();
     }
 
     public static void drawGradientRect(float x, float y, float x1, float y1, int topColor, int bottomColor) {
-        Renderer.enableGL2D();
+        HudUtil.enableGL2D();
         GL11.glShadeModel(7425);
         GL11.glBegin(7);
-        Renderer.glColor(topColor);
+        HudUtil.glColor(topColor);
         GL11.glVertex2f(x, y1);
         GL11.glVertex2f(x1, y1);
-        Renderer.glColor(bottomColor);
+        HudUtil.glColor(bottomColor);
         GL11.glVertex2f(x1, y);
         GL11.glVertex2f(x, y);
         GL11.glEnd();
         GL11.glShadeModel(7424);
-        Renderer.disableGL2D();
+        HudUtil.disableGL2D();
     }
 
     public static void drawRect(float x, float y, float x1, float y1) {
@@ -72,5 +75,13 @@ public class Renderer {
 
     public static void drawModalRect(int var0, int var1, float var2, float var3, int var4, int var5, int var6, int var7, float var8, float var9) {
         Gui.drawScaledCustomSizeModalRect(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
+    }
+
+    public static void drawString(String text, float x, float y, int colour) {
+        fontRenderer.drawString(text, x, y, colour, true);
+    }
+
+    public static float getStringWidth(String text) {
+        return fontRenderer.getStringWidth(text);
     }
 }

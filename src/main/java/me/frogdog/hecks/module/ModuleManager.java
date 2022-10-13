@@ -10,10 +10,9 @@ import me.frogdog.hecks.module.modules.exploit.*;
 import me.frogdog.hecks.module.modules.misc.*;
 import me.frogdog.hecks.module.modules.player.*;
 import me.frogdog.hecks.module.modules.render.*;
-import me.frogdog.hecks.util.Registry;
+import me.frogdog.hecks.util.math.Registry;
 import me.frogdog.hecks.util.interfaces.Toggleable;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
