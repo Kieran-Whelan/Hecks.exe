@@ -14,7 +14,6 @@ public final class KeybindManager extends Registry<Keybind> {
 
     public KeybindManager() {
         this.registry = new ArrayList<Keybind>();
-
     }
 
     public void update(me.frogdog.hecks.event.events.InputEvent event) {

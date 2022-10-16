@@ -11,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public final class ElytraAssist extends ToggleableModule {
-    private final NumberProperty<Float> speedLimit = new NumberProperty<>(30.0f, 0f, 200f, "ReelDelay", "rd");
+    private final NumberProperty<Float> speedLimit = new NumberProperty<>(30.0f, 0f, 200f, "SpeedLimit", "sl");
 
     private int timer = 40;
 

@@ -1,6 +1,5 @@
 package me.frogdog.hecks.ui.clickgui.item.properties;
 
-import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.module.modules.client.Colours;
 import me.frogdog.hecks.module.modules.client.Hud;
 import me.frogdog.hecks.property.EnumProperty;
@@ -29,7 +28,6 @@ public class EnumButton extends Button {
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         super.mouseClicked(mouseX, mouseY, mouseButton);
         if (this.isHovering(mouseX, mouseY)) {
-            Hecks.mc.world.playSound(Hecks.mc.player, Hecks.mc.player.posX, Hecks.mc.player.posY, Hecks.mc.player.posZ, new SoundEvent(new ResourceLocation("ui.button.click")), SoundCategory.HOSTILE, 1, 1);
             if (mouseButton == 0) {
                 this.property.increment();
             } else if (mouseButton == 1) {

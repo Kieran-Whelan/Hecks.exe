@@ -12,10 +12,12 @@ public class PlayerUtil {
         double speed;
         double prevPosX = 0;
         double prevPosZ = 0;
+
         if (timer.getPassedMillis(1000)) {
             prevPosX = Hecks.mc.player.prevPosX;
             prevPosZ = Hecks.mc.player.prevPosZ;
         }
+
         speed = Math.floor(((MathHelper.sqrt((Hecks.mc.player.posX - prevPosX) * (Hecks.mc.player.posX - prevPosX)+ (Hecks.mc.player.posZ - prevPosZ) * (Hecks.mc.player.posZ - prevPosZ))) / 1000.0f)/ (0.05f / 3600.0f));
         return speed;
     }
