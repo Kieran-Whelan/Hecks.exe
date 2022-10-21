@@ -18,8 +18,10 @@ public final class Tracers extends ToggleableModule {
 
     @Override
     public void render(RenderWorldLastEvent event) {
-        for (Entity entity : Hecks.mc.world.loadedEntityList) {
-            RenderUtil.drawTracers(entity, this.width.getValue());
-        }
+        mc.world.getLoadedEntityList().forEach(e -> {
+            if (e != mc.player) {
+                RenderUtil.drawTracers(e, width.getValue());
+            }
+        });
     }
 }
