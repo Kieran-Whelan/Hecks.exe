@@ -13,7 +13,6 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import org.lwjgl.opengl.GL11;
 
 public final class ESP extends ToggleableModule {
-    private int box = 0;
 
     private final NumberProperty<Float> width = new NumberProperty<Float>(1f, 0.5f, 64f, "Width");
 
@@ -23,33 +22,27 @@ public final class ESP extends ToggleableModule {
     }
 
     @Override
-    public void onEnable() {
-        box = GL11.glGenLists(1);
-        GL11.glNewList(box, GL11.GL_COMPILE);
-        RenderUtil.drawOutlinedBox(new AxisAlignedBB(-0.5, 0, -0.5, 0.5, 1, 0.5));
-        GL11.glEndList();
+    public void render(RenderWorldLastEvent event) {
+        mc.world.getLoadedEntityList().forEach(e -> {
+            if (e instanceof EntityPlayer && e != mc.player) {
+                e.setGlowing(true);
+            }
+
+            if (e instanceof EntityMob) {
+                e.setGlowing(true);
+            }
+
+            if (e instanceof EntityAnimal) {
+                e.setGlowing(true);
+            }
+        });
     }
 
     @Override
     public void onDisable() {
-        GL11.glDeleteLists(box, 1);
-    }
-
-    @Override
-    public void render(RenderWorldLastEvent event) {
-        for (Entity entity : mc.world.getLoadedEntityList()) {
-            if (entity instanceof EntityPlayer && entity != mc.player) {
-                RenderUtil.drawESPBoxes(entity, box, event.getPartialTicks());
-            }
-
-            if (entity instanceof EntityMob) {
-                RenderUtil.drawESPBoxes(entity, box, event.getPartialTicks());
-            }
-
-            if (entity instanceof EntityAnimal) {
-                RenderUtil.drawESPBoxes(entity, box, event.getPartialTicks());
-            }
-        }
+        mc.world.getLoadedEntityList().forEach(e -> {
+            e.setGlowing(false);
+        });
     }
 
 }
