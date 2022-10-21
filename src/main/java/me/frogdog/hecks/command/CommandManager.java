@@ -1,7 +1,7 @@
 package me.frogdog.hecks.command;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-import me.frogdog.hecks.util.Registry;
+import me.frogdog.hecks.util.math.Registry;
 import me.frogdog.hecks.command.commands.*;
 
 import java.util.ArrayList;

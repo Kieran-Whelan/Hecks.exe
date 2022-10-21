@@ -3,10 +3,13 @@ package me.frogdog.hecks.ui.clickgui.item.properties;
 import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.command.Command;
 import me.frogdog.hecks.module.Module;
+import me.frogdog.hecks.module.modules.client.Hud;
 import me.frogdog.hecks.property.Property;
 import me.frogdog.hecks.ui.clickgui.item.Button;
-import me.frogdog.hecks.util.FontUtil;
-import me.frogdog.hecks.util.RenderMethods;
+import me.frogdog.hecks.util.game.HudUtil;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import org.lwjgl.input.Keyboard;
 
 public class KeybindButton extends Button {
@@ -24,14 +27,15 @@ public class KeybindButton extends Button {
 	
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        RenderMethods.drawRect(this.x, this.y, this.x + (float)this.width + 7.4f, this.y + (float)this.height, (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
-        FontUtil.drawString(textToggle ? "Press a key!": "Keybind" + " " + this.getKey(), this.x + 2.0f, this.y + 4.0f, -5592406);
+        HudUtil.drawRect(this.x, this.y, this.x + (float)this.width + 7.4f, this.y + (float)this.height, (!this.isHovering(mouseX, mouseY) ? 0x11555555 : -2007673515));
+        HudUtil.drawString(textToggle ? "Press a key!": "Keybind" + " " + this.getKey(), this.x + 2.0f, this.y + 4.0f, -5592406);
     }
 
     @Override
     public void mouseClicked(int mouseX, int mouseY, int mouseButton) {
         super.mouseClicked(mouseX, mouseY, mouseButton);
         if (this.isHovering(mouseX, mouseY)) {
+            Hecks.mc.world.playSound(Hecks.mc.player, Hecks.mc.player.posX, Hecks.mc.player.posY, Hecks.mc.player.posZ, new SoundEvent(new ResourceLocation("ui.button.click")), SoundCategory.HOSTILE, 1, 1);
         	toggleText();
         	int clickGuiKey = Hecks.getInstance().getKeybindManager().getKeybindByLabel("ClickGui").getKey();
         	if (Keyboard.getEventKey() != clickGuiKey && Keyboard.getEventKey() != Keyboard.KEY_DELETE) {

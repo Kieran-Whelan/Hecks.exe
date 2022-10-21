@@ -4,7 +4,7 @@ public interface Toggleable {
 
     boolean isRunning();
 
-    void setRunning(boolean var1);
+    void setRunning(boolean running);
 
     void toggle();
 }

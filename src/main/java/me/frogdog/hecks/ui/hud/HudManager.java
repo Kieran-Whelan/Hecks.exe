@@ -1,9 +1,8 @@
 package me.frogdog.hecks.ui.hud;
 
-import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.module.modules.client.Hud;
 import me.frogdog.hecks.ui.hud.components.*;
-import me.frogdog.hecks.util.Registry;
+import me.frogdog.hecks.util.math.Registry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;

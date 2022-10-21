@@ -5,7 +5,7 @@ import club.minnced.discord.rpc.DiscordRPC;
 import club.minnced.discord.rpc.DiscordRichPresence;
 import me.frogdog.hecks.module.ModuleType;
 import me.frogdog.hecks.module.ToggleableModule;
-import me.frogdog.hecks.util.Timer;
+import me.frogdog.hecks.util.math.Timer;
 
 public class DiscordRP extends ToggleableModule {
 

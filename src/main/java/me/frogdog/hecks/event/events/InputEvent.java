@@ -20,7 +20,7 @@ public class InputEvent extends Event {
         return this.key;
     }
 
-    public static enum Type {
+    public enum Type {
         KEYBOARD_KEY_PRESS,
         MOUSE_LEFT_CLICK,
         MOUSE_MIDDLE_CLICK,

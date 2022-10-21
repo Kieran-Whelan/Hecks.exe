@@ -1,4 +1,4 @@
-package me.frogdog.hecks.util;
+package me.frogdog.hecks.util.math;
 
 public class Timer {
     private long time;

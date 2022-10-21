@@ -6,15 +6,12 @@ import java.util.ArrayList;
 import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.module.modules.client.Colours;
 import me.frogdog.hecks.ui.clickgui.item.Item;
-import me.frogdog.hecks.util.FontUtil;
-import me.frogdog.hecks.util.RenderMethods;
+import me.frogdog.hecks.util.game.HudUtil;
 import me.frogdog.hecks.util.interfaces.Labeled;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
 public abstract class Panel implements Labeled {
-    private final Minecraft mc = Minecraft.getMinecraft();
     private final String label;
     private int angle;
     private int x;
@@ -43,11 +40,11 @@ public abstract class Panel implements Labeled {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drag(mouseX, mouseY);
         float totalItemHeight = this.open ? this.getTotalItemHeight() - 2.0f : 0.0f;
-        RenderMethods.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colours.getClientColorCustomAlpha(77), Colours.getClientColorCustomAlpha(77) );
+        HudUtil.drawGradientRect(this.x, (float)this.y - 1.5f, this.x + this.width, this.y + this.height - 6, Colours.getClientColorCustomAlpha(77), Colours.getClientColorCustomAlpha(77) );
         if (this.open) {
-            RenderMethods.drawRect(this.x, (float)this.y + 12.5f, this.x + this.width, this.open ? (float)(this.y + this.height) + totalItemHeight : (float)(this.y + this.height - 1), 0x77000000);//1996488704
+            HudUtil.drawRect(this.x, (float)this.y + 12.5f, this.x + this.width, this.open ? (float)(this.y + this.height) + totalItemHeight : (float)(this.y + this.height - 1), 0x77000000);//1996488704
         }
-        FontUtil.drawString(this.getLabel(), (float)this.x + 3.0f, (float)this.y + 1.5f, -1);
+        HudUtil.drawString(this.getLabel(), (float)this.x + 3.0f, (float)this.y + 1.5f, -1);
 
         if (!open) {
             if (this.angle > 0) {
@@ -59,11 +56,11 @@ public abstract class Panel implements Labeled {
 
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
-        RenderMethods.glColor(new Color(255, 255, 255, 255));
-        mc.getTextureManager().bindTexture(new ResourceLocation(Hecks.getInstance().MODID, "textures/watermark.png"));
+        HudUtil.glColor(new Color(255, 255, 255, 255));
+        Hecks.mc.getTextureManager().bindTexture(new ResourceLocation(Hecks.MODID, "textures/watermark.png"));
         GlStateManager.translate(getX() + getWidth() - 7, (getY() + 6) - 0.3F, 0.0F);
         GlStateManager.rotate(calculateRotation(angle), 0.0F, 0.0F, 1.0F);
-        RenderMethods.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
+        HudUtil.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
 
@@ -90,7 +87,7 @@ public abstract class Panel implements Labeled {
         if (mouseButton == 0 && this.isHovering(mouseX, mouseY)) {
             this.x2 = this.x - mouseX;
             this.y2 = this.y - mouseY;
-            ClickGui.getClickGui().getPanels().forEach(panel -> {
+            me.frogdog.hecks.ui.clickgui.ClickGui.getClickGui().getPanels().forEach(panel -> {
                 if (panel.drag) {
                     panel.drag = false;
                 }
@@ -120,6 +117,30 @@ public abstract class Panel implements Labeled {
             return;
         }
         this.getItems().forEach(item -> item.mouseReleased(mouseX, mouseY, releaseButton));
+    }
+
+    public static float calculateRotation(float angle) {
+        if ((angle %= 360.0F) >= 180.0F) {
+            angle -= 360.0F;
+        }
+
+        if (angle < -180.0F) {
+            angle += 360.0F;
+        }
+
+        return angle;
+    }
+
+    private boolean isHovering(int mouseX, int mouseY) {
+        return mouseX >= this.getX() && mouseX <= this.getX() + this.getWidth() && mouseY >= this.getY() && mouseY <= this.getY() + this.getHeight() - (this.open ? 2 : 0);
+    }
+
+    private float getTotalItemHeight() {
+        float height = 0.0f;
+        for (Item item : getItems()) {
+            height += (float)item.getHeight() + 1.5f;
+        }
+        return height;
     }
 
     @Override
@@ -153,31 +174,6 @@ public abstract class Panel implements Labeled {
 
     public final ArrayList<Item> getItems() {
         return this.items;
-    }
-
-    private boolean isHovering(int mouseX, int mouseY) {
-        return mouseX >= this.getX() && mouseX <= this.getX() + this.getWidth() && mouseY >= this.getY() && mouseY <= this.getY() + this.getHeight() - (this.open ? 2 : 0);
-    }
-
-    //added this method in, just to fix shit. It is from uz1 class in future
-    public static float calculateRotation(float var0) {
-        if ((var0 %= 360.0F) >= 180.0F) {
-            var0 -= 360.0F;
-        }
-
-        if (var0 < -180.0F) {
-            var0 += 360.0F;
-        }
-
-        return var0;
-    }
-
-    private float getTotalItemHeight() {
-        float height = 0.0f;
-        for (Item item : getItems()) {
-            height += (float)item.getHeight() + 1.5f;
-        }
-        return height;
     }
 
     public void setX(int dragX) {

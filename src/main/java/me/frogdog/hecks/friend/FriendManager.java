@@ -3,7 +3,7 @@ package me.frogdog.hecks.friend;
 import com.google.gson.*;
 import me.frogdog.hecks.Hecks;
 import me.frogdog.hecks.config.Config;
-import me.frogdog.hecks.util.Registry;
+import me.frogdog.hecks.util.math.Registry;
 
 import java.io.FileReader;
 import java.io.FileWriter;

@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 public final class Watermark extends HudComponent {
 
-    private final ResourceLocation watermark = new ResourceLocation(Hecks.getInstance().MODID , "textures/watermark.png");
+    private final ResourceLocation watermark = new ResourceLocation(Hecks.MODID, "textures/watermark.png");
 
     public Watermark() {
         super("watermark", 10, 15);
