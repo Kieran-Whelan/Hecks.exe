@@ -15,12 +15,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Vector4f;
 
 import java.util.Objects;
 
 public class RenderUtil {
-
-    private static ICamera camera = new Frustum();
 
     public static void drawTracers(Entity entity, float width) {
         GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_COLOR_BUFFER_BIT | GL11.GL_LINE_BIT | GL11.GL_CURRENT_BIT);
@@ -57,5 +56,54 @@ public class RenderUtil {
 
         GL11.glPopMatrix();
         GL11.glPopAttrib();
+    }
+
+    public static void drawBlockOutline(BlockPos pos, int yOffset) {
+        Vector4f rgba = new Vector4f(0, 255, 0, 100);
+        GlStateManager.pushMatrix();
+        GlStateManager.enableBlend();
+        GlStateManager.disableDepth();
+        GlStateManager.tryBlendFuncSeparate((int) rgba.getY(), (int) rgba.getZ(), (int) rgba.getW(), (int) rgba.getW());
+        GlStateManager.disableTexture2D();
+        GlStateManager.depthMask(false);
+        GL11.glEnable(2848);
+        GL11.glHint(3154, 4354);
+        GL11.glLineWidth(1);
+        double x = (double)pos.getX() - Hecks.mc.getRenderManager().viewerPosX;
+        double y = (double)pos.getY() - Hecks.mc.getRenderManager().viewerPosY;
+        double z = (double)pos.getZ() - Hecks.mc.getRenderManager().viewerPosZ;
+        AxisAlignedBB bb = new AxisAlignedBB(x, y + (double) yOffset, z, x + 1, y + (double) yOffset + 1, z + 1);
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder bufferbuilder = tessellator.getBuffer();
+        bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);
+        bufferbuilder.pos(bb.minX, bb.minY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.minY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.minY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.minY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.minY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        tessellator.draw();
+        bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);
+        bufferbuilder.pos(bb.minX, bb.maxY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.maxY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.maxY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.maxY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        tessellator.draw();
+        bufferbuilder.begin(1, DefaultVertexFormats.POSITION_COLOR);
+        bufferbuilder.pos(bb.minX, bb.minY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.maxY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.minY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.maxY, bb.minZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.minY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.maxX, bb.maxY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.minY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
+        tessellator.draw();
+        GL11.glDisable((int)2848);
+        GlStateManager.depthMask(true);
+        GlStateManager.enableDepth();
+        GlStateManager.enableTexture2D();
+        GlStateManager.disableBlend();
+        GlStateManager.popMatrix();
     }
 }
