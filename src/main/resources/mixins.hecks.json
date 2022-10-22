@@ -5,8 +5,11 @@
   "refmap": "mixins.hecks.refmap.json",
   "minVersion": "0.7.11",
   "mixins": [
+    "MixinRender",
     "MixinMinecraft",
-    "MixinNetworkManager",
-    "MixinEntityRenderer"
+    "MixinNetworkManager"
+  ],
+  "client": [
+
   ]
 }

@@ -1,10 +1,13 @@
 package me.frogdog.hecks.util.game;
 
 import me.frogdog.hecks.Hecks;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderGlobal;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.culling.ICamera;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -54,26 +57,5 @@ public class RenderUtil {
 
         GL11.glPopMatrix();
         GL11.glPopAttrib();
-    }
-
-    public static void drawESPBox(AxisAlignedBB boundingBox) {
-        //AxisAlignedBB bb = new AxisAlignedBB((double) pos.getX() - Hecks.mc.getRenderManager().viewerPosX, (double) pos.getY() - Hecks.mc.getRenderManager().viewerPosY, (double) pos.getZ() - Hecks.mc.getRenderManager().viewerPosZ, (double) (pos.getX() + 1) - Hecks.mc.getRenderManager().viewerPosX, (double) (pos.getY() + 1) - Hecks.mc.getRenderManager().viewerPosY + height, (double) (pos.getZ() + 1) - Hecks.mc.getRenderManager().viewerPosZ);
-        GlStateManager.pushMatrix();
-        GlStateManager.enableBlend();
-        GlStateManager.disableDepth();
-        GlStateManager.tryBlendFuncSeparate(770, 771, 0, 1);
-        GlStateManager.disableTexture2D();
-        GlStateManager.depthMask(false);
-        GL11.glEnable(2848);
-        GL11.glHint(3154, 4354);
-        GL11.glLineWidth(2);
-        //RenderGlobal.drawBoundingBox(bb.minX, bb.minY, bb.minZ, bb.maxX, bb.maxY, bb.maxZ, 255f, 255f, 0f, 255.0f);
-        RenderGlobal.drawBoundingBox(boundingBox.minX, boundingBox.minY, boundingBox.minZ, boundingBox.maxX, boundingBox.maxY, boundingBox.maxZ, 255f, 255f, 0f, 255f);
-        GL11.glDisable(2848);
-        GlStateManager.depthMask(true);
-        GlStateManager.enableDepth();
-        GlStateManager.enableTexture2D();
-        GlStateManager.disableBlend();
-        GlStateManager.popMatrix();
     }
 }

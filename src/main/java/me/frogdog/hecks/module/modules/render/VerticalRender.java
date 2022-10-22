@@ -28,8 +28,9 @@ public final class VerticalRender extends ToggleableModule {
 
     @Override
     public void render(RenderWorldLastEvent event) {
-        Entity entity = mc.player;
-        drawRect(entity.getPosition(), width.getValue(), red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+        for (int i = 0; i < 50; i++) {
+            drawRect(mc.player.getPosition(), width.getValue(), red.getValue(), green.getValue(), blue.getValue(), alpha.getValue());
+        }
     }
 
     public void drawRect(BlockPos pos, float width, int red, int green, int blue, int alpha) {
@@ -45,7 +46,7 @@ public final class VerticalRender extends ToggleableModule {
         double x = (double)pos.getX() - Hecks.getInstance().mc.getRenderManager().viewerPosX;
         double y = (double)pos.getY() - Hecks.getInstance().mc.getRenderManager().viewerPosY;
         double z = (double)pos.getZ() - Hecks.getInstance().mc.getRenderManager().viewerPosZ;
-        AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + 1.0, y + 100.0, z + 1.0);
+        AxisAlignedBB bb = new AxisAlignedBB(x, y, z, x + 1f, y + 1f, z + 1f);
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferbuilder = tessellator.getBuffer();
         bufferbuilder.begin(3, DefaultVertexFormats.POSITION_COLOR);
@@ -78,7 +79,6 @@ public final class VerticalRender extends ToggleableModule {
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
-
     }
 
 }
