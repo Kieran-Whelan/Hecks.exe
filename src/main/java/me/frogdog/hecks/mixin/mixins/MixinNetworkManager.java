@@ -19,6 +19,7 @@ public class MixinNetworkManager {
         PacketEvent packetSendEvent = new PacketEvent(packet);
         Hecks.getInstance().getModuleManager().packet(packetSendEvent);
 
+
         if (packetSendEvent.isCancelled()) {
             info.cancel();
         }
@@ -28,6 +29,7 @@ public class MixinNetworkManager {
     public void onPacketReceive(ChannelHandlerContext chc, Packet<?> packet, CallbackInfo info) {
         PacketEvent packetReceiveEvent = new PacketEvent(packet);
         Hecks.getInstance().getModuleManager().packet(packetReceiveEvent);
+
 
         if (packetReceiveEvent.isCancelled()) {
            info.cancel();

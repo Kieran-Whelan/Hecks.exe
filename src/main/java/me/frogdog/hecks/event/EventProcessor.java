@@ -13,7 +13,6 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 public class EventProcessor {
-
     public static final EventProcessor INSTANCE = new EventProcessor();
 
     @SubscribeEvent

@@ -3,10 +3,7 @@ package me.frogdog.hecks.util.game;
 import me.frogdog.hecks.Hecks;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.culling.Frustum;
-import net.minecraft.client.renderer.culling.ICamera;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -16,8 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Vector4f;
-
-import java.util.Objects;
 
 public class RenderUtil {
 
@@ -99,7 +94,7 @@ public class RenderUtil {
         bufferbuilder.pos(bb.minX, bb.minY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
         bufferbuilder.pos(bb.minX, bb.maxY, bb.maxZ).color(rgba.getX(), rgba.getY(), rgba.getZ(), rgba.getW()).endVertex();
         tessellator.draw();
-        GL11.glDisable((int)2848);
+        GL11.glDisable(2848);
         GlStateManager.depthMask(true);
         GlStateManager.enableDepth();
         GlStateManager.enableTexture2D();

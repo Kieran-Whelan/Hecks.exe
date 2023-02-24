@@ -20,7 +20,7 @@ public abstract class Command {
     public abstract void onClientCommand(String command, String[] args) throws Exception;
 
     public static void sendClientSideMessage(String message) {
-        Hecks.getInstance().mc.player.sendMessage(new TextComponentString(ChatFormatting.DARK_RED + "[Hecks.exe] "+ ChatFormatting.WHITE + message ));
+        Hecks.mc.player.sendMessage(new TextComponentString(ChatFormatting.DARK_RED + "[Hecks.exe] "+ ChatFormatting.WHITE + message ));
     }
 
     public static String getPrefix() {
